@@ -14,8 +14,6 @@ supported.
 #### Endpoint:
 `POST /v1/template-scanner/scan`
 
-_Note:_ This API endpoint is subject to change in path, method, and format of input and output.
-
 Request payload is a [JSON:API 1.0](https://jsonapi.org/format/1.0/) compatible
 structure consisting of the following data attributes:
 * **type:** Type of the infrastructure template file.

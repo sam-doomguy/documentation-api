@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  VpcId:
+    Type: String
+    Description: Enter the VpcId you are creating this Secrutiy Group inside.
+
+Resources:
+  GoodSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+        GroupDescription: SET_SECURITY_GROUP_DESCRIPTION
+        VpcId:
+           Ref: VpcId
+        SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 192.168.20.237/32
+          Description: SET_RULE_DESCRIPTION
+        SecurityGroupEgress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 192.168.20.237/32
+          Description: SET_RULE_DESCRIPTION
+        Tags:
+          -
+            Key: "Environment"
+            Value: "SET_ENVIRONMENT"
+          -
+            Key: "Role"
+            Value: "SET_ROLE"
+          -
+            Key: "Owner"
+            Value: "SET_OWNER"
+          -
+            Key: "Name"
+            Value: "sg-ue1-p-tomcat"

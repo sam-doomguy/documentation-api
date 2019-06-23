@@ -1,0 +1,8 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  GoodTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: GoodTopic
+      KmsMasterKeyId: SET_KMS_KEY_ID
+      TopicName: GoodTopic

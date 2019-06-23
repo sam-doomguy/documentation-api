@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  GoodQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: GoodQueue
+      KmsMasterKeyId: SET_KMS_KEY_ID
+      Tags:
+        -
+          Key: "Environment"
+          Value: "SET_ENVIRONMENT"
+        -
+          Key: "Role"
+          Value: "SET_ROLE"
+        -
+          Key: "Owner"
+          Value: "SET_OWNER"
+        -
+          Key: "Name"
+          Value: "SET_NAME"

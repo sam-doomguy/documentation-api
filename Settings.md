@@ -61,7 +61,7 @@ The table below give more information about configuration options:
 
 | Channel  | Configuration |
 | ------------- | ------------- |
-| *all*  | `configuration.channelId` is the label to display in the application (to distinguish between multiple instances of the same channel type). It is optional|
+| *all*  | `configuration.channelName` is the label to display in the application (to distinguish between multiple instances of the same channel type). It is optional|
 | email  | `configuration.key` is "users", `configuration.value` is an array of verified users that have at least readOnly access to the account|
 | sms  | `configuration.key` is "users", `configuration.value` is an array of users with verified mobile numbers that have at least readOnly access to the account|
 | slack  | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false}` Boolean, true for adding associated tags to message   |
@@ -555,7 +555,7 @@ The table below give more information about configuration options:
 
 | Channel  | Configuration |
 | ------------- | ------------- |
-| *all*  | `configuration.channelId` is the label to display in the application (to distinguish between multiple instances of the same channel type). It is optional|
+| *all*  | `configuration.channelName` is the label to display in the application (to distinguish between multiple instances of the same channel type). It is optional|
 | email  | `configuration.key` is "users", `configuration.value` is an array of verified users that have at least readOnly access to the account|
 | sms  | `configuration.key` is "users", `configuration.value` is an array of users with verified mobile numbers that have at least readOnly access to the account|
 | slack  | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false}` Boolean, true for adding associated tags to message   |

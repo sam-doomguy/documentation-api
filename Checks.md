@@ -19,9 +19,9 @@ This endpoint is used to create a custom checks. You may pass one check or an ar
 1. Checks are created as long as your inputs are valid. The onus is on you to ensure the checks you enter are meaningful and useful.
 3. Each check object you enter will require a `check.relationships.account`. If you provide an account which you don't have WRITE access to, the check will not be saved.
 2. Check Ids are constructed from the parameters entered and follow the format:
-    1. **ccc:accountId:ruleId:service:region:resourceId**
-    2. If you add a check with the same `accountId`, `ruleId`, `service`, `region`, AND `resourceId` as another existing check in the database, this new check WILL write over the existing check.
-    3. Since resource is an optional attribute, checks entered without resource will not have the `resourceId` part of the check Id.
+   1. **ccc:accountId:ruleId:service:region:resourceId**
+   2. If you add a check with the same `accountId`, `ruleId`, `service`, `region`, AND `resourceId` as another existing check in the database, this new check WILL write over the existing check.
+   3. Since resource is an optional attribute, checks entered without resource will not have the `resourceId` part of the check Id.
 
 ##### Endpoints:
 
@@ -34,15 +34,16 @@ This endpoint is used to create a custom checks. You may pass one check or an ar
     - `message`: String, descriptive message about the check
     - `region`: String, a valid AWS region. Please refer to [Cloud Conformity Region Endpoint](https://us-west-2.cloudconformity.com/v1/regions)
     - `resource`: String, the AWS resource this check applies to. (optional)
-    - `rule-title`: String, custom rule title. (optional, defaults to "Custom Rule" if not specified). 
-        - Note: If there are multiple custom checks with the same rule id, then the rule title of the check with the most recently updated date will be used. Hence this field can be used to update a custom rule's title with a new value.
-        
+    - `rule-title`: String, custom rule title. (optional, defaults to "Custom Rule" if not specified).
+      - Note: If there are multiple custom checks with the same rule id, then the rule title of the check with the most recently updated date will be used. Hence this field can be used to update a custom rule's title with a new value.
+
     - `risk-level`: String, one risk level from the following: LOW\| MEDIUM \| HIGH \| VERY_HIGH \| EXTREME
     - `status`: String, SUCCESS or FAILURE
     - `categories`: An array of category (AWS well-architected framework category) strings from the following: security \| cost-optimisation \| reliability \| performance-efficiency  \| operational-excellence (optional)
     - `service`: String, a valid AWS service, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services)
     - `not-scored`: Boolean, true for informational checks (optional)
     - `tags`: Array, an array of tag strings that follow the format: "key::value". You can enter a max of 20 tags, each tag must not exceed 50 characters. (optional)
+    - `resoulution-page-url`: Custom defined resolution page url.
     - `extradata`: An array of objects (optional), each object must contain
       - `label`: String, as it will appear on the client UI. Character limit of 20
       - `name`: String, as reference for the back-end. Character limit of 20
@@ -55,7 +56,7 @@ This endpoint is used to create a custom checks. You may pass one check or an ar
         - `type`: "accounts"
     - `rule`: An rule object containing
       - `data`: A data object containing
-        - `id`: "CUSTOM-001" 
+        - `id`: "CUSTOM-001"
         - `type`: "rules"
 
 Example request for creating a check:
@@ -72,13 +73,13 @@ curl -X POST \
             "attributes": {
                 "extradata": [
                     {
-                        "label": "This will show up on the UI",
+                        "label": "Less than 20 chars",
                         "name": "nameForReference",
                         "type": "META",
                         "value": "string or number or boolean"
                     },
                     {
-                        "label": "It is good to be descriptive",
+                        "label": "Less than 20 chars",
                         "name": "forReference",
                         "type": "META",
                         "value": "hello world!"
@@ -91,7 +92,8 @@ curl -X POST \
                 "status": "FAILURE",
                 "service": "EC2",
                 "categories": ["security"],
-                "tags": ["key0::value0", "key1::value1"]
+                "tags": ["key0::value0", "key1::value1"],
+                "resolution-page-url": "http://test.com/custom-001.html"
             },
             "relationships": {
                 "account": {
@@ -506,7 +508,8 @@ Example Response:
             "waste": 0,
             "suppressed-until": 1526574705655,
             "not-scored": false,
-            "rule-title": "AWS Config Enabled"
+            "rule-title": "AWS Config Enabled",
+            "resolution-page-url": "https://www.cloudconformity.com/conformity-rules/Config/aws-config-enabled.html#"
         },
         "relationships": {
             "rule": {
@@ -599,36 +602,44 @@ Example Response:
     "data": [
         {
             "type": "checks",
-            "id": "ccc:r2gyR4cqg:IAM-017:IAM:global:groups-test",
+            "id": "ccc:94qQ4DnOB:AG-003:APIGateway:us-east-1:pl63negesk",
             "attributes": {
-                "region": "global",
+                "region": "us-east-1",
                 "status": "FAILURE",
                 "risk-level": "LOW",
-                "message": "IAM Group test contains no user",
-                "last-modified-date": 1500166639466,
-                "last-updated-date": 1500166639466,
-                "failure-discovery-date": 1498910777689,
-                "last-updated-by": "SYSTEM",
-                "ccrn": "ccrn:aws:r1gyR4cqg:IAM:global:groups-test",
+                "pretty-risk-level": "Low",
+                "message": "API Security Automations - WAF Bad Bot API has stages without active tracing enabled",
+                "resource": "pl63negesk",
+                "descriptorType": "apigateway-restapi",
+                "resourceName": "API Gateway REST API",
+                "last-modified-date": 1561697456359,
+                "created-date": 1561697456359,
+                "categories": [
+                    "operational-excellence"
+                ],
+                "last-updated-date": null,
+                "failure-discovery-date": 1561697456359,
+                "ccrn": "ccrn:aws:94qQ4DnOB:APIGateway:us-east-1:pl63negesk",
                 "tags": [],
                 "cost": 0,
-                "waste": 0
+                "waste": 0,
+                "rule-title": "Tracing Enabled",
+                "link": "https://us-east-1.console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/pl63negesk/resources",
+                "provider": "aws",
+                "resolutionPageUrl": "https://wdevelopment.cloudconformity.com/conformity-rules/APIGateway/tracing.html#B1nHYYpwx"
             },
             "relationships": {
                 "rule": {
                     "data": {
                         "type": "rules",
-                        "id": "IAM-017"
+                        "id": "AG-003"
                     }
                 },
                 "account": {
                     "data": {
                         "type": "accounts",
-                        "id": "r1gyR4cqg"
+                        "id": "94qQ4DnOB"
                     }
-                },
-                "event": {
-                    "data": null
                 }
             }
         }
@@ -686,7 +697,8 @@ Example Response:
             "waste": 0,
             "not-scored": false,
             "ignored": null,
-            "rule-title": "Password Policy Present"
+            "rule-title": "Password Policy Present",
+            "resolution-page-url": "https://www.cloudconformity.com/conformity-rules/IAM/password-policy.html#"
         },
         "relationships": {
             "rule": {

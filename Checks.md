@@ -43,7 +43,7 @@ This endpoint is used to create a custom checks. You may pass one check or an ar
     - `service`: String, a valid AWS service, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services)
     - `not-scored`: Boolean, true for informational checks (optional)
     - `tags`: Array, an array of tag strings that follow the format: "key::value". You can enter a max of 20 tags, each tag must not exceed 50 characters. (optional)
-    - `resoulution-page-url`: Custom defined resolution page url.
+    - `resolution-page-url`: Custom defined resolution page url.
     - `extradata`: An array of objects (optional), each object must contain
       - `label`: String, as it will appear on the client UI. Character limit of 20
       - `name`: String, as reference for the back-end. Character limit of 20
@@ -193,6 +193,7 @@ Example Response:
                 "created-date": 1521660152755,
                 "failure-discovery-date": 1521660152755,
                 "categories": ["security"],
+                "resolution-page-url": "http://test.com/custom-001.html",
                 "extradata": [
                     {
                         "label": "This will show up on the UI",
@@ -321,6 +322,7 @@ This endpoint is used to either update one custom check OR suppress/unsuppress o
     - `service`: String, leave UNCHANGED
     - `not-scored`: Boolean, true for informational checks (optional)
     - `tags`: Array, an array of tag strings that follow the format: "key::value". You can enter a max of 20 tags, each tag must not exceed 50 characters. (optional)
+    - `resolution-page-url`: Custom defined resolution page url.
     - `extradata`: An array of objects (optional), each object must contain
       - `label`: String, as it will appear on the client UI. Character limit of 20
       - `name`: String, as reference for the back-end. Character limit of 20
@@ -366,6 +368,7 @@ curl -X PATCH \
             "categories": ["security"],
             "rule-title": "Custom Rule about EC2 SGs",
             "message": "Updated message about this check",
+            "resolution-page-url": "https://test.com/custom-001.html#"
             "extradata": [
                 {
                     "label": "This will show up on the UI",
@@ -420,6 +423,7 @@ Example Response:
             "last-modified-date": 1526566995282,
             "created-date": 1521660152755,
             "failure-discovery-date": 1521660152755,
+            "resolution-page-url": "https://test.com/custom-001.html#",
             "extradata": [
                 {
                     "label": "This will show up on the UI",
@@ -626,7 +630,7 @@ Example Response:
                 "rule-title": "Tracing Enabled",
                 "link": "https://us-east-1.console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/pl63negesk/resources",
                 "provider": "aws",
-                "resolutionPageUrl": "https://wdevelopment.cloudconformity.com/conformity-rules/APIGateway/tracing.html#B1nHYYpwx"
+                "resolutionPageUrl": "https://www.cloudconformity.com/conformity-rules/APIGateway/tracing.html#B1nHYYpwx"
             },
             "relationships": {
                 "rule": {
@@ -698,7 +702,7 @@ Example Response:
             "not-scored": false,
             "ignored": null,
             "rule-title": "Password Policy Present",
-            "resolution-page-url": "https://www.cloudconformity.com/conformity-rules/IAM/password-policy.html#"
+            "resolution-page-url": "https://www.cloudconformity.com/conformity-rules/IAM/unused-iam-group.html#"
         },
         "relationships": {
             "rule": {

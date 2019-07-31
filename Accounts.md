@@ -497,6 +497,7 @@ We recommend you first [Get account details](#get-account-details) to check what
     - `name`: The name of the account.
     - `environment`: The environment of the account. (optional)
     - `code`: A 3-character code you can use to identify the account easily when using the CloudConformity web UI (optional).
+    - `tags`: An array of strings to group accounts based on the tag associated with it (optional)
 
 Example Request:
 
@@ -510,7 +511,8 @@ curl -X PATCH \
         "attributes": {
             "name": "myProductionAccount",
             "environment": "myProductionEnvironment",
-            "code": "PAE"
+            "code": "PAE",
+            "tags": ["staging", "development", "production"]
         }
     }
 }' \
@@ -535,6 +537,7 @@ Example Response:
             "last-notified-date": 1504113512701,
             "last-checked-date": 1504113511956,
             "available-runs": 5,
+            "tags": ["staging", "development", "production"]
         },
         "relationships": {
             "organisation": {

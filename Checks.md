@@ -576,6 +576,7 @@ The table below give more information about filter options:
 | filter[statuses]  | SUCCESS \| FAILURE |
 | filter[ruleIds]  | EC2-001 \| EC2-002 \| etc <br /><br />For more information about rules, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services) |
 | filter[suppressed]  | true \| false <br /><br /> Whether or not include all suppressed checks. The default value is true |
+| filter[suppressedAndNotSuppressed]  | true \| false <br /><br /> Whether or not to include flag to return both suppressed and not suppressed checks. The default value is false |
 | filter[createdDate]  | The date when the check was created<br /><br />The numeric value of the specified date as the number of milliseconds since January 1, 1970, 00:00:00 UTC |
 | filter[tags]  | Any assigned metadata tags to your AWS resources |
 

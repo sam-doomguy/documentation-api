@@ -576,8 +576,7 @@ The table below give more information about filter options:
 | filter[statuses]  | SUCCESS \| FAILURE |
 | filter[ruleIds]  | EC2-001 \| EC2-002 \| etc <br /><br />For more information about rules, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services) |
 | filter[suppressed]  | true \| false <br /><br /> Whether or not include all suppressed checks. The default value is true |
-| filter[suppressedSuccess]  | true \| false <br /><br /> Whether or not to include suppressed Success checks. The default value is false |
-| filter[suppressedFail]  | true \| false <br /><br /> Whether or not to include suppressed Fail checks. The default value is false |
+| filter[suppressedFilterMode]  | "v1" \| "v2" <br /><br /> Sets the version for the suppressed functionality. "v1" will return suppressed checks when `suppressed = true`, and non-suppressed when `suppressed = false`. "v2" will do the same, except when undefined will return checks regardless of their suppressed value. Defaults to "v1" |
 | filter[createdDate]  | The date when the check was created<br /><br />The numeric value of the specified date as the number of milliseconds since January 1, 1970, 00:00:00 UTC |
 | filter[tags]  | Any assigned metadata tags to your AWS resources |
 
@@ -590,7 +589,7 @@ Example Request:
 ```
 curl -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
-https://us-west-2-api.cloudconformity.com/v1/checks?accountIds=r1gyR4cqg&page[size]=100&page[number]=0&filter[regions]=us-west-2&filter[ruleIds]=EC2-001,EC2-002&filter[statuses]=SUCCESS&filter[suppressedFail]=true&filter[categories]=security&filter[riskLevels]=HIGH&filter[services]=EC2&filter[createdDate]=1502572157914
+https://us-west-2-api.cloudconformity.com/v1/checks?accountIds=r1gyR4cqg&page[size]=100&page[number]=0&filter[regions]=us-west-2&filter[ruleIds]=EC2-001,EC2-002&filter[statuses]=SUCCESS&filter[categories]=security&filter[riskLevels]=HIGH&filter[services]=EC2&filter[createdDate]=1502572157914
 ```
 Example Response:
 ###### Note the size of this response can be quite large and the example below is purposefully truncated

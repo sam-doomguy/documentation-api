@@ -325,7 +325,7 @@ This endpoint is used to either update one custom check OR suppress/unsuppress o
     - `resolution-page-url`: Custom defined resolution page url.
     - `extradata`: An array of objects (optional), each object must contain
       - `label`: String, as it will appear on the client UI. Character limit of 20
-      - `name`: String, as reference for the back-end. Character limit of 20
+      - `name`: String, as reference for the back-end. Character limit of 20 ("Resource" (case insensitive) is a reserved word)
       - `type`: String, provide type as you see fit. Character limit of 20
       - `value`: Enter value as you see fit. If entering a number or string, length must not exceed 150.
   - `relationships`: A relationships object containing

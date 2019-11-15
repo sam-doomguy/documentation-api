@@ -94,6 +94,9 @@ Below is a list of the available APIs:
 - [Report Configs](./ReportConfigs.md)
 - [Template Scanner](./TemplateScanner.md)
 
+## API Request Timeout
+The timeout for API requests has a hard limit of 30 seconds.
+
 ## Support
 
 If you have questions or issues using the Cloud Conformity API, please contact us at support@cloudconformity.com

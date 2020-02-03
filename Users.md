@@ -613,8 +613,12 @@ Example Response
 ```
 
 ## Adding an SSO User 
+<<<<<<< HEAD
+=======
 
-This endpoint is available only for organisations with an external identity provider setup
+This endpoint is only available for organisations with an external identity provider setup.
+>>>>>>> docs: PD-5258 rewording and add missing fullstops
+
 Only ADMINS from an external identity provider can use this endpoint to add new sso users to their organisation.
 
 ##### Endpoints:
@@ -624,20 +628,20 @@ Only ADMINS from an external identity provider can use this endpoint to add new 
 ##### Parameters
 
 - `data`: A JSON object containing the following properties
-  - `attributes`: Object containing user attributes.
+  - `attributes`: Object containing user attributes
     - `firstName`: first name of the user, which must be a string
     - `lastName`: last name of the user, which must be a string
     - `email`: email of the user which must be a string
     - `role`: The role which the user is assigned to { ADMIN | USER }
-    - `accessList`: **(optional field when for a USER role, not required for ADMIN role)** An array of objects containing access level for an account:
+    - `accessList`: **(optional field for the USER role, not required for the ADMIN role)** An array of objects containing access level for an account:
       - `account`: The account id within the organisation, which must be a string
       - `level`: The level of access the user has to the account { NONE | READONLY | FULL }, which must be a string
 
 Please note only accounts (listed inside the `accessList`) in the request will get updated, existing account permissions are retained.
-If a new user is added with the role of `USER` and an `accessList` is not provided, the users level permission for all accounts will default to `NONE`
+If a new user is added with the role of `USER` and an `accessList` is not provided, the users level permission for all accounts will default to `NONE`.
 If a user is added back into the organisation with the role of `USER`, the user will maintain the old account level permissions, unless an `accessList` is provided to update the permission.
 
-Example Request for admin a user as an ADMIN:
+Example request for a user with an ADMIN role:
 
 ```
 curl -H "Content-Type: application/vnd.api+json" \

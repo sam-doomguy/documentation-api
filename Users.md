@@ -157,9 +157,6 @@ Example Response:
     }
 }
 ```
-
-
-
 ## Get User Details
 
 This endpoint allows you to get the details of the specified user.
@@ -269,7 +266,7 @@ Example Response:
     }
 }
 ```
-# Get all users
+## Get all users
 
 This endpoint allows the current user to get the details of all users in the organisation.
 Only ADMINS are able to view all users in the organisation.
@@ -281,7 +278,9 @@ Only ADMINS are able to view all users in the organisation.
 #### Parameters
 
 This endpoint takes no parameters.
-
+```
+curl -H "Content-Type: application/vnd.api+json" \
+-H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
 https://us-west-2-api.cloudconformity.com/v1/users
 ```
 
@@ -358,7 +357,7 @@ Example Response:
     ]
 }
 ```
-## Invite a User
+## Invite a user
 
 This endpoint allows you to invite a user to your organisation.
 

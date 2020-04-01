@@ -497,7 +497,9 @@ We recommend you first [Get account details](#get-account-details) to check what
     - `name`: The name of the account.
     - `environment`: The environment of the account. (optional)
     - `code`: A 3-character code you can use to identify the account easily when using the CloudConformity web UI (optional).
-    - `tags`: An array of strings to group accounts based on the tag associated with it (optional)
+    - `tags`: An array of strings to group accounts based on the tag associated with it. (optional)
+      - There is a maximum of 50 tags per account and maximum of 80 characters per tag.
+      - Tags should be alphanumeric, and may contain symbols  - _  and Space.
 
 Example Request:
 

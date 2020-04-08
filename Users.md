@@ -21,43 +21,43 @@ There are 4 possible Cloud Conformity roles. Each role grants different levels o
 
 User access to each endpoint is listed below:
 
-| Endpoint | admin | full access user| read-only user | no access user |
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-| GET /api-keys  *(get a list of your api keys)* | Y | Y | Y | Y |
-| GET /api-keys/id  *(get details about an api key)* | Y | Y | Y | Y |
-| POST /accounts  *(create a new account)* | Y | N | N | N |
-| GET /accounts  *(get a list of accounts you have access to)* | Y | Y | Y | Y |
-| GET /accounts/id | Y | Y | Y | N |
-| POST /accounts/id/scan  *(run the conformity bot)* | Y | Y | N | N |
-| PATCH /accounts/id/subscription | Y | N | N | N |
-| PATCH /accounts/id | Y | Y | N | N |
-| GET /accounts/id/settings/rules/ruleId | Y | Y | Y | N |
-| PATCH /accounts/id/settings/rules/ruleId | Y | Y | N | N |
-| GET /accounts/id/settings/rules | Y | Y | Y | N |
-| PATCH /accounts/id/settings/rules | Y | Y | N | N |
-| GET /checks * | Y | Y | Y | N |
-| POST /checks | Y | Y | N | N |
-| DELETE /checks/id | Y | Y | N | N |
-| GET /events *** | Y | Y | Y | N |
-| GET /settings/communication/accountId ** | Y | Y | Y | N |
-| POST /settings/communication ** | Y | Y | N | N |
-| PATCH /settings/communication/settingId ** | Y | Y | N | N |
-| DELETE /settings/settingId ** | Y | Y | N | N |
-| POST /external-ids | Y | N | N | N |
-| GET /users/whoami | Y | Y | Y | Y |
-| GET /users/id | Y | Y | Y | Y |
-| GET /users | Y | N | N | N |
-| POST /users | Y | N | N | N |
-| POST /users/sso | Y | N | N | N |
-| PATCH /users/id | Y | N | N | N |
-| DELETE /users/id | Y | N | N | N |
+| Endpoint                                                    | admin | full access user | read-only user | no access user |
+| ----------------------------------------------------------- | :---: | :--------------: | :------------: | :------------: |
+| GET /api-keys _(get a list of your api keys)_               |   Y   |        Y         |       Y        |       Y        |
+| GET /api-keys/id _(get details about an api key)_           |   Y   |        Y         |       Y        |       Y        |
+| POST /accounts _(create a new account)_                     |   Y   |        N         |       N        |       N        |
+| GET /accounts _(get a list of accounts you have access to)_ |   Y   |        Y         |       Y        |       Y        |
+| GET /accounts/id                                            |   Y   |        Y         |       Y        |       N        |
+| POST /accounts/id/scan _(run the conformity bot)_           |   Y   |        Y         |       N        |       N        |
+| PATCH /accounts/id/subscription                             |   Y   |        N         |       N        |       N        |
+| PATCH /accounts/id                                          |   Y   |        Y         |       N        |       N        |
+| GET /accounts/id/settings/rules/ruleId                      |   Y   |        Y         |       Y        |       N        |
+| PATCH /accounts/id/settings/rules/ruleId                    |   Y   |        Y         |       N        |       N        |
+| GET /accounts/id/settings/rules                             |   Y   |        Y         |       Y        |       N        |
+| PATCH /accounts/id/settings/rules                           |   Y   |        Y         |       N        |       N        |
+| GET /checks \*                                              |   Y   |        Y         |       Y        |       N        |
+| POST /checks                                                |   Y   |        Y         |       N        |       N        |
+| DELETE /checks/id                                           |   Y   |        Y         |       N        |       N        |
+| GET /events \*\*\*                                          |   Y   |        Y         |       Y        |       N        |
+| GET /resources                                              |   Y   |        Y         |       N        |       N        |
+| GET /settings/communication/accountId \*\*                  |   Y   |        Y         |       Y        |       N        |
+| POST /settings/communication \*\*                           |   Y   |        Y         |       N        |       N        |
+| PATCH /settings/communication/settingId \*\*                |   Y   |        Y         |       N        |       N        |
+| DELETE /settings/settingId \*\*                             |   Y   |        Y         |       N        |       N        |
+| POST /external-ids                                          |   Y   |        N         |       N        |       N        |
+| GET /users/whoami                                           |   Y   |        Y         |       Y        |       Y        |
+| GET /users/id                                               |   Y   |        Y         |       Y        |       Y        |
+| GET /users                                                  |   Y   |        N         |       N        |       N        |
+| POST /users                                                 |   Y   |        N         |       N        |       N        |
+| POST /users/sso                                             |   Y   |        N         |       N        |       N        |
+| PATCH /users/id                                             |   Y   |        N         |       N        |       N        |
+| DELETE /users/id                                            |   Y   |        N         |       N        |       N        |
 
+- Response will depend on the AccountIds added to the query parameter. For example, if a user has no access to an account and they add that account to the AccountIds array, an error will be thrown.
 
-* Response will depend on the AccountIds added to the query parameter. For example, if a user has no access to an account and they add that account to the AccountIds array, an error will be thrown.
+\*\* User role will limit the amount of data they can GET or POST/PATCH. For more information, consult the [Settings ReadMe](./Settings.md#).
 
-** User role will limit the amount of data they can GET or POST/PATCH. For more information, consult the [Settings ReadMe](./Settings.md#).
-
-*** If user role is ADMIN, organisation-level events will also be returned.
+\*\*\* If user role is ADMIN, organisation-level events will also be returned.
 
 \*\* User role will limit the amount of data they can GET or POST/PATCH. For more information, consult the [Settings ReadMe](./Settings.md#).
 
@@ -119,7 +119,9 @@ curl -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
 https://us-west-2-api.cloudconformity.com/v1/users/whoami
 ```
+
 Example Response:
+
 ```
 {
     "data": {
@@ -159,6 +161,7 @@ Example Response:
     }
 }
 ```
+
 ## Get User Details
 
 This endpoint allows you to get the details of the specified user.
@@ -210,13 +213,17 @@ Example Response:
     }
 }
 ```
+
 Example request when an ADMIN queries a USER with custom permissions:
+
 ```
 curl -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
 https://us-west-2-api.cloudconformity.com/v1/users/517uNyIvG
 ```
+
 Example Response:
+
 ```
 {
     "data": {
@@ -268,6 +275,7 @@ Example Response:
     }
 }
 ```
+
 ## Get all users
 
 This endpoint allows the current user to get the details of all users in the organisation.
@@ -280,6 +288,7 @@ Only ADMINS are able to view all users in the organisation.
 #### Parameters
 
 This endpoint takes no parameters.
+
 ```
 curl -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
@@ -287,6 +296,7 @@ https://us-west-2-api.cloudconformity.com/v1/users
 ```
 
 Example Response:
+
 ```
 {
     "data": [
@@ -359,6 +369,7 @@ Example Response:
     ]
 }
 ```
+
 ## Invite a user
 
 This endpoint allows you to invite a user to your organisation.
@@ -431,7 +442,9 @@ Example Response:
     }
 }
 ```
+
 Example request for inviting a user with custom permissions:
+
 ```
 curl -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
@@ -463,7 +476,8 @@ curl -H "Content-Type: application/vnd.api+json" \
 \
 https://us-west-2-api.cloudconformity.com/v1/users
 ```
-## Add an SSO User 
+
+## Add an SSO User
 
 This endpoint is only available for organisations with an external identity provider setup.
 
@@ -582,11 +596,12 @@ Only ADMINs can perform the update to other users within the same organisation.
 `PATCH /users/id`
 
 ##### Parameters
+
 - `id`: The Cloud Conformity ID of the user
 - `data`: A JSON object with the following properties:
   - `role`: The role to update the user to { ADMIN | POWER_USER | READ_ONLY | USER }
   - `accessList`: **(this field is required for users with USER role)** An array of objects containing access level for an account:
-    - `account`: The account Id within the organisation 
+    - `account`: The account Id within the organisation
     - `level`: The level of access the user has to the account { NONE | READONLY | FULL }
 
 Please note only accounts (listed inside the `accessList`) in the request will get updated, existing account permissions are retained.
@@ -608,6 +623,7 @@ https://us-west-2-api.cloudconformity.com/v1/users/CClqMqknVb \
 ```
 
 Example Response
+
 ```
 {
     "data": {
@@ -669,6 +685,7 @@ https://us-west-2-api.cloudconformity.com/v1/users/CClqMqknVb \
 ```
 
 Example request to set the user's role to USER and updating a specific account level access:
+
 ```
 curl -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
@@ -690,6 +707,7 @@ https://us-west-2-api.cloudconformity.com/v1/users/CClqMqknVb \
 ```
 
 Example Response
+
 ```
 {
     "data": {
@@ -730,16 +748,18 @@ Only ADMINs can revoke a user within the same organisation.
 `DELETE /users/id`
 
 ##### Parameters
+
 - `id`: The Cloud Conformity ID of the user
 
 ```
 curl -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
-https://us-west-2-api.cloudconformity.com/v1/users/{id} 
+https://us-west-2-api.cloudconformity.com/v1/users/{id}
 
 ```
 
 Example Response
+
 ```
 { "meta": { "status": "revoked" } }
 

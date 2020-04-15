@@ -22,12 +22,12 @@ This endpoint returns information about the available services and mapped rules 
 | name | Unique rule name |   |
 | description | Rule description |   |
 | title | Rule title |   |
-| categories | An array indicating the category/categories (from AWS Well-Architected Framework) that the rule belongs to | "security", "cost-optimisation", "reliability", "performance-efficiency", "operational-excellence" |
+| categories | An array indicating the category/categories that the rule belongs to | "security", "cost-optimisation", "reliability", "performance-efficiency", "operational-excellence" |
 | risk-level | Configures the level of risk assigned to the rule  | "EXTREME", "VERY_HIGH", "HIGH", "MEDIUM", "LOW" |
 | multi-risk-level | Determines whether a rule has multiple risk levels for each setting | true, false |
 | knowledge-base-html | Name of the resolution page on the Knowledge Base |   |
 | must-be-configured | Determines whether a rule requires configuration before it can generate checks | true, false |
-| package | Flag indicating if the rule belongs to an add-on or base package | "base", "cost" |
+| package | Flag indicating if the rule belongs to an add-on or base package | "base", "cost", "rtm" |
 | is-organisational | Flag indicating if the rule runs on an organisational level | true, false |
 | not-scored | Flag indicating if checks against the rule is scored | true, false |
 | level | Level at which the rule runs | "resource", "service", "cross-account", "account", "provider, "event" |
@@ -93,7 +93,7 @@ Example Response:
     "id": "EC2-002",
     "name": "SecurityGroupUnrestrictedPortAccess",
     "title": "Unrestricted SSH Access",
-    "description": "Ensure no security groups allow ingress from 00.0.0/0 to port 22",
+    "description": "Ensure no security groups allow ingress from 0.0.0/0 to port 22",
     "categories": ["security"],
     "level": "service",
     "settings": [

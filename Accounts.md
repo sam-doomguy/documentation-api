@@ -17,7 +17,8 @@ Below is a list of the available API calls:
 
 
 ## Create an Account
-This endpoint is used to register a new AWS account with Cloud Conformity.
+This endpoint is used to register a new AWS account with Cloud Conformity. \
+**Note:** Cost package features will no longer be available for new customers, and existing customers who do not have cost package enabled in any of their AWS accounts (Please take note of the changes in the Parameters)
 
 **IMPORTANT:**
 &nbsp;&nbsp;&nbsp;In order to register a new AWS account, you need to:
@@ -46,7 +47,7 @@ This endpoint is used to register a new AWS account with Cloud Conformity.
       - `keys`: An object containing
         - `roleArn`: The Role ARN of the role you have already created to grant access to Cloud Conformity
         - `externalId`: The External ID that you have requested on the previous step
-    - `costPackage`: Boolean, true for enabling the cost package add-on for the account (AWS spend analysis, forecasting, monitoring)
+    - `costPackage`: Boolean, true for enabling the cost package add-on for the account (AWS spend analysis, forecasting, monitoring) **Note:** The server will throw a 422 error if this field is set to true for customers who do not have cost package enabled in any of their AWS accounts
     - `hasRealTimeMonitoring`: Boolean, true for enabling the Real-Time Threat monitoring add-on
 
 Example Request:
@@ -129,7 +130,8 @@ Example Response:
 
 ## List All Accounts
 
-This endpoint allows you to query all accounts that you have access to.
+This endpoint allows you to query all accounts that you have access to. \
+**Note:** Cost package features will no longer be available for new customers, and existing customers who do not have cost package enabled in any of their AWS accounts (Please take note of the changes in the Example Responses)
 
 ##### Endpoints:
 
@@ -182,7 +184,7 @@ Example Response:
         "environment": "Route53",
         "awsaccount-id": "123456789012",
         "has-real-time-monitoring": true,
-        "cost-package": true,
+        "cost-package": true, **Note:** this field would not be displayed for customers who do not have cost package enabled in any of their AWS accounts
         "created-date": 1489703037251,
         "last-notified-date": 1503503192127,
         "last-checked-date": 1503503191166,
@@ -204,7 +206,8 @@ Example Response:
 
 ## Get Account Details
 
-This endpoint allows you to get the details of the specified account.
+This endpoint allows you to get the details of the specified account. \
+**Note:** Cost package features will no longer be available for new customers, and existing customers who do not have cost package enabled in any of their AWS accounts (Please take note of the changes in the Example Responses)
 
 ##### Endpoints:
 
@@ -258,7 +261,7 @@ Example Response:
                 "last-checked-date": 1503285392447,
                 "last-monitoring-event-date": 1502570799000,
                 "billing-account-id": "r1gyR4cqg",
-                "cost": {
+                "cost": { **Note:** this field would not be displayed for customers who do not have cost package enabled in any of their AWS accounts
                     "billing-account-map": {
                         "payerAccount": {
                             "awsId": "123456789012",
@@ -412,7 +415,8 @@ Example Response:
 
 A PATCH request to this endpoint allows you to change the add-on package subscription of the specified account.
 
-We recommend you first [Get account details](#get-account-details) to verify that the subscription needs to be updated.
+We recommend you first [Get account details](#get-account-details) to verify that the subscription needs to be updated. \
+**Note:** Cost package features will no longer be available for new customers, and existing customers who do not have cost package enabled in any of their AWS accounts (Please take note of the changes in the Parameters)
 
 **IMPORTANT:**
 &nbsp;&nbsp;&nbsp;Only ADMIN users can use this endpoint.
@@ -424,7 +428,7 @@ We recommend you first [Get account details](#get-account-details) to verify tha
 ##### Parameters
 - `data`: an JSON object containing JSONAPI compliant data object with following properties
   - `attributes`: An attribute object containing
-    - `costPackage`: Boolean, true for enabling the cost package add-on for the account (AWS spend analysis, forecasting, monitoring)
+    - `costPackage`: Boolean, true for enabling the cost package add-on for the account (AWS spend analysis, forecasting, monitoring) **Note:** The server will throw a 422 error if this field is set to true for customers who do not have cost package enabled in any of their AWS accounts
     - `hasRealTimeMonitoring`: Boolean, true for enabling the Real-Time Threat Monitoriring package add-on for the account
 
 Example Request:
@@ -482,7 +486,8 @@ Example Response:
 
 A PATCH request to this endpoint allows changes to the account name, enviornment, and code.
 
-We recommend you first [Get account details](#get-account-details) to check what existing value of these attributes are.
+We recommend you first [Get account details](#get-account-details) to check what existing value of these attributes are. \
+**Note:** Cost package features will no longer be available for new customers, and existing customers who do not have cost package enabled in any of their AWS accounts (Please take note of the changes in the Example Responses)
 
 **IMPORTANT:**
 &nbsp;&nbsp;&nbsp;Only ADMINs and users with FULL access to the specified account can use this endpoint.
@@ -535,7 +540,7 @@ Example Response:
             "awsaccount-id": "123456789101",
             "status": "ACTIVE",
             "has-real-time-monitoring": true,
-            "cost-package": true,
+            "cost-package": true, **Note:** this field would not be displayed for customers who do not have cost package enabled in any of their AWS accounts
             "last-notified-date": 1504113512701,
             "last-checked-date": 1504113511956,
             "available-runs": 5,

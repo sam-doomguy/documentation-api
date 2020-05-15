@@ -169,7 +169,8 @@ Example Response:
           "resources": []
         },
         "extraSettings": [],
-        "riskLevel": "LOW"
+        "riskLevel": "LOW",
+        "provider: "aws"
       }
     },
     {

@@ -62,7 +62,7 @@ are formatted as the following example:
 These formats are are found in `type` field of rule extra settings:
 
 #### multiple-string-values
-* **Usage:** Used when a one or more strings are required.
+* **Usage:** Used when one or more strings are required.
 * **UI:** List of text fields
 
 _Example:_
@@ -85,6 +85,39 @@ _Example:_
           "value": "m3.large"
         }
       ]
+    }
+  ],
+  //...
+}
+```
+
+#### multiple-object-values
+* **Usage:** Used when one or more sets of values are required.
+* **UI:** Table of text fields
+
+_Example:_
+```json5
+{
+  "id": "RTM-01a",
+  //...
+  "extraSettings": [
+    {
+      "name": "desiredInstanceTypes",
+      "type": "multiple-object-values",
+      "valueKeys": [
+      "eventName",
+      "eventSource",
+      "userIdentityType"
+    ],
+    "values": [
+      {
+        "value": {
+          "eventName": "^(iam.amazonaws.com)",
+          "eventSource": "^(IAM).*",
+          "userIdentityType": "^(Delete).*"
+        }
+      }
+    ]
     }
   ],
   //...

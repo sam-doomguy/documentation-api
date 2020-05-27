@@ -30,7 +30,7 @@ This feature can be used in conjunction with a GET request to copy communication
   - `type`: `"settings"`,
   - `attributes`: Object containing
     - `type`: `"communication"`
-    - `channel`: String, must be one of the following: email, sms, slack, pager-duty, sns, ms-teams
+    - `channel`: String, must be one of the following: email, sms, slack, pager-duty, sns
     - `enabled`: Boolean, true for turning on, false for turning off this channel.
     - `manual`: Boolean, *(only used for SNS channels)* true for allowing users to manually send individual checks, false for disabling this option.
     - `filter`: Optional object (defines which checks you want to be included) including services, regions, categories, statuses, ruleIds, riskLevel, suppressed, and tags.
@@ -65,10 +65,9 @@ The table below give more information about configuration options:
 | *all*  | `configuration.channelName` is the label to display in the application (to distinguish between multiple instances of the same channel type). It is optional|
 | email  | `configuration.key` is "users", `configuration.value` is an array of verified users that have at least readOnly access to the account|
 | sms  | `configuration.key` is "users", `configuration.value` is an array of users with verified mobile numbers that have at least readOnly access to the account|
-| slack  | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false` Boolean, true for adding associated tags to message<br>`"displayExtraData": false}` Boolean, true for adding associated extra data to message   |
+| slack  | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false}` Boolean, true for adding associated tags to message   |
 | pager-duty  |   `{ "serviceName": "yourServiceName", "serviceKey": "yourServiceKey" }` |
-| sns  |  `{ "arn": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"}`  | 
-| ms-teams  | `{ "url": "https://outlook.office.com/webhook/your-msteams-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false` Boolean, true for adding associated tags to message<br>`"displayExtraData": false}` Boolean, true for adding associated extra data to message   |
+| sns  |  `{ "arn": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"}`  |
 
 
 Example request for creating an account level pager-duty setting:
@@ -561,10 +560,9 @@ The table below give more information about configuration options:
 | *all*  | `configuration.channelName` (optional). When setting up multiple channels of the same type, the name can help you identify the channel|
 | email  | `configuration.key` is "users", `configuration.value` is an array of verified users that have at least readOnly access to the account|
 | sms  | `configuration.key` is "users", `configuration.value` is an array of users with verified mobile numbers that have at least readOnly access to the account|
-| slack  | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false` Boolean, true for adding associated tags to message<br>`"displayExtraData": false}` Boolean, true for adding associated extra data to message   |
+| slack  | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false}` Boolean, true for adding associated tags to message   |
 | pager-duty  |   `{ "serviceName": "yourServiceName", "serviceKey": "yourServiceKey" }` |
 | sns  |  `{ "arn": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"}`  |
-| ms-teams  | `{ "url": "https://outlook.office.com/webhook/your-msteams-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false` Boolean, true for adding associated tags to message<br>`"displayExtraData": false}` Boolean, true for adding associated extra data to message   |
 
 
 Example request to update an account level pager-duty setting:

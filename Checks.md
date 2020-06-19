@@ -631,7 +631,8 @@ Example Response:
                 "rule-title": "Tracing Enabled",
                 "link": "https://us-east-1.console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/pl63negesk/resources",
                 "provider": "aws",
-                "resolutionPageUrl": "https://www.cloudconformity.com/conformity-rules/APIGateway/tracing.html#B1nHYYpwx"
+                "resolutionPageUrl": "https://www.cloudconformity.com/conformity-rules/APIGateway/tracing.html#B1nHYYpwx",
+                "uuid": "arn:aws:apigateway:us-west-1::/restapis/pl63negesk/*"
             },
             "relationships": {
                 "rule": {
@@ -703,7 +704,8 @@ Example Response:
             "not-scored": false,
             "ignored": null,
             "rule-title": "Password Policy Present",
-            "resolution-page-url": "https://www.cloudconformity.com/conformity-rules/IAM/unused-iam-group.html#"
+            "resolution-page-url": "https://www.cloudconformity.com/conformity-rules/IAM/unused-iam-group.html#",
+            "uuid": "arn:aws:iam::1234567890:group/groups-test"
         },
         "relationships": {
             "rule": {

@@ -144,7 +144,7 @@ curl -X POST \
 {
 	"data": {
 		"attributes": {
-			"accountId": "JqxwdgpuC",
+			"accountId": "ACCOUNT_ID",
 			"configuration": {
 				"title": "Daily Report of Storage Accounts",
 				"scheduled": true,
@@ -168,11 +168,11 @@ Example Response for an Azure account:
 ```
 { "data": {
       "type": "report-config",
-      "id": "JqxwdgpuC:report-config:hb1xtSp4D",
+      "id": "ACCOUNT_ID:report-config:REPORT_CONFIG_ID",
       "attributes": {
         "type": "report-config",
         "configuration": {
-          "title": "PD-6290-Azure",
+          "title": "Daily Blob Storage Report",
           "scheduled": true,
           "frequency": "* * *",
           "tz": "Australia/Sydney",
@@ -191,7 +191,7 @@ Example Response for an Azure account:
             "suppressed": true
           }
         },
-        "created-by": "gcrYXgM7F",
+        "created-by": "USER_ID",
         "created-date": 1592374969200,
         "is-account-level": true,
         "is-group-level": false,
@@ -201,13 +201,13 @@ Example Response for an Azure account:
         "organisation": {
           "data": {
             "type": "organisations",
-            "id": "B1nHYYpwx"
+            "id": "ORGANISATION_ID"
           }
         },
         "account": {
           "data": {
             "type": "accounts",
-            "id": "JqxwdgpuC"
+            "id": "ACCOUNT_ID"
           }
         },
         "group": {

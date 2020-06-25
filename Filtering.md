@@ -11,7 +11,7 @@ Not complete set of options. (To be completed!)
 | `filter.tags`  | An array of any assigned metadata tags to your resources |
 | `filter.text`  | Filter by resource Id, rule title or message. A string. e.g "john", "s3" or "write" |
 | `filter.createdLessThanDays`  | Only show checks created less than X days ago. Number. e.g. 5. |
-| `filter.categories`  | An array of category (Conformity's Five Rule categories) strings from the following:<br /> security \| cost-optimisation \| operational-excellence \| reliability  \| performance-efficiency <br />|
+| `filter.categories`  | An array of category (Conformity category) strings from the following:<br /> security \| cost-optimisation \| operational-excellence \| reliability  \| performance-efficiency <br />|
 | `filter.riskLevels`  | Risk level. Possible values: ["EXTREME" \| "VERY_HIGH" \| "HIGH" \| "MEDIUM" \| "LOW"] |
 | `filter.complianceStandards`  | An array of supported standard or framework ids. Possible values: ["AWAF" \| "CISAWSF" \| "CISAWSTTW" \| "PCI" \| "HIPAA" \| "GDPR" \| "APRA" \| "NIST4" \| "SOC2" \| "NIST-CSF" \| "ISO27001" \| "AGISM"] |
 | `filter.reportComplianceStandardId`  | A single standard or framework id string. Possible values: ["AWAF" \| "NIST4" \| "CISAWSF" \| "SOC2" \| "NIST-CSF" \| "ISO27001" \| "AGISM"] |

@@ -600,8 +600,8 @@ curl -g -H "Content-Type: application/vnd.api+json" \
 https://us-west-2-api.cloudconformity.com/v1/checks?accountIds=r1gyR4cqg&page[size]=100&page[number]=0&filter[regions]=us-west-2&filter[ruleIds]=EC2-001,EC2-002&filter[statuses]=SUCCESS&filter[categories]=security&filter[riskLevels]=HIGH&filter[services]=EC2&filter[createdDate]=1502572157914
 ```
 Example Response:
-###### Note the size of this response can be quite large and the example below is purposefully truncated
-
+###### Note the size of this response can be quite large and the example below is purposefully truncated.
+###### Currently, "uuid" is only available on checks generated for some AWS rules. This property represents [AWS ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the related resource, provided by AWS API
 ```
 {
     "data": [

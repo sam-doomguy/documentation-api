@@ -102,7 +102,7 @@ This endpoint allows you to get the details of the specified profile.
 
 ##### Getting Profile Details
 
-Example Request for getting details of a profile:
+Example request for getting details of a profile:
 
 ```
 curl -H "Content-Type: application/vnd.api+json" \
@@ -233,7 +233,7 @@ There are some attributes you need to pass inside the attributes object. The tab
 ##### Saving a new Profile
 The expected behavior of this request to create a new profile.
 
-Example Request for saving a new profile:
+Example request for saving a new profile:
 ```
 curl -X POST -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey YOUR-API-KEY" \
@@ -434,7 +434,7 @@ The expected behavior of this request to overwrite all existing rule settings to
 
 You must indicate the profile id in the request body otherwise a new profile will be created with the indicated rule settings configured.
 
-Example Request for saving rule settings:
+Example request for saving rule settings:
 ```
 curl -X POST -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey YOUR-API-KEY" \
@@ -567,7 +567,7 @@ Example Response:
 ###### Delete all settings
 The expected behavior of this request to preserve an existing profile's attributes while deleting all existing rule settings. To do so, exclude the "includes" and "relationships" field from the request.
 
-Example Request for modifying an existing profile and deleting its settings:
+Example request for modifying an existing profile and deleting its settings:
 ```
 curl -X POST -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey YOUR-API-KEY" \
@@ -616,7 +616,7 @@ This endpoint allows you to update profile details and its associated rule setti
   - `type`: `"profiles"`,
   - `attributes`: Object containing profile attributes. For more details consult the [profile-attributes-table](#profile-attributes)
 
-Example Request to only update profile details - name and description:
+Example request to only update profile details - name and description:
 
 ```
 curl -X PATCH -H "Content-Type: application/vnd.api+json" \
@@ -663,7 +663,7 @@ To update rule settings along with your profile, only the settings passed in the
     - `id`: This attribute is id of the rule type being updated e.g. S3-001 (refer to Cloud Conformity rules for the full list).
     - `attributes`: Object containing profile attributes. For more details consult the [rule-settings-table](#rule-settings).
 			
-Example Request to update profile details and add one rule setting to existing settings:
+Example request to update profile details and add one rule setting to existing settings:
 ```
 curl -X PATCH -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey YOUR-API-KEY" \
@@ -843,7 +843,7 @@ This endpoint allows you to apply profile and rule settings to a set of accounts
 | overwrite |  Merge existing settings with this Profile. If there is a conflict, the Profile's setting will be used. |
 | replace |  Clear all existing settings and apply settings from this Profile. |
 
-Example Request for getting details of a profile:
+Example request for applying a profile to accounts:
 
 ```
 curl -H "Content-Type: application/vnd.api+json" \
@@ -868,4 +868,3 @@ Example Response:
 }
 
 ```
-

@@ -10,7 +10,8 @@ Not complete set of options. (To be completed!)
 | `filter.ruleIds`  | An array of rule ids. e.g. ["EC2-001", "S3-001"]<br /><br />For more information about services, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services) |
 | `filter.tags`  | An array of any assigned metadata tags to your AWS resources |
 | `filter.text`  | Filter by resource Id, rule title or message. A string. e.g "john", "s3" or "write" |
-| `filter.createdLessThanDays`  | Only show checks created less than X days ago. Number. e.g. 5. |
+| `filter.createdLessThanDays`  | Only show checks created less than X days ago. When this field is populated, the checks created within the last X days will be returned. When both this field and `filter.createdMoreThanDays` are populated, it will display the checks created between `filter.createdLessThanDays` days ago and `filter.createdMoreThanDays` days ago. Number. e.g. 5. |
+| `filter.createdMoreThanDays`        | Only show checks created more than X days ago. When this field is populated, the checks created up to X days ago will be returned. Number. e.g. 5.
 | `filter.categories`  | An array of category (AWS well-architected framework category) strings from the following:<br /> security \| cost-optimisation \| reliability \| performance-efficiency  \| operational-excellence <br />|
 | `filter.riskLevels`  | Risk level. Possible values: ["EXTREME" \| "VERY_HIGH" \| "HIGH" \| "MEDIUM" \| "LOW"] |
 | `filter.complianceStandards`  | An array of supported standard or framework ids. Possible values: ["AWAF" \| "CISAWSF" \| "CISAZUREF" \| "CISAWSTTW" \| "PCI" \| "HIPAA" \| "GDPR" \| "APRA" \| "NIST4" \| "SOC2" \| "NIST-CSF" \| "ISO27001" \| "AGISM"] |

@@ -3,12 +3,10 @@ info:
   title: "Cloud Conformity"
   version: "2020-08-20T00:27:06Z"
 servers:
-- url: "https://{baseUrl}/{basePath}"
-  variables:
-    baseUrl:
-      default: "us-west-2-api-development.cloudconformity.com"
-    basePath:
-      default: "v1"
+  - url: "https://eu-west-1-api.cloudconformity.com/v1"
+    description: "eu-west-1"
+  - url: "https://us-west-2-api.cloudconformity.com/v1"
+    description: "us-west-2"
 paths:
   /accounts:
     get:
@@ -155,3 +153,11 @@ paths:
   /users/sso:
     post:
       $ref: "./users/sso/post.yml"
+
+components:
+  securitySchemes:
+    Authorizer:
+      type: "apiKey"
+      name: "Authorization"
+      in: "header"
+      x-amazon-apigateway-authtype: "custom"

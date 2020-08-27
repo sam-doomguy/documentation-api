@@ -44,21 +44,12 @@ paths:
   /accounts/{accountId}/settings/bot:
     patch:
       $ref: "./accounts/{accountId}/settings/bot/patch.yml"
-  /api-keys/{keyId}:
-    get:
-      $ref: "./api-keys/{keyId}/get.yml"
-  /organisation/external-id:
-    get:
-      $ref: "./organisation/external-id/get.yml"
   /api-keys:
     get:
       $ref: "./api-keys/get.yml"
-  /external-ids:
-    post:
-      $ref: "./external-ids/post.yml"
-  /users/whoami:
+  /api-keys/{keyId}:
     get:
-      $ref: "./users/whoami/get.yml"
+      $ref: "./api-keys/{keyId}/get.yml"
   /checks:
     get:
       $ref: "./checks/get.yml"
@@ -67,12 +58,12 @@ paths:
   /checks/{checkId}:
     get:
       $ref: "./checks/{checkId}/get.yml"
-  /services:
-    get:
-      $ref: "./services/get.yml"
   /events:
     get:
       $ref: "./events/get.yml"
+  /external-ids:
+    post:
+      $ref: "./external-ids/post.yml"
   /groups:
     get:
       $ref: "./groups/get.yml"
@@ -85,6 +76,12 @@ paths:
       $ref: "./groups/{groupId}/delete.yml"
     patch:
       $ref: "./groups/{groupId}/patch.yml"
+  /iac-scanning/scan:
+    post:
+      $ref: "./iac-scanning/scan/post.yml"
+  /organisation/external-id:
+    get:
+      $ref: "./organisation/external-id/get.yml"
   /profiles:
     get:
       $ref: "./profiles/get.yml"
@@ -100,12 +97,11 @@ paths:
   /profiles/{id}/apply:
     post:
       $ref: "./profiles/{id}/apply/post.yml"
-  /reports:
+  /report-configs:
     get:
-      $ref: "./reports/get.yml"
-  /reports/{reportId}/{entityId}/{type}:
-    get:
-      $ref: "./reports/{reportId}/{entityId}/{type}/get.yml"
+      $ref: "./report-configs/get.yml"
+    post:
+      $ref: "./report-configs/post.yml"
   /report-configs/{id}:
     get:
       $ref: "./report-configs/{id}/get.yml"
@@ -113,17 +109,21 @@ paths:
       $ref: "./report-configs/{id}/delete.yml"
     patch:
       $ref: "./report-configs/{id}/patch.yml"
-  /report-configs:
+  /reports:
     get:
-      $ref: "./report-configs/get.yml"
-    post:
-      $ref: "./report-configs/post.yml"
+      $ref: "./reports/get.yml"
+  /reports/{reportId}/{entityId}/{type}:
+    get:
+      $ref: "./reports/{reportId}/{entityId}/{type}/get.yml"
   /resources:
     get:
       $ref: "./resources/get.yml"
-  /settings/communication/{settingId}:
-    patch:
-      $ref: "./settings/communication/{settingId}/patch.yml"
+  /services:
+    get:
+      $ref: "./services/get.yml"
+  /users/whoami:
+    get:
+      $ref: "./users/whoami/get.yml"
   /settings/{settingId}:
     get:
       $ref: "./settings/{settingId}/get.yml"
@@ -134,9 +134,9 @@ paths:
       $ref: "./settings/communication/get.yml"
     post:
       $ref: "./settings/communication/post.yml"
-  /iac-scanning/scan:
-    post:
-      $ref: "./iac-scanning/scan/post.yml"
+  /settings/communication/{settingId}:
+    patch:
+      $ref: "./settings/communication/{settingId}/patch.yml"
   /template-scanner/scan:
     post:
       $ref: "./template-scanner/scan/post.yml"

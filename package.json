@@ -1,0 +1,21 @@
+{
+  "name": "documentation-api",
+  "version": "1.0.0",
+  "description": "The Cloud Conformity API allows you to programmatically interact with Cloud Conformity",
+  "scripts": {
+    "validate": "swagger-cli validate open-api/openapi.yml",
+    "build": "swagger-cli bundle open-api/openapi.yml --outfile build/openapi3.yml --type yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudconformity/documentation-api.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloudconformity/documentation-api/issues"
+  },
+  "homepage": "https://github.com/cloudconformity/documentation-api#readme",
+  "dependencies": {
+    "swagger-cli": "^4.0.4"
+  }
+}

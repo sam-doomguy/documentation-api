@@ -1,0 +1,157 @@
+openapi: "3.0.1"
+info:
+  title: "Cloud Conformity"
+  version: "2020-08-20T00:27:06Z"
+servers:
+- url: "https://{baseUrl}/{basePath}"
+  variables:
+    baseUrl:
+      default: "us-west-2-api-development.cloudconformity.com"
+    basePath:
+      default: "v1"
+paths:
+  /accounts:
+    get:
+      $ref: "./accounts/get.yml"
+    post:
+      $ref: "./accounts/post.yml"
+  /accounts/{accountId}:
+    get:
+      $ref: "./accounts/get.yml"
+    delete:
+      $ref: "./accounts/delete.yml"
+    patch:
+      $ref: "./accounts/patch.yml"
+  /accounts/{accountId}/subscription:
+    patch:
+      $ref: "./accounts/{accountId}/subscription/patch.yml"
+  /accounts/{accountId}/access:
+    get:
+      $ref: "./accounts/{accountId}/access/get.yml"
+  /accounts/{accountId}/settings/rules/{ruleId}:
+    get:
+      $ref: "./accounts/{accountId}/settings/rules/{ruleId}/get.yml"
+    patch:
+      $ref: "./accounts/{accountId}/settings/rules/{ruleId}/patch.yml"
+  /accounts/{accountId}/scan:
+    post:
+      $ref: "./accounts/{accountId}/scan/post.yml"
+  /accounts/{accountId}/settings/rules:
+    get:
+      $ref: "./accounts/{accountId}/settings/rules/get.yml"
+    patch:
+      $ref: "./accounts/{accountId}/settings/rules/patch.yml"
+  /accounts/{accountId}/settings/bot:
+    patch:
+      $ref: "./accounts/{accountId}/settings/bot/patch.yml"
+  /api-keys/{keyId}:
+    get:
+      $ref: "./api-keys/{keyId}/get.yml"
+  /organisation/external-id:
+    get:
+      $ref: "./organisation/external-id/get.yml"
+  /api-keys:
+    get:
+      $ref: "./api-keys/get.yml"
+  /external-ids:
+    post:
+      $ref: "./external-ids/post.yml"
+  /users/whoami:
+    get:
+      $ref: "./users/whoami/get.yml"
+  /checks:
+    get:
+      $ref: "./checks/get.yml"
+    post:
+      $ref: "./checks/post.yml"
+  /checks/{checkId}:
+    get:
+      $ref: "./checks/{checkId}/get.yml"
+  /services:
+    get:
+      $ref: "./services/get.yml"
+  /events:
+    get:
+      $ref: "./events/get.yml"
+  /groups:
+    get:
+      $ref: "./groups/get.yml"
+    post:
+      $ref: "./groups/post.yml"
+  /groups/{groupId}:
+    get:
+      $ref: "./groups/{groupId}/get.yml"
+    delete:
+      $ref: "./groups/{groupId}/delete.yml"
+    patch:
+      $ref: "./groups/{groupId}/patch.yml"
+  /profiles:
+    get:
+      $ref: "./profiles/get.yml"
+    post:
+      $ref: "./profiles/post.yml"
+  /profiles/{id}:
+    get:
+      $ref: "./profiles/{id}/get.yml"
+    delete:
+      $ref: "./profiles/{id}/delete.yml"
+    patch:
+      $ref: "./profiles/{id}/patch.yml"
+  /profiles/{id}/apply:
+    post:
+      $ref: "./profiles/{id}/apply/post.yml"
+  /reports:
+    get:
+      $ref: "./reports/get.yml"
+  /reports/{reportId}/{entityId}/{type}:
+    get:
+      $ref: "./reports/{reportId}/{entityId}/{type}/get.yml"
+  /report-configs/{id}:
+    get:
+      $ref: "./report-configs/{id}/get.yml"
+    delete:
+      $ref: "./report-configs/{id}/delete.yml"
+    patch:
+      $ref: "./report-configs/{id}/patch.yml"
+  /report-configs:
+    get:
+      $ref: "./report-configs/get.yml"
+    post:
+      $ref: "./report-configs/post.yml"
+  /resources:
+    get:
+      $ref: "./resources/get.yml"
+  /settings/communication/{settingId}:
+    patch:
+      $ref: "./settings/communication/{settingId}/patch.yml"
+  /settings/{settingId}:
+    get:
+      $ref: "./settings/{settingId}/get.yml"
+    delete:
+      $ref: "./settings/{settingId}/delete.yml"
+  /settings/communication:
+    get:
+      $ref: "./settings/communication/get.yml"
+    post:
+      $ref: "./settings/communication/post.yml"
+  /iac-scanning/scan:
+    post:
+      $ref: "./iac-scanning/scan/post.yml"
+  /template-scanner/scan:
+    post:
+      $ref: "./template-scanner/scan/post.yml"
+  /users:
+    get:
+      $ref: "./users/get.yml"
+    post:
+      $ref: "./users/post.yml"
+  /users/{id}:
+    get:
+      $ref: "./users/{id}/get.yml"
+    delete:
+      $ref: "./users/{id}/delete.yml"
+    patch:
+      $ref: "./users/{id}/patch.yml"
+  /users/sso:
+    post:
+      $ref: "./users/sso/post.yml"

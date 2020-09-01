@@ -1,0 +1,20 @@
+type: object
+properties:
+  errors:
+    type: array
+    items:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 422
+          description: Error code.
+        source:
+          type: object
+          properties:
+            pointer:
+              type: string
+              example: /data/attributes
+        details:
+          type: string
+          example: No such user

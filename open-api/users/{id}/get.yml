@@ -26,11 +26,11 @@ responses:
       application/json:
         schema:
           $ref: "../../shared-schemas/403.yml"
-  404:
-    description: "Not Found. This happens when the provided id ."
+  422:
+    description: "No such user. This happens when the provided id does not belong to any user."
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/403.yml"
+          $ref: "../schemas/422-no-such-user.yml"
 security:
   - Authorizer: []

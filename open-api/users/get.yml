@@ -12,6 +12,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "./schemas/get-users-401-response.yml"
+          $ref: "../shared-schemas/401.yml"
 security:
   - Authorizer: []

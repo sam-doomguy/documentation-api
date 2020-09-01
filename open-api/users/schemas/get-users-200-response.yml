@@ -3,29 +3,4 @@ properties:
   data:
     type: array
     items:
-      type: object
-      properties:
-        type:
-          type: string
-          example: users
-        id:
-          type: string
-          description: User identifier
-        attributes:
-          $ref: "../../shared-schemas/user.yml"
-        relationships:
-          type: object
-          properties:
-            organisation:
-              type: object
-              properties:
-                data:
-                  type: object
-                  properties:
-                    type:
-                      type: string
-                      example: organisations
-                    id:
-                      type: string
-                      description: Organisation identifier
-                      example: R8CAIKU9A
+      $ref: "../../shared-schemas/user.yml"

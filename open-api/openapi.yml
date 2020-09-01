@@ -119,9 +119,6 @@ paths:
   /services:
     get:
       $ref: "./services/get.yml"
-  /users/whoami:
-    get:
-      $ref: "./users/whoami/get.yml"
   /settings/{settingId}:
     get:
       $ref: "./settings/{settingId}/get.yml"
@@ -153,6 +150,9 @@ paths:
   /users/sso:
     post:
       $ref: "./users/sso/post.yml"
+  /users/whoami:
+    get:
+      $ref: "./users/whoami/get.yml"
 
 components:
   securitySchemes:

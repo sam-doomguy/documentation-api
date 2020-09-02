@@ -48,7 +48,7 @@ This endpoint is used to register a new AWS account with Cloud Conformity. \
 
 ##### Parameters
 
-- `data`: an JSON object containing JSONAPI compliant data object with following properties
+- `data`: a JSON object containing JSONAPI compliant data object with following properties
   - `type`: The type of the object (account)
   - `attributes`: An attribute object containing
     - `name`: The Name of the account
@@ -183,7 +183,7 @@ This endpoint is used to register a new Azure Subscription with an already onboa
 
 ##### Parameters
 
-- `data`: an JSON object containing JSONAPI compliant data object with following properties
+- `data`: a JSON object containing JSONAPI compliant data object with following properties
   - `type`: The type of the object (account)
   - `attributes`: An attribute object containing
     - `name`: The Name of the account
@@ -753,7 +753,7 @@ We recommend you first [Get account details](#get-account-details) to verify tha
 
 ##### Parameters
 
-- `data`: an JSON object containing JSONAPI compliant data object with following properties
+- `data`: A JSON object containing JSONAPI compliant data object with following properties
   - `attributes`: An attribute object containing
     - `costPackage`: Boolean, true for enabling the cost package add-on for the account (AWS spend analysis, forecasting, monitoring) **Note:** The server will throw a 422 error if this field is set to true for customers who do not have cost package enabled in any of their AWS accounts
     - `hasRealTimeMonitoring`: Boolean, true for enabling the Real-Time Threat Monitoring package add-on for the account **Note:** This field will be replaced with `subscriptionType` in the future
@@ -847,7 +847,7 @@ We recommend you first [Get account details](#get-account-details) to check what
 
 ##### Parameters
 
-- `data`: an JSON object containing JSONAPI compliant data object with following properties
+- `data`: A JSON object containing JSONAPI compliant data object with following properties
   - `attributes`: An attribute object containing
     - `name`: The name of the account.
     - `environment`: The environment of the account. (optional)
@@ -999,7 +999,7 @@ This feature is used in conjunction with the GET request to the same endpoint fo
 
 ##### Parameters
 
-- `data`: an JSON object containing JSONAPI compliant data object with following properties
+- `data`: A JSON object containing JSONAPI compliant data object with following properties
   - `attributes`: An attribute object containing
     - `ruleSetting`: An object containing
       - `id`: Rule Id, same as the one provided in the endpoint
@@ -1280,7 +1280,7 @@ This feature is used in conjunction with the GET request to the same endpoint fo
 
 ##### Parameters
 
-- `data`: an JSON object containing JSONAPI compliant data object with following properties
+- `data`: A JSON object containing JSONAPI compliant data object with following properties
   - `attributes`: An attribute object containing
     - `note`: A detailed message regarding the reason for this batch of rule configurations
     - `ruleSettings`: An array of objects, each object contains

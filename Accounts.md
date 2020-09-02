@@ -2,7 +2,8 @@
 
 Below is a list of the available API calls:
 
-- [Create An Account](#create-an-account)
+- [Create An AWS Account](#create-an-aws-account)
+- [Create An Azure Subscription](#create-an-azure-subscription)
 - [List All Accounts](#list-all-accounts)
 - [Get Account Details](#get-account-details)
 - [Get Account Access Setting](#get-account-access-setting)
@@ -16,7 +17,7 @@ Below is a list of the available API calls:
 - [Update Rule Settings](#update-rule-settings)
 - [Delete Account](#delete-account)
 
-## Create an Account
+## Create an AWS Account
 
 This endpoint is used to register a new AWS account with Cloud Conformity. \
 **Note:**
@@ -160,6 +161,88 @@ Example Response:
     }
   }
 }
+```
+
+## Create an Azure Subscription
+
+This endpoint is used to register a new Azure Subscription with an already onboarded Active Directory on Conformity. \
+**Note:**
+
+- Real Time Monitoring and Cost package features are currently not available for Azure subscriptions.
+- The `subscriptionType` of Azure subscriptions defaults to `essentials`.
+
+**IMPORTANT:**
+&nbsp;&nbsp;&nbsp;In order to register a new Azure Subscription, you need to:
+
+1. Consult the HELP pages to Setup Cloud Conformity Azure Access Application
+2. Provide the ID of an Active Directory already registered with Conformity. If you do not have an existing Active Directory on Conformity, this can be added via the application.
+
+##### Endpoints:
+
+`POST /accounts/azure`
+
+##### Parameters
+
+- `data`: an JSON object containing JSONAPI compliant data object with following properties
+  - `type`: The type of the object (account)
+  - `attributes`: An attribute object containing
+    - `name`: The Name of the account
+    - `environment`: The Name of the environment
+    - `access`: An object containing
+      - `subscriptionId`: The ID of the Azure subscription to be added
+      - `activeDirectoryId`: The ID of Azure Active Directory on Conformity
+
+Example Request:
+
+```shell script
+curl -X POST \
+-H "Content-Type: application/vnd.api+json" \
+-H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
+-d '
+{
+  "data": {
+    "type": "account",
+    "attributes": {
+      "name": "MySubscription",
+      "environment": "MyEnvironment",
+      "access": {
+        "subscriptionId": "YOUR_AZURE_SUBSCRIPTION_ID",
+        "activeDirectoryId": "YOUR_ACTIVE_DIRECTORY_ID"
+
+      }
+    }
+  }
+}' \
+https://us-west-2-api.cloudconformity.com/v1/accounts/azure
+```
+Example Response:
+
+```json5
+{
+  "data": {
+    "type": "accounts",
+    "id": "qiaj7JPEz",
+    "attributes": {
+      "name": "MySubscription",
+      "environment": "MyEnvironment",
+      "status": "ACTIVE",
+      "security-package": true,
+      "created-date": 1599011402868,
+      "settings": { "rules": [] },
+      "access": null,
+      "tags": ["Dev"],
+      "cloud-type": "azure",
+      "cloud-data": {
+        "azure": { "subscriptionId": "YOUR_AZURE_SUBSCRIPTION_ID" }
+      },
+      "managed-group-id": "ROo8Q7xyJ"
+    },
+    "relationships": {
+      "organisation": { "data": { "type": "organisations", "id": "FjHXl0yOe" } }
+    }
+  }
+}
+
 ```
 
 ## List All Accounts

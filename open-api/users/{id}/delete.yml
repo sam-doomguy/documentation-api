@@ -1,13 +1,13 @@
-summary: Delete a user
-description: Delete a user by id.
-  Only ADMINs can perform the deletion of other users within the same organisation.
+summary: Revoke User
+description: Revokes a specified user from your organisation.
+  Only ADMINs can revoke a user within the same organisation.
 parameters:
   - in: path
     name: id
     schema:
       type: string
     required: true
-    description: User Id to delete
+    description: The Cloud Conformity ID of the user to revoke
 responses:
   200:
     description: OK

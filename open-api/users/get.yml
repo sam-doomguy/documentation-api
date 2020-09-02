@@ -3,11 +3,11 @@ description: Gets all of the users of the requester user's organisation.
   Only ADMINs can perform get all users within the same organisation.
 responses:
   200:
-    description: "Forbidden. This happens when a valid api key is not provided."
+    description: OK
     content:
       application/json:
         schema:
-          $ref: "../shared-schemas/403.yml"
+          $ref: "./schemas/get-users-200-response.yml"
   401:
     description: "Unauthorized. The requester user does not have enough privilege."
     content:

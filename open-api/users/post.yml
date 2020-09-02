@@ -1,6 +1,6 @@
-summary: Add user
-description: Add a new user in the requester user's organisation.
-  Only ADMINs can perform the add user within the same organisation.
+summary: Invite user
+description: This endpoint allows you to invite a user to your organisation.
+  Only ADMINs can perform the invite user within the same organisation.
 requestBody:
   required: true
   content:

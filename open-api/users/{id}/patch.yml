@@ -7,7 +7,7 @@ parameters:
     schema:
       type: string
     required: true
-    description: User Id to delete
+    description: The Cloud Conformity ID of the user to delete.
 requestBody:
   required: true
   content:

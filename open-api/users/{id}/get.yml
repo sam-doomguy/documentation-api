@@ -6,7 +6,7 @@ parameters:
     schema:
       type: string
     required: true
-    description: User Id to get
+    description: The Cloud Conformity ID of the user to get.
 responses:
   200:
     description: OK

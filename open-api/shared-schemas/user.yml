@@ -5,7 +5,7 @@ properties:
     example: users
   id:
     type: string
-    description: User identifier
+    description: The Cloud Conformity ID of the user
   attributes:
     type: object
     properties:
@@ -19,7 +19,7 @@ properties:
         example: Smith
       role:
         type: string
-        description: The role which the user is assigned to
+        description: The role which the user is assigned to.
         enum: [ADMIN, POWER_USER, READ_ONLY, USER]
       email:
         type: string

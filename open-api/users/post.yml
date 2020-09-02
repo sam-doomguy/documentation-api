@@ -1,4 +1,6 @@
-summary: Add a new user in the requester user's organisation.
+summary: Add user
+description: Add a new user in the requester user's organisation.
+  Only ADMINs can perform the add user within the same organisation.
 requestBody:
   required: true
   content:
@@ -7,7 +9,7 @@ requestBody:
         $ref: "./schemas/post-users-body.yml"
 responses:
   200:
-    description: OK.
+    description: OK
     content:
       application/json:
         schema:

@@ -7,7 +7,7 @@ properties:
       properties:
         type:
           type: string
-          enum: [services]
+          example: services
         id:
           type: string
           example: EC2
@@ -34,7 +34,6 @@ properties:
                 properties:
                   type:
                     type: string
-                    enum: [rules]
                     example: rules
                   id:
                     description: Identifier of the rule

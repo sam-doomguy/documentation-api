@@ -1,0 +1,58 @@
+type: object
+properties:
+  type:
+    type: string
+    example: users
+  id:
+    type: string
+    description: The Cloud Conformity ID of the user
+  attributes:
+    type: object
+    properties:
+      first-name:
+        type: string
+        description: User first name
+        example: John
+      last-name:
+        type: string
+        description: User last name
+        example: Smith
+      role:
+        type: string
+        description: The role which the user is assigned to.
+        enum: [ADMIN, POWER_USER, READ_ONLY, USER]
+      email:
+        type: string
+        description: User email address
+        example: john.smith@company.com
+  relationships:
+    type: object
+    properties:
+      organisation:
+        type: object
+        properties:
+          data:
+            type: object
+            properties:
+              type:
+                type: string
+                example: organisations
+              id:
+                type: string
+                description: Organisation identifier
+                example: R8CAIKU9A
+      accountAccessList:
+        type: array
+        description: User's access level for accounts in the organisation. This is included in
+            the response when the user role is Custom.
+        items:
+          type: object
+          properties:
+            account:
+              type: string
+              description: The account id within the organisation
+              example: A9_DsY12z
+            level:
+              type: string
+              description: The level of access the user has to the account
+              enum: [NONE | READONLY | FULL]

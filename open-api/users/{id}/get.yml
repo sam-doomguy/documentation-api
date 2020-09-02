@@ -9,25 +9,25 @@ parameters:
     description: User Id to get
 responses:
   200:
-    description: "Forbidden. This happens when a valid api key is not provided."
+    description: OK
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/403.yml"
+          $ref: "../schemas/get-single-user-200-response.yml"
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
           $ref: "../../shared-schemas/401.yml"
   403:
-    description: "Forbidden. This happens when a valid api key is not provided."
+    description: Forbidden. This happens when a valid api key is not provided.
     content:
       application/json:
         schema:
           $ref: "../../shared-schemas/403.yml"
   422:
-    description: "No such user. This happens when the provided id does not belong to any user."
+    description: No such user. This happens when the provided id does not belong to any user.
     content:
       application/json:
         schema:

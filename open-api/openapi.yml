@@ -12,7 +12,7 @@ paths:
     get:
       $ref: "./accounts/get.yml"
     post:
-      $ref: "./accounts/post.yml"
+      $ref: "./accounts/post/index.yml"
   /accounts/{accountId}:
     get:
       $ref: "./accounts/get.yml"

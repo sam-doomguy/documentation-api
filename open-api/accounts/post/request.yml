@@ -1,0 +1,52 @@
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      attributes:
+        type: object
+        required: [name, environment, subscriptionType, access]
+        properties:
+          name:
+            type: string
+            description: The Name of the account.
+            example: AWS Account 1
+          environment:
+            type: string
+            description: The Name of the environment.
+            example: Prod
+          costPackage:
+            type: boolean
+            deprecated: true
+            example: false
+            description: true for enabling the cost package add-on for the account (AWS spend
+              analysis, forecasting, monitoring) **Note:** The server will throw a 422 error if this
+              field is set to true for customers who do not have cost package enabled in any of
+              their AWS accounts.
+          hasRealTimeMonitoring:
+            type: boolean
+            deprecated: true
+            example: false
+            description: true for enabling the Real-Time Threat monitoring add-on **Note:** This
+              field will be replaced with `subscriptionType` in the future.
+          subscriptionType:
+            type: string
+            enum: [advanced, essentials]
+            example: advanced
+            description: /`advanced` comes with Real-Time threat monitoring enabled, `essentials`
+              comes with Real-Time threat monitoring disabled. Please note the server will not
+              accept both `hasRealTimeMonitoring` and `subscriptionType` in the request body. Please
+              provide either `hasRealTimeMonitoring` or `subscriptionType`.
+          access:
+            type: object
+            properties:
+              keys:
+                type: object
+                properties:
+                  roleArn:
+                    type: string
+                    description: The Role ARN of the role you have already created to grant access
+                      to Cloud Conformity.
+                  externalId:
+                    type: string
+                    description: The External ID that you have requested on the previous step.

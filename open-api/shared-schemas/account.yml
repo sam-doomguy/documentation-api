@@ -1,0 +1,83 @@
+type: object
+properties:
+  name:
+    type: string
+    example: "MyAccount"
+    description: The Name of the account.
+  environment:
+    type: string
+    description: The Name of the environment.
+    example: Prod
+  awsaccount-id:
+    type: string
+    description: AWS account ID.
+    example: 123456789012
+  status:
+    type: string
+    description: Status of the account.
+    enum: [ACTIVE, TRIALLING]
+  has-real-time-monitoring:
+    type: boolean
+    description: true when the Real-Time Threat monitoring add-on is enabled.
+    example: true
+    deprecated: true
+  cost-package:
+    type: boolean
+    description: true when the cost package add-on for the account is enabled.
+    deprecated: true
+    example: false
+  created-date:
+    type: number
+    description: Account creation date.
+    example: 1505595441887
+  settings:
+    type: object
+    description: Settings of the account.
+    properties:
+      communication:
+        type: object
+        description: Communication settings.
+        properties:
+          channels:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of the communication channel.
+                  example: email
+                users:
+                  type: array
+                  description: List of user IDs.
+                  items:
+                    type: string
+                    description: User ID.
+                    example: H13rFYTvl
+                enabled:
+                  type: boolean
+                  description: true if the channel is enabled.
+                  example: true
+                levels:
+                  type: array
+                  items:
+                    type: string
+                    description: Severity level of the notifications that the channel receives notification.
+                    enum: [EXTREME, VERY_HIGH, HIGH, MEDIUM, LOW]
+                    example: EXTREME
+      rules:
+        type: object
+        description: Rules settings.
+      access:
+        type: object
+        description: Access settings.
+        properties:
+          type:
+            type: string
+            enum: [KEY, CROSS_ACCOUNT]
+            description: Type of access to the account.
+            example: CROSS_ACCOUNT
+          stackId:
+            type: string
+            description: stackId of the account.
+            example: arn:aws:cloudformation:us-east-1:123456789012:stack/CloudConformity/56db5b90-7ebb-11e7-8a78-500c28902e99

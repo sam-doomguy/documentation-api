@@ -144,7 +144,7 @@ paths:
     get:
       $ref: "./users/{id}/get.yml"
     delete:
-      $ref: "./users/{id}/delete.yml"
+      $ref: "./users/{id}/delete/index.yml"
     patch:
       $ref: "./users/{id}/patch.yml"
   /users/sso:

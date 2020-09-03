@@ -6,18 +6,18 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../schemas/get-single-user-200-response.yml"
+          $ref: "../../shared-schemas/get-single-user-200-response.yml"
   401:
     description: "Unauthorized. The requester user does not have enough privilege."
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/401.yml"
+          $ref: "../../../shared-schemas/401.yml"
   403:
     description: "Forbidden. This happens when a valid api key is not provided."
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/403.yml"
+          $ref: "../../../shared-schemas/403.yml"
 security:
   - Authorizer: []

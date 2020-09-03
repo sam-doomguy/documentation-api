@@ -142,7 +142,7 @@ paths:
       $ref: "./users/post/index.yml"
   /users/{id}:
     get:
-      $ref: "./users/{id}/get.yml"
+      $ref: "./users/{id}/get/index.yml"
     delete:
       $ref: "./users/{id}/delete/index.yml"
     patch:
@@ -152,7 +152,7 @@ paths:
       $ref: "./users/sso/post/index.yml"
   /users/whoami:
     get:
-      $ref: "./users/whoami/get.yml"
+      $ref: "./users/whoami/get/index.yml"
 
 components:
   securitySchemes:

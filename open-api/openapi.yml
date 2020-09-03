@@ -137,7 +137,7 @@ paths:
       $ref: "./template-scanner/scan/post.yml"
   /users:
     get:
-      $ref: "./users/get.yml"
+      $ref: "./users/get/index.yml"
     post:
       $ref: "./users/post.yml"
   /users/{id}:

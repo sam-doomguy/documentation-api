@@ -1,0 +1,44 @@
+type: object
+properties:
+  data:
+    type: object
+    description: A JSON object containing the following properties
+    properties:
+      attributes:
+        type: object
+        description: Object containing user attributes.
+        required: [firstName, lastName, email, role]
+        properties:
+          firstName:
+            type: string
+            description: first name of the user.
+            example: John
+          lastName:
+            type: string
+            description: last name of the user.
+            example: Smith
+          email:
+            type: string
+            description: email of the user.
+            example: Smith
+          role:
+            type: string
+            description: The role which the user is assigned to.
+            enum: [ADMIN, POWER_USER, READ_ONLY, USER]
+          accessList:
+            type: array
+            description: User's access level for accounts in the organisation. This is included in the response when the user role is Custom.
+              Please note only accounts (listed inside the `accessList`) in the request will get updated, existing account permissions are retained.
+              If a new user is invited with the role of `USER` and an `accessList` is not provided, the users level permission for all accounts will default to `NONE`
+              If a user is re-invited with the role of `USER`, the user will maintain the old account level permissions, unless an `accessList` is provided to update the permission.
+            items:
+              type: object
+              properties:
+                account:
+                  type: string
+                  description: The account id within the organisation
+                  example: A9_DsY12z
+                level:
+                  type: string
+                  description: The level of access the user has to the account
+                  enum: [NONE | READONLY | FULL]

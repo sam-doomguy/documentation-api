@@ -139,7 +139,7 @@ paths:
     get:
       $ref: "./users/get/index.yml"
     post:
-      $ref: "./users/post.yml"
+      $ref: "./users/post/index.yml"
   /users/{id}:
     get:
       $ref: "./users/{id}/get.yml"
@@ -149,7 +149,7 @@ paths:
       $ref: "./users/{id}/patch.yml"
   /users/sso:
     post:
-      $ref: "./users/sso/post.yml"
+      $ref: "./users/sso/post/index.yml"
   /users/whoami:
     get:
       $ref: "./users/whoami/get.yml"

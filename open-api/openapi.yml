@@ -146,7 +146,7 @@ paths:
     delete:
       $ref: "./users/{id}/delete/index.yml"
     patch:
-      $ref: "./users/{id}/patch.yml"
+      $ref: "./users/{id}/patch/index.yml"
   /users/sso:
     post:
       $ref: "./users/sso/post/index.yml"

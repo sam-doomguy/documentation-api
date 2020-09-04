@@ -10,12 +10,12 @@ servers:
 paths:
   /accounts:
     get:
-      $ref: "./accounts/get.yml"
+      $ref: "./accounts/get/index.yml"
     post:
       $ref: "./accounts/post/index.yml"
   /accounts/{accountId}:
     get:
-      $ref: "./accounts/get.yml"
+      $ref: "./accounts/get/index.yml"
     delete:
       $ref: "./accounts/delete.yml"
     patch:

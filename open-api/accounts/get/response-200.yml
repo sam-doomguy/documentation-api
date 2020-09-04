@@ -1,0 +1,80 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          example: accounts
+        id:
+          type: string
+          description: ID of the accounts
+          example: AgA12vIwb
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the account.
+              example: Test
+            environment:
+              type: string
+              description: The Name of the environment.
+              example: Prod
+            awsaccount-id:
+              type: string
+              description: AWS account ID.
+              example: 123456789012
+            has-real-time-monitoring:
+              type: boolean
+              description: true when the Real-Time Threat monitoring add-on is enabled.
+              example: true
+              deprecated: true
+            created-date:
+              type: number
+              description: Account creation date and time.
+              example: 1505595441887
+            last-notified-date:
+              type: number
+              description: Last date and time a notification has been sent for the account.
+              example: 1505595441887
+            last-checked-date:
+              type: number
+              description: Last date and time the account has been checked by Cloud Conformity bot.
+              example: 1505595441887
+            last-monitoring-event-date:
+              type: number
+              description: Last date and time a monitoring event has been generated for the account.
+              example: 1505595441887
+            billing-account-id:
+              type: string
+              description: The master AWS account ID (Cloud Conformity ID) which holds the billing data for this account.
+              example: r1gyR4cqg
+              deprecated: true
+            subscription-type:
+              type: string
+              enum: [advanced, essentials]
+              example: advanced
+              description: /`advanced` comes with Real-Time threat monitoring enabled, `essentials`
+                comes with Real-Time threat monitoring disabled. Please note the server will not
+                accept both `hasRealTimeMonitoring` and `subscriptionType` in the request body. Please
+                provide either `hasRealTimeMonitoring` or `subscriptionType`.
+        relationships:
+          type: object
+          properties:
+            organisation:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      example: organisations
+                    id:
+                      type: string
+                      description: ID of the organisation
+                      example: B1nHYYpwx
+

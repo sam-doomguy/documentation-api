@@ -1,0 +1,17 @@
+summary: Get all accounts
+description: This endpoint is used to get all of the Cloud Conformity accounts of the user's organisation.
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: "./response-200.yml"
+  401:
+    description: "Unauthorized. The requester user does not have enough privilege."
+    content:
+      application/json:
+        schema:
+          $ref: "../../shared-schemas/401.yml"
+security:
+  - Authorizer: []

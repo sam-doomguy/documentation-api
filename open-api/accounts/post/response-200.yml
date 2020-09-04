@@ -24,15 +24,4 @@ properties:
         type: object
         properties:
           organisation:
-            type: object
-            properties:
-              data:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: organisations
-                  id:
-                    type: string
-                    description: ID of the organisation
-                    example: B1nHYYpwx
+            $ref: "../../shared-schemas/organisation.yml"

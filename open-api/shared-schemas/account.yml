@@ -21,15 +21,62 @@ properties:
     description: true when the Real-Time Threat monitoring add-on is enabled.
     example: true
     deprecated: true
+  security-package:
+    type: boolean
+    description: true when the security package is active for the account.
+    example: true
   cost-package:
     type: boolean
     description: true when the cost package add-on for the account is enabled.
     deprecated: true
     example: false
   created-date:
-    type: number
+    type: integer
     description: Account creation date.
     example: 1505595441887
+  last-notified-date:
+    type: integer
+    description: Last date and time a notification has been sent for the account.
+    example: 1505595441887
+  last-checked-date:
+    type: integer
+    description: Last date and time the account has been checked by Cloud Conformity Bot.
+    example: 1505595441887
+  last-monitoring-event-date:
+    type: integer
+    description: Last date and time a monitoring event has been generated for the account.
+    example: 1505595441887
+  billing-account-id:
+    type: string
+    description: The master AWS account ID (Cloud Conformity ID) which holds the billing data for this account.
+    example: r1gyR4cqg
+    deprecated: true
+  is-billing-account:
+    type: boolean
+    description: true if this account is a master billing account and other member accounts send billing information to.
+    example: true
+    deprecated: true
+  subscription-type:
+    type: string
+    enum: [advanced, essentials]
+    example: advanced
+    description: /`advanced` comes with Real-Time threat monitoring enabled, `essentials`
+      comes with Real-Time threat monitoring disabled. Please note the server will not
+      accept both `hasRealTimeMonitoring` and `subscriptionType` in the request body. Please
+      provide either `hasRealTimeMonitoring` or `subscriptionType`.
+  bot-status:
+    type: string
+    enum: [PENDING, RUNNING]
+    description: Status of the Conformity Bot for the account.
+    example: RUNNING
+  cloud-type:
+    type: string
+    enum: [aws, azure]
+    description: Cloud provider that the rule applies to.
+  managed-group-id:
+    type: string
+    description: ID of the managed group.
+    example: rhGZeSTwT
   settings:
     type: object
     description: Settings of the account.
@@ -66,8 +113,60 @@ properties:
                     enum: [EXTREME, VERY_HIGH, HIGH, MEDIUM, LOW]
                     example: EXTREME
       rules:
+        type: array
+        items:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+              description: false if the rule is manually configured to be disabled for the account.
+              example: false
+            id:
+              type: string
+              description: ID of the rule.
+              example: S3-021
+            riskLevel:
+              type: string
+              description: Risk level of the Conformity rule.
+              enum: [LOW, MEDIUM, HIGH, VERY_HIGH, EXTREME]
+      bot:
         type: object
-        description: Rules settings.
+        description: Conformity Bot settings for the account.
+        properties:
+          disabledRegions:
+            type: object
+            description: AWS regions which Conformity Bot is disabled for the account (Only used for AWS accounts).
+            properties:
+              us-east-1:
+                type: boolean
+                description: true when the Conformity Bot is disabled for `us-east-1`.
+                example: true
+              us-west-2:
+                type: boolean
+                description: true when the Conformity Bot is disabled for `us-west-2`.
+                example: true
+          lastModifiedFrom:
+            type: string
+            description: The IP address where the last modification to Conformity Bot has been done from.
+            example: "13.237.98.102"
+          disabled:
+            type: boolean
+            description: true if the Conformity Bot is disabled for the current accounts.
+            example: false
+          disabledUntil:
+            type: integer
+            description: The date and time when the disablement will be lifted for the account.
+            example: 1505595441887
+          delay:
+            type: integer
+            minimum: 1
+            maximum: 12
+            description: Number of hours between two Conformity Bot runs.
+            example: 2
+          lastModifiedBy:
+            type: string
+            description: Conformity User ID of the user who last modified the Conformity Bot settings.
+            example: NHohT7Gr7
       access:
         type: object
         description: Access settings.
@@ -81,3 +180,87 @@ properties:
             type: string
             description: stackId of the account.
             example: arn:aws:cloudformation:us-east-1:123456789012:stack/CloudConformity/56db5b90-7ebb-11e7-8a78-500c28902e99
+  cost:
+    type: object
+    deprecated: true
+    properties:
+      version:
+        type: string
+        description: Version of the cost package.
+        example: "1.0.14"
+      last-updated-date:
+        type: integer
+        description: Last date and time the cost information has been updated.
+        example: 1599184207280
+      summary:
+        type: object
+        properties:
+          mostExpensiveService:
+            type: string
+            description: The name of the most costly service of the account.
+            example: Amazon Route 53
+          waste:
+            type: integer
+            description: "????"
+            example: 4
+          unit:
+            type: string
+            description: Currency of the cost.
+            example: USD
+          costToDate:
+            type: number
+            description: The amount of total cost for the account calculated from the beginning of the month.
+            example: 1.0849829999999998
+          billId:
+            type: string
+            description: ID of the bill in the format of "YYYY-MM" (YYYY - 4 digit year and MM - 2 digit month).
+            example: 2020-09
+          optimisationRate:
+            type: string
+            description: "????"
+            example: 0
+          forecast:
+            type: number
+            description: The forecast for the current bill based on previous history.
+            example: 10.577014169151289
+          optimisationOpportunityCount:
+            type: integer
+            description: "????"
+            example: 1
+      billing-account-map:
+        type: object
+        properties:
+          payerAccount:
+            type: object
+            description: The information of the account which is paying for this account, if this is a member account and a master account is paying for it.
+            properties:
+              awsId:
+                type: string
+                description: AWS account ID of the payer account.
+                example: 917125559992
+              id:
+                type: string
+                description: Conformity ID of the payer account.
+                example: A7rUbWdt0
+      bills:
+        type: array
+        items:
+          type: object
+          description: A bill item for a particular month.
+          properties:
+            accountCost:
+              type: number
+              description: Cost of the bill for the month.
+              example: 9.577014169151289
+            id:
+              type: string
+              description: ID of the bill in the format of "YYYY-MM" (YYYY - 4 digit year and MM - 2 digit month).
+              example: 2020-09
+            status:
+              type: string
+              description: The status of the bill.
+              enum: [pending, partial, succeeded]
+            current:
+              type: boolean
+              description: true if this item is the bill of the current month.
+              example: true

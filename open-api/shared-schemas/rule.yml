@@ -64,4 +64,4 @@ properties:
   provider:
     type: string
     description: Cloud provider that the rule applies to
-    enum: ["aws", "azure"]
+    enum: [aws, azure]

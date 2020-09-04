@@ -11,7 +11,7 @@ Below is a list of the available APIs:
 
 ## User Privileges
 
-There are 4 possible Cloud Conformity roles. Each role grants different levels of access via the api. The roles are:
+There are 4 possible Cloud Conformity roles. Each role grants different levels of access via the API. The roles are:
 
 - **organisation admin**
 - **organisation user with full access to account**
@@ -29,7 +29,7 @@ User access to each endpoint is listed below:
 | DELETE /profiles/id _(delete a profile and rule settings)_         |   Y   |        N         |       N        |       N        |
 | POST /profiles/id/apply _(apply a profile to a set of accounts)_   |   Y   |        N         |       N        |       N        |
 
-- Response will depend on the ProfileId's, Include Settings flag and Types condition added to the query parameter. For example, if a user has no access to a profile and they modify profile details, an error will be thrown. Alternatively, if a user has no access to a profile and they modify rule settings for that profile, an error will be thrown.
+- The response will depend on the ProfileId's, Include Settings flag and Types condition added to the query parameter. For example, if a user has no access to a profile and they modify profile details, an error will be thrown. Alternatively, if a user has no access to a profile and they modify rule settings for that profile, an error will be thrown.
 
 | Parameters | Details                                                                                                                          | Value        |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -189,7 +189,8 @@ Example Response:
             "ttl": true
           }
         ],
-        "riskLevel": "MEDIUM"
+        "riskLevel": "MEDIUM",
+        "provider": "aws"
       }
     }
   ],
@@ -298,8 +299,8 @@ This option allows you to add rule settings to your profile at creation or after
 ###### Parameters
 
 - `id`: Profile ID.
-- `data`: All of the below fields must be populated within request body:
-  - `data`: An array containing JSONAPI compliant data objects with following properties:
+- `data`: All of the below fields must be populated within the request body:
+  - `data`: An array containing JSONAPI compliant data objects with the following properties:
     - `type`: `"profiles"`,
     - `attributes`: Object containing profile attributes. For more details consult the [profile-attributes-table](#profile-attributes).
     - `relationships`: Object containing rule settings that are associated to this profile:
@@ -319,6 +320,7 @@ There are some attributes you need to pass inside the rule settings attributes o
 | enabled               | This attribute determines whether this setting is enabled                | true, false                                      |
 | riskLevel             | This attribute configures the level of risk assigned to the rule         | "EXTREME", "VERY_HIGH", "HIGH", "MEDIUM", "LOW"  |
 | extraSettings         | This array stores objects that configure the extra settings to this rule | {name: "ttl", type: "ttl", value: 72, ttl: true} |
+| provider              | This attribute identifies the provider to this rule                      | "aws", "azure"                                   |
 | exceptions            | This array stores objects that configure exceptions to this rule         |                                                  |
 | exceptions: tags      | This attribute tags this exception                                       | "NewS3BucketTag" or "tagKey::tagValue"           |
 | exceptions: resources | This attribute applies this exception to the following resources         | "i-xxxx"                                         |
@@ -362,7 +364,8 @@ curl -X POST -H "Content-Type: application/vnd.api+json" \
           "resources": []
         },
         "extraSettings": [],
-        "riskLevel": "LOW"
+        "riskLevel": "LOW",
+        "provider": "aws"
       }
     },
     {
@@ -382,7 +385,8 @@ curl -X POST -H "Content-Type: application/vnd.api+json" \
             "ttl": true
           }
         ],
-        "riskLevel": "MEDIUM"
+        "riskLevel": "MEDIUM",
+        "provider": "aws"
       }
     }
   ],
@@ -428,7 +432,8 @@ Example Response:
           "resources": []
         },
         "extraSettings": [],
-        "riskLevel": "LOW"
+        "riskLevel": "LOW",
+        "provider": "aws"
       }
     },
     {
@@ -448,7 +453,8 @@ Example Response:
             "ttl": true
           }
         ],
-        "riskLevel": "MEDIUM"
+        "riskLevel": "MEDIUM",
+        "provider": "aws"
       }
     }
   ],
@@ -502,7 +508,8 @@ curl -X POST -H "Content-Type: application/vnd.api+json" \
           "resources": []
         },
         "extraSettings": [],
-        "riskLevel": "LOW"
+        "riskLevel": "LOW",
+        "provider": "aws"
       }
     },
     {
@@ -522,7 +529,8 @@ curl -X POST -H "Content-Type: application/vnd.api+json" \
             "ttl": true
           }
         ],
-        "riskLevel": "MEDIUM"
+        "riskLevel": "MEDIUM",
+        "provider": "aws"
       }
     }
   ],
@@ -568,7 +576,8 @@ Example Response:
           "resources": []
         },
         "extraSettings": [],
-        "riskLevel": "LOW"
+        "riskLevel": "LOW",
+        "provider": "aws"
       }
     },
     {
@@ -588,7 +597,8 @@ Example Response:
             "ttl": true
           }
         ],
-        "riskLevel": "MEDIUM"
+        "riskLevel": "MEDIUM",
+        "provider": "aws"
       }
     }
   ],
@@ -732,14 +742,14 @@ To update rule settings along with your profile, only the settings passed in the
 ###### Parameters
 
 - `id`: Profile ID.
-- `data`: All of the below fields must be populated within request body:
-  - `data`: An array containing JSONAPI compliant data objects with following properties:
+- `data`: All of the below fields must be populated within the request body:
+  - `data`: An array containing JSONAPI compliant data objects with the following properties:
     - `type`: `"profiles"`,
     - `attributes`: Object containing profile attributes. For more details consult the [profile-attributes-table](#profile-attributes).
     - `relationships`: Object containing rule settings that are associated to this profile:
       - `ruleSettings`:
       - `data`: An array of associated rule settings.
-  - `included`: An array containing JSONAPI compliant data objects with following properties:
+  - `included`: An array containing JSONAPI compliant data objects with the following properties:
     - `type`: `"rules"`,
     - `id`: This attribute is the id of the rule type being updated e.g. S3-001 (refer to Cloud Conformity rules for the full list). If the id belongs to a deprecated rule, an error will be thrown.
     - `attributes`: Object containing profile attributes. For more details consult the [rule-settings-table](#rule-settings).
@@ -761,7 +771,8 @@ curl -X PATCH -H "Content-Type: application/vnd.api+json" \
           "resources": []
         },
         "extraSettings": [],
-        "riskLevel": "LOW"
+        "riskLevel": "LOW",
+        "provider": "aws"
       }
     }
   ],
@@ -803,7 +814,8 @@ Example Response:
           "resources": []
         },
         "extraSettings": [],
-        "riskLevel": "LOW"
+        "riskLevel": "LOW",
+        "provider": "aws"
       }
     },
     {
@@ -816,7 +828,8 @@ Example Response:
           "resources": []
         },
         "extraSettings": [],
-        "riskLevel": "LOW"
+        "riskLevel": "LOW",
+        "provider": "aws"
       }
     },
     {
@@ -836,7 +849,8 @@ Example Response:
             "ttl": true
           }
         ],
-        "riskLevel": "MEDIUM"
+        "riskLevel": "MEDIUM",
+        "provider": "aws"
       }
     }
   ],

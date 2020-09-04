@@ -13,35 +13,35 @@ paths:
       $ref: "./accounts/get/index.yml"
     post:
       $ref: "./accounts/post/index.yml"
-  /accounts/{accountId}:
+  /accounts/{id}:
     get:
       $ref: "./accounts/get/index.yml"
     delete:
       $ref: "./accounts/delete.yml"
     patch:
       $ref: "./accounts/patch.yml"
-  /accounts/{accountId}/subscription:
+  /accounts/{id}/subscription:
     patch:
-      $ref: "./accounts/{accountId}/subscription/patch.yml"
-  /accounts/{accountId}/access:
+      $ref: "./accounts/{id}/subscription/patch.yml"
+  /accounts/{id}/access:
     get:
-      $ref: "./accounts/{accountId}/access/get.yml"
-  /accounts/{accountId}/settings/rules/{ruleId}:
+      $ref: "./accounts/{id}/access/get/index.yml"
+  /accounts/{id}/settings/rules/{ruleId}:
     get:
-      $ref: "./accounts/{accountId}/settings/rules/{ruleId}/get.yml"
+      $ref: "./accounts/{id}/settings/rules/{ruleId}/get.yml"
     patch:
-      $ref: "./accounts/{accountId}/settings/rules/{ruleId}/patch.yml"
-  /accounts/{accountId}/scan:
+      $ref: "./accounts/{id}/settings/rules/{ruleId}/patch.yml"
+  /accounts/{id}/scan:
     post:
-      $ref: "./accounts/{accountId}/scan/post.yml"
-  /accounts/{accountId}/settings/rules:
+      $ref: "./accounts/{id}/scan/post.yml"
+  /accounts/{id}/settings/rules:
     get:
-      $ref: "./accounts/{accountId}/settings/rules/get.yml"
+      $ref: "./accounts/{id}/settings/rules/get.yml"
     patch:
-      $ref: "./accounts/{accountId}/settings/rules/patch.yml"
-  /accounts/{accountId}/settings/bot:
+      $ref: "./accounts/{id}/settings/rules/patch.yml"
+  /accounts/{id}/settings/bot:
     patch:
-      $ref: "./accounts/{accountId}/settings/bot/patch.yml"
+      $ref: "./accounts/{id}/settings/bot/patch.yml"
   /api-keys:
     get:
       $ref: "./api-keys/get.yml"

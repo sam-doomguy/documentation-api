@@ -29,7 +29,7 @@ properties:
     type: object
     properties:
       organisation:
-        $ref: "../shared-schemas/organisation.yml"
+        $ref: "../shared-schemas/organisation-short.yml"
       accountAccessList:
         type: array
         description: User's access level for accounts in the organisation. This is included in

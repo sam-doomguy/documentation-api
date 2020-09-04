@@ -242,6 +242,21 @@ properties:
                 type: string
                 description: Conformity ID of the payer account.
                 example: A7rUbWdt0
+          linkedAccounts:
+            type: array
+            description: List of the accounts linked to the current account (this account is a master account which pays for them).
+            items:
+              type: object
+              description: The information of the account which this account pays for (member account).
+              properties:
+                awsId:
+                  type: string
+                  description: AWS account ID of the member account.
+                  example: 917125559992
+                id:
+                  type: string
+                  description: Conformity ID of the member account.
+                  example: A7rUbWdt0
       bills:
         type: array
         items:

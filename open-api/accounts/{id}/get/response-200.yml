@@ -18,4 +18,4 @@ properties:
           type: object
           properties:
             organisation:
-              $ref: "../../../shared-schemas/organisation.yml"
+              $ref: "../../../shared-schemas/organisation-short.yml"

@@ -1,0 +1,33 @@
+summary: Update account subscription
+description: A PATCH request to this endpoint allows ADMINs to change the add-on package subscription of the specified account.
+  We recommend you first `GET /accounts/{id}` to verify that the subscription needs to be updated.
+  Cost package features will no longer be available for new customers, and existing customers who do not have cost package enabled in any of their AWS accounts (Please take note of the changes in the Parameters).
+  The field `hasRealTimeMonitoring` is planned to be replaced with `subscriptionType` in the future. We advise new customers to use the new field `subscriptionType`, existing customers are able to continue using the field `hasRealTimeMonitoring` until it has been replaced. When an account has the `subscriptionType` of 'advanced', Real-Time threat monitoring is enabled for the account. When an account has subscriptionType of 'essentials', Real-Time threat monitoring is disabled for the account.
+parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The Cloud Conformity ID of the account.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./request.yml"
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: "./response-200.yml"
+  401:
+    description: "Unauthorized. The requester user does not have enough privilege."
+    content:
+      application/json:
+        schema:
+          $ref: "../../../../shared-schemas/401.yml"
+security:
+  - Authorizer: []

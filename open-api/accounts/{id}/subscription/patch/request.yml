@@ -1,0 +1,31 @@
+type: object
+required: [data]
+properties:
+  data:
+    type: object
+    required: [attributes]
+    properties:
+      attributes:
+        type: object
+        description: Please note the server will not accept both `hasRealTimeMonitoring` and `subscriptionType` in the request body. Please provide either `hasRealTimeMonitoring` or `subscriptionType`.
+        properties:
+          costPackage:
+            type: boolean
+            deprecated: true
+            example: false
+            description: true for enabling the cost package add-on for the account (AWS spend
+              analysis, forecasting, monitoring) **Note:** The server will throw a 422 error if this
+              field is set to true for customers who do not have cost package enabled in any of
+              their AWS accounts.
+          hasRealTimeMonitoring:
+            type: boolean
+            deprecated: true
+            example: false
+            description: true for enabling the Real-Time Threat monitoring add-on **Note:** This
+              field will be replaced with `subscriptionType` in the future.
+          subscriptionType:
+            type: string
+            enum: [advanced, essentials]
+            example: advanced
+            description: /`advanced` comes with Real-Time threat monitoring enabled, `essentials`
+              comes with Real-Time threat monitoring disabled.

@@ -22,7 +22,7 @@ paths:
       $ref: "./accounts/patch.yml"
   /accounts/{id}/subscription:
     patch:
-      $ref: "./accounts/{id}/subscription/patch.yml"
+      $ref: "./accounts/{id}/subscription/patch/index.yml"
   /accounts/{id}/access:
     get:
       $ref: "./accounts/{id}/access/get/index.yml"

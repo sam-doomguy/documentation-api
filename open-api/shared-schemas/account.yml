@@ -155,7 +155,7 @@ properties:
             example: false
           disabledUntil:
             type: integer
-            description: The date and time when the disablement will be lifted for the account.
+            description: A date-time in Unix Epoch timestamp format (in milliseconds). Setting this value will disable the Conformity Bot until the date and time indicated. Setting this value to `null` will disable the Conformity Bot indefinitely if `disabled` field is set to `true`.
             example: 1505595441887
           delay:
             type: integer

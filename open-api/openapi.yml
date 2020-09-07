@@ -19,7 +19,7 @@ paths:
     delete:
       $ref: "./accounts/delete.yml"
     patch:
-      $ref: "./accounts/patch.yml"
+      $ref: "./accounts/{id}/patch/index.yml"
   /accounts/{id}/subscription:
     patch:
       $ref: "./accounts/{id}/subscription/patch/index.yml"

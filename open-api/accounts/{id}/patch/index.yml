@@ -1,5 +1,6 @@
-summary: Get account details
-description: This endpoint allows you to get the details of the specified account.
+summary: Update account
+description: This endpoint allows ADMINs to change the account name, enviornment, and code.
+  We recommend you first use `GET /accounts/{id}` to verify that the subscription needs to be updated.
 parameters:
   - in: path
     name: id
@@ -7,6 +8,12 @@ parameters:
       type: string
     required: true
     description: The Cloud Conformity ID of the account.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./request.yml"
 responses:
   200:
     description: OK

@@ -15,9 +15,9 @@ paths:
       $ref: "./accounts/post/index.yml"
   /accounts/{id}:
     get:
-      $ref: "./accounts/get/index.yml"
+      $ref: "./accounts/{id}/get/index.yml"
     delete:
-      $ref: "./accounts/delete.yml"
+      $ref: "./accounts/{id}/delete/index.yml"
     patch:
       $ref: "./accounts/{id}/patch/index.yml"
   /accounts/{id}/subscription:
@@ -31,9 +31,6 @@ paths:
       $ref: "./accounts/{id}/settings/rules/{ruleId}/get/index.yml"
     patch:
       $ref: "./accounts/{id}/settings/rules/{ruleId}/patch/index.yml"
-  /accounts/{id}/scan:
-    post:
-      $ref: "./accounts/{id}/scan/post/index.yml"
   /accounts/{id}/settings/rules:
     get:
       $ref: "./accounts/{id}/settings/rules/get/index.yml"
@@ -42,6 +39,9 @@ paths:
   /accounts/{id}/settings/bot:
     patch:
       $ref: "./accounts/{id}/settings/bot/patch/index.yml"
+  /accounts/{id}/scan:
+    post:
+      $ref: "./accounts/{id}/scan/post/index.yml"
   /api-keys:
     get:
       $ref: "./api-keys/get.yml"

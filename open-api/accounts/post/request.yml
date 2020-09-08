@@ -50,3 +50,15 @@ properties:
                   externalId:
                     type: string
                     description: The External ID that you have requested on the previous step.
+example:
+  data:
+    type: account
+    attributes:
+      name: Myaccount
+      environment: MyEnv
+      access:
+        keys:
+          roleArn: YOUR_ROLE_ARN
+          externalId: THE_EXTERNAL_ID
+      costPackage: true
+      hasRealTimeMonitoring: true

@@ -41,7 +41,7 @@ properties:
                 description: Name of the cloud provider
                 example: aws
               extraSettings:
-                $ref: "../../../../../shared-schemas/extra-settings.yml"
+                $ref: "../../shared-schemas/extra-settings.yml"
           note:
             type: string
             description: A detailed message regarding the reason for this rule configuration.

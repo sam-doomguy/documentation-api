@@ -1,4 +1,5 @@
 type: array
+description: Rule `ruleId` is not configurable | remove `ruleSetting.extraSettings`, you may only change risk level or enable/disable this rule. If you are directly copying this rule from another account and getting this message, this rule may have been previously configurable and is no longer.
 items:
   type: object
   properties:

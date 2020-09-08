@@ -38,7 +38,7 @@ paths:
     get:
       $ref: "./accounts/{id}/settings/rules/get/index.yml"
     patch:
-      $ref: "./accounts/{id}/settings/rules/patch.yml"
+      $ref: "./accounts/{id}/settings/rules/patch/index.yml"
   /accounts/{id}/settings/bot:
     patch:
       $ref: "./accounts/{id}/settings/bot/patch/index.yml"

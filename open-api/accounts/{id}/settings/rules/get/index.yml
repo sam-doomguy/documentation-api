@@ -23,7 +23,7 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../shared-schemas/rules-response.yml"
+          $ref: "../../../../../shared-schemas/rules-response.yml"
   401:
     description: "Unauthorized. The requester user does not have enough privilege."
     content:

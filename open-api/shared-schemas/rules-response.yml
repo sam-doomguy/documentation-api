@@ -34,7 +34,7 @@ properties:
                       description: Rule ID.
                       example: RDS-018
                     extraSettings:
-                      $ref: "../shared-schemas/extra-settings.yml"
+                      $ref: "./extra-settings.yml"
                     enabled:
                       type: boolean
                       description: false if the rule is manually configured to be disabled for the account.
@@ -52,7 +52,7 @@ properties:
         type: object
         properties:
           organisation:
-            $ref: "../../../../../shared-schemas/organisation-short.yml"
+            $ref: "./organisation-short.yml"
   meta:
     type: object
     properties:

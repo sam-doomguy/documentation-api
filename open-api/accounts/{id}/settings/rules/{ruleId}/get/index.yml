@@ -16,7 +16,7 @@ parameters:
     required: true
     description: The ID of the rule.
   - in: query
-    name: id
+    name: notes
     schema:
       type: boolean
     required: false
@@ -34,5 +34,12 @@ responses:
       application/json:
         schema:
           $ref: "../../../../../../shared-schemas/401.yml"
+  404:
+    description: "Not found."
+    content:
+      application/json:
+        schema:
+          $ref: "../../../../../../shared-schemas/404.yml"
+
 security:
   - Authorizer: []

@@ -36,7 +36,7 @@ paths:
       $ref: "./accounts/{id}/scan/post/index.yml"
   /accounts/{id}/settings/rules:
     get:
-      $ref: "./accounts/{id}/settings/rules/get.yml"
+      $ref: "./accounts/{id}/settings/rules/get/index.yml"
     patch:
       $ref: "./accounts/{id}/settings/rules/patch.yml"
   /accounts/{id}/settings/bot:

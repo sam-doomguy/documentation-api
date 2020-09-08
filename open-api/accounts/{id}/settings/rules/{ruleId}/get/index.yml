@@ -1,0 +1,38 @@
+summary: Get Rule Setting
+description: A GET request to this endpoint allows you to get configured rule setting for the specified rule Id of the specified account.
+  If a specific rule has never been configured, the request will result in a 404 error.
+  For example, even if our bots run rule RDS-018 for your account hourly, if you have never configured it, trying to get rule settings for RDS-018 will result in a 404 error.
+parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The Cloud Conformity ID of the account.
+  - in: path
+    name: ruleId
+    schema:
+      type: string
+    required: true
+    description: The ID of the rule.
+  - in: query
+    name: id
+    schema:
+      type: boolean
+    required: false
+    description: Optional parameter to get notes for the specified rule setting.
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: "./response-200.yml"
+  401:
+    description: "Unauthorized. The requester user does not have enough privilege."
+    content:
+      application/json:
+        schema:
+          $ref: "../../../../../../shared-schemas/401.yml"
+security:
+  - Authorizer: []

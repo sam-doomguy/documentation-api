@@ -28,7 +28,7 @@ paths:
       $ref: "./accounts/{id}/access/get/index.yml"
   /accounts/{id}/settings/rules/{ruleId}:
     get:
-      $ref: "./accounts/{id}/settings/rules/{ruleId}/get.yml"
+      $ref: "./accounts/{id}/settings/rules/{ruleId}/get/index.yml"
     patch:
       $ref: "./accounts/{id}/settings/rules/{ruleId}/patch.yml"
   /accounts/{id}/scan:

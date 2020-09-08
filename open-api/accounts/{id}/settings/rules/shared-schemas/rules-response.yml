@@ -34,7 +34,7 @@ properties:
                       description: Rule ID.
                       example: RDS-018
                     extraSettings:
-                      $ref: "../../../../../shared-schemas/extra-settings.yml"
+                      $ref: "../../../../shared-schemas/extra-settings.yml"
                     enabled:
                       type: boolean
                       description: false if the rule is manually configured to be disabled for the account.
@@ -52,7 +52,7 @@ properties:
         type: object
         properties:
           organisation:
-            $ref: "../../../../../../shared-schemas/organisation-short.yml"
+            $ref: "../../../../../shared-schemas/organisation-short.yml"
   meta:
     type: object
     properties:
@@ -74,3 +74,65 @@ properties:
               type: string
               description: Note added to the rule.
               example: hello world
+example:
+  data:
+    type: accounts
+    id: AgA12vIwb
+    attributes:
+      settings:
+        rules:
+          - riskLevel: VERY_HIGH
+            id: CT-001
+            extraSettings:
+            provider: aws
+            enabled: true
+          - riskLevel: MEDIUM
+            id: RTM-005
+            extraSettings:
+              - name: authorisedCountries
+                countries: true
+                type: countries
+                value:
+                values:
+                  - value: CA
+                    label: Canada
+                  - value: US
+                    label: United States
+            provider: aws
+            enabled: false
+          - ruleExists: false
+            riskLevel: MEDIUM
+            id: RTM-008
+            extraSettings:
+              - name: authorisedRegions
+                regions: true
+                type: regions
+                value:
+                values:
+                  - eu-west-1
+                  - eu-west-2
+            provider: aws
+            enabled: false
+          - ruleExists: false
+            riskLevel: MEDIUM
+            id: RDS-018
+            exceptions:
+              resources:
+                - i-erw82heiu8
+              tags:
+                - mysql-backups
+            extraSettings:
+              - name: threshold
+                value: 90
+                values: []
+                type: []
+            provider: aws
+            enabled: false
+        access: {}
+      available-runs: 5
+      access:
+    relationships:
+      organisation:
+        data:
+          type: organisations
+          id: B1nHYYpwx

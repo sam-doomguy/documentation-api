@@ -1,0 +1,30 @@
+type: array
+items:
+  type: object
+  properties:
+    name:
+      type: string
+      description: Name of the extra setting
+      example: threshold
+    type:
+      type: string
+      description: Rule specific property.
+      example: regions
+    countries:
+      type: boolean
+      description: Rule specific property.
+      example: true
+    regions:
+      type: boolean
+      description: Rule specific property.
+      example: true
+    multiple:
+      type: boolean
+      description: Rule specific property.
+      example: true
+    value:
+      description: Customisable value for rules that take on single name/value pairs.
+      example: 90
+    values:
+      type: array
+      description: An array (sometimes of objects) rules that take on a set of of values

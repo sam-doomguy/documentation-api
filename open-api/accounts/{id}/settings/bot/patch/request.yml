@@ -43,4 +43,3 @@ properties:
           type: string
           description: Conformity account ID to apply the same configuration to.
           example: u_9NRVPBC
-

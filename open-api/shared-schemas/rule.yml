@@ -21,7 +21,14 @@ properties:
     items:
       type: string
       description: category that the rule belongs to.
-      enum: ["security", "cost-optimisation", "reliability", "performance-efficiency", "operational-excellence"]
+      enum:
+        [
+          "security",
+          "cost-optimisation",
+          "reliability",
+          "performance-efficiency",
+          "operational-excellence",
+        ]
   risk-level:
     type: string
     description: Configures the level of risk assigned to the rule.

@@ -33,7 +33,7 @@ properties:
       accountAccessList:
         type: array
         description: User's access level for accounts in the organisation. This is included in
-            the response when the user role is Custom.
+          the response when the user role is Custom.
         items:
           type: object
           properties:

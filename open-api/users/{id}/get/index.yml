@@ -13,7 +13,7 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/get-single-user-200-response.yml"
+          $ref: "../../../shared-schemas/single-user-response.yml"
   401:
     description: Unauthorized. The requester user does not have enough privilege.
     content:
@@ -31,6 +31,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/422-no-such-user.yml"
+          $ref: "../../../shared-schemas/422-no-such-user.yml"
 security:
   - Authorizer: []

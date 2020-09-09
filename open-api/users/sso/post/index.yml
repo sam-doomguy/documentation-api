@@ -26,6 +26,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../unprocessed-entity-422-reponse.yml"
+          $ref: "../../../shared-schemas/unprocessed-entity-422-response.yml"
 security:
   - Authorizer: []

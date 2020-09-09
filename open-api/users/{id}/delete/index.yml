@@ -32,6 +32,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/422-no-such-user.yml"
+          $ref: "../../../shared-schemas/422-no-such-user.yml"
 security:
   - Authorizer: []

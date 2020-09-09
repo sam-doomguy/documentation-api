@@ -44,97 +44,97 @@ paths:
       $ref: "./accounts/{id}/scan/post/index.yml"
   /api-keys:
     get:
-      $ref: "./api-keys/get.yml"
+      $ref: "./api-keys/get/index.yml"
   /api-keys/{keyId}:
     get:
-      $ref: "./api-keys/{keyId}/get.yml"
+      $ref: "./api-keys/{keyId}/get/index.yml"
   /checks:
     get:
-      $ref: "./checks/get.yml"
+      $ref: "./checks/get/index.yml"
     post:
-      $ref: "./checks/post.yml"
+      $ref: "./checks/post/index.yml"
   /checks/{checkId}:
     get:
-      $ref: "./checks/{checkId}/get.yml"
+      $ref: "./checks/{checkId}/get/index.yml"
   /events:
     get:
-      $ref: "./events/get.yml"
+      $ref: "./events/get/index.yml"
   /external-ids:
     post:
-      $ref: "./external-ids/post.yml"
+      $ref: "./external-ids/post/index.yml"
   /groups:
     get:
-      $ref: "./groups/get.yml"
+      $ref: "./groups/get/index.yml"
     post:
-      $ref: "./groups/post.yml"
+      $ref: "./groups/post/index.yml"
   /groups/{groupId}:
     get:
-      $ref: "./groups/{groupId}/get.yml"
+      $ref: "./groups/{groupId}/get/index.yml"
     delete:
-      $ref: "./groups/{groupId}/delete.yml"
+      $ref: "./groups/{groupId}/delete/index.yml"
     patch:
-      $ref: "./groups/{groupId}/patch.yml"
+      $ref: "./groups/{groupId}/patch/index.yml"
   /iac-scanning/scan:
     post:
-      $ref: "./iac-scanning/scan/post.yml"
+      $ref: "./iac-scanning/scan/post/index.yml"
   /organisation/external-id:
     get:
-      $ref: "./organisation/external-id/get.yml"
+      $ref: "./organisation/external-id/get/index.yml"
   /profiles:
     get:
-      $ref: "./profiles/get.yml"
+      $ref: "./profiles/get/index.yml"
     post:
-      $ref: "./profiles/post.yml"
+      $ref: "./profiles/post/index.yml"
   /profiles/{id}:
     get:
-      $ref: "./profiles/{id}/get.yml"
+      $ref: "./profiles/{id}/get/index.yml"
     delete:
-      $ref: "./profiles/{id}/delete.yml"
+      $ref: "./profiles/{id}/delete/index.yml"
     patch:
-      $ref: "./profiles/{id}/patch.yml"
+      $ref: "./profiles/{id}/patch/index.yml"
   /profiles/{id}/apply:
     post:
-      $ref: "./profiles/{id}/apply/post.yml"
+      $ref: "./profiles/{id}/apply/post/index.yml"
   /report-configs:
     get:
-      $ref: "./report-configs/get.yml"
+      $ref: "./report-configs/get/index.yml"
     post:
-      $ref: "./report-configs/post.yml"
+      $ref: "./report-configs/post/index.yml"
   /report-configs/{id}:
     get:
-      $ref: "./report-configs/{id}/get.yml"
+      $ref: "./report-configs/{id}/get/index.yml"
     delete:
-      $ref: "./report-configs/{id}/delete.yml"
+      $ref: "./report-configs/{id}/delete/index.yml"
     patch:
-      $ref: "./report-configs/{id}/patch.yml"
+      $ref: "./report-configs/{id}/patch/index.yml"
   /reports:
     get:
-      $ref: "./reports/get.yml"
+      $ref: "./reports/get/index.yml"
   /reports/{reportId}/{entityId}/{type}:
     get:
-      $ref: "./reports/{reportId}/{entityId}/{type}/get.yml"
+      $ref: "./reports/{reportId}/{entityId}/{type}/get/index.yml"
   /resources:
     get:
-      $ref: "./resources/get.yml"
+      $ref: "./resources/get/index.yml"
   /services:
     get:
-      $ref: "./services/get.yml"
+      $ref: "./services/get/index.yml"
   /settings/{settingId}:
     get:
-      $ref: "./settings/{settingId}/get.yml"
+      $ref: "./settings/{settingId}/get/index.yml"
     delete:
-      $ref: "./settings/{settingId}/delete.yml"
+      $ref: "./settings/{settingId}/delete/index.yml"
   /settings/communication:
     get:
-      $ref: "./settings/communication/get.yml"
+      $ref: "./settings/communication/get/index.yml"
     post:
-      $ref: "./settings/communication/post.yml"
+      $ref: "./settings/communication/post/index.yml"
   /settings/communication/{settingId}:
     patch:
-      $ref: "./settings/communication/{settingId}/patch.yml"
+      $ref: "./settings/communication/{settingId}/patch/index.yml"
   /template-scanner/scan:
     post:
-      $ref: "./template-scanner/scan/post.yml"
+      $ref: "./template-scanner/scan/post/index.yml"
   /users:
     get:
       $ref: "./users/get/index.yml"

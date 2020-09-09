@@ -34,19 +34,23 @@ properties:
               deprecated: true
             created-date:
               type: number
-              description: Account creation date and time.
+              description: A date-time in Unix Epoch timestamp format (in milliseconds) which
+                is the account creation date and time.
               example: 1505595441887
             last-notified-date:
               type: number
-              description: Last date and time a notification has been sent for the account.
+              description: A date-time in Unix Epoch timestamp format (in milliseconds) which
+                is the last date and time a notification has been sent for the account.
               example: 1505595441887
             last-checked-date:
               type: number
-              description: Last date and time the account has been checked by Cloud Conformity bot.
+              description: A date-time in Unix Epoch timestamp format (in milliseconds) which
+                is the last date and time the account has been checked by Cloud Conformity bot.
               example: 1505595441887
             last-monitoring-event-date:
               type: number
-              description: Last date and time a monitoring event has been generated for the account.
+              description: A date-time in Unix Epoch timestamp format (in milliseconds) which is the
+                last date and time a monitoring event has been generated for the account.
               example: 1505595441887
             billing-account-id:
               type: string

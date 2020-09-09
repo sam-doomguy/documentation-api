@@ -32,23 +32,28 @@ properties:
     example: false
   created-date:
     type: integer
-    description: Account creation date.
+    description: A date-time in Unix Epoch timestamp format (in milliseconds) which is the account
+      creation date.
     example: 1505595441887
   last-notified-date:
     type: integer
-    description: Last date and time a notification has been sent for the account.
+    description: A date-time in Unix Epoch timestamp format (in milliseconds) which is the last date
+      and time a notification has been sent for the account.
     example: 1505595441887
   last-checked-date:
     type: integer
-    description: Last date and time the account has been checked by Cloud Conformity Bot.
+    description: A date-time in Unix Epoch timestamp format (in milliseconds) which is the last date
+      and time the account has been checked by Cloud Conformity Bot.
     example: 1505595441887
   last-monitoring-event-date:
     type: integer
-    description: Last date and time a monitoring event has been generated for the account.
+    description: A date-time in Unix Epoch timestamp format (in milliseconds) which is the last date
+      and time a monitoring event has been generated for the account.
     example: 1505595441887
   billing-account-id:
     type: string
-    description: The master AWS account ID (Cloud Conformity ID) which holds the billing data for this account.
+    description: The master AWS account ID (Cloud Conformity ID) which holds the billing data for
+      this account.
     example: r1gyR4cqg
     deprecated: true
   is-billing-account:
@@ -190,7 +195,8 @@ properties:
         example: "1.0.14"
       last-updated-date:
         type: integer
-        description: Last date and time the cost information has been updated.
+        description: A date-time in Unix Epoch timestamp format (in milliseconds) which is the last
+          date and time the cost information has been updated.
         example: 1599184207280
       summary:
         type: object

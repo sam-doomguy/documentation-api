@@ -68,7 +68,8 @@ properties:
               example: "SYmS0YcL-"
             createdDate:
               type: integer
-              description: A date-time in Unix Epoch timestamp format (in milliseconds) which indicates when the note has been created.
+              description: A date-time in Unix Epoch timestamp format (in milliseconds) which
+                is when the note has been created.
               example: 1511456432526
             note:
               type: string

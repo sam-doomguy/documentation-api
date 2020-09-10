@@ -1,0 +1,31 @@
+summary: Update account
+description: This endpoint allows ADMINs to change the account name, enviornment, and code.
+  We recommend you first use `GET /accounts/{id}` to verify that the subscription needs to be updated.
+parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The Cloud Conformity ID of the account.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./request.yml"
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: "../../../shared-schemas/single-account-response.yml"
+  401:
+    description: "Unauthorized. The requester user does not have enough privilege."
+    content:
+      application/json:
+        schema:
+          $ref: "../../../shared-schemas/401.yml"
+security:
+  - Authorizer: []

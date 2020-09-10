@@ -7,13 +7,14 @@ properties:
       properties:
         status:
           type: integer
-          example: 401
+          example: 422
+          description: Error code.
         source:
           type: object
           properties:
             pointer:
               type: string
-              example: /
+              example: /data/attributes
         details:
           type: string
-          example: You are not authorized to perform such actions
+          example: No such user

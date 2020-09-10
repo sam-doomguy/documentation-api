@@ -4,7 +4,8 @@
   "description": "The Cloud Conformity API allows you to programmatically interact with Cloud Conformity",
   "scripts": {
     "validate": "swagger-cli validate open-api/openapi.yml",
-    "build": "swagger-cli bundle open-api/openapi.yml --outfile build/openapi3.yml --type yaml"
+    "build": "swagger-cli bundle open-api/openapi.yml --outfile build/openapi3.yml --type yaml",
+    "format-api-docs": "prettier open-api --write"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run validate",
+      "pre-commit": "npm run validate && npm run format-api-docs",
       "pre-push": "npm run validate"
     }
   }

@@ -1,0 +1,29 @@
+summary: Create account
+description: This endpoint is used to register a new AWS account with Cloud Conformity.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./request.yml"
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: "../../shared-schemas/single-account-response.yml"
+  401:
+    description: "Unauthorized. The requester user does not have enough privilege."
+    content:
+      application/json:
+        schema:
+          $ref: "../../shared-schemas/401.yml"
+  422:
+    description: "Unprocessed Entity. Validation error."
+    content:
+      application/json:
+        schema:
+          $ref: "../../shared-schemas/422-unprocessed-entity.yml"
+security:
+  - Authorizer: []

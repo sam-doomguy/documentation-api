@@ -1,0 +1,36 @@
+summary: Get a user
+description: Gets a user by id.
+parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The Cloud Conformity ID of the user to get.
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: "../../../shared-schemas/single-user-response.yml"
+  401:
+    description: Unauthorized. The requester user does not have enough privilege.
+    content:
+      application/json:
+        schema:
+          $ref: "../../../shared-schemas/401.yml"
+  403:
+    description: Forbidden. This happens when a valid api key is not provided.
+    content:
+      application/json:
+        schema:
+          $ref: "../../../shared-schemas/403.yml"
+  422:
+    description: No such user. This happens when the provided id does not belong to any user.
+    content:
+      application/json:
+        schema:
+          $ref: "../../../shared-schemas/422-no-such-user.yml"
+security:
+  - Authorizer: []

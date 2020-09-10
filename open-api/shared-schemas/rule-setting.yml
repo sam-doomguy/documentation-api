@@ -1,0 +1,35 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Rule Id, same as the one provided in the endpoint.
+    example: RDS-018
+  enabled:
+    type: boolean
+    description: true for inclusion in bot detection, false for exclusion
+    example: false
+  riskLevel:
+    type: string
+    description: Risk level of the Conformity rule.
+    enum: [LOW, MEDIUM, HIGH, VERY_HIGH, EXTREME]
+  exceptions:
+    type: array
+    items:
+      type: object
+      properties:
+        resources:
+          type: array
+          description: An array of resource IDs that are exempted from the rule when it runs.
+          items:
+            type: string
+            example: i-erw82heiu8
+        tags:
+          type: array
+          description: An array of resource tags that are exempted from the rule when it runs.
+  provider:
+    type: string
+    enum: [aws, azure]
+    description: Name of the cloud provider
+    example: aws
+  extraSettings:
+    $ref: "../shared-schemas/extra-settings.yml"

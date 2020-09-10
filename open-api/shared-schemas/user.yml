@@ -29,22 +29,11 @@ properties:
     type: object
     properties:
       organisation:
-        type: object
-        properties:
-          data:
-            type: object
-            properties:
-              type:
-                type: string
-                example: organisations
-              id:
-                type: string
-                description: Organisation identifier
-                example: R8CAIKU9A
+        $ref: "../shared-schemas/organisation-short.yml"
       accountAccessList:
         type: array
         description: User's access level for accounts in the organisation. This is included in
-            the response when the user role is Custom.
+          the response when the user role is Custom.
         items:
           type: object
           properties:

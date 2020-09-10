@@ -1,0 +1,35 @@
+summary: Update rule settings
+description:
+  A PATCH request to this endpoint allows you to customize rule settings for the specified account.
+  This feature is used in conjunction with the GET request to the same endpoint for copying rule
+  settings from one account to another.
+  To copy rule settings from one account to another, you first need to (1) Obtain rule settings from
+  the desired account. (2) Paste rule settings as is into the body of the PATCH request following the format below.
+parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The Cloud Conformity ID of the account.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./request.yml"
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: "../../../../../shared-schemas/rules-response.yml"
+  401:
+    description: "Unauthorized. The requester user does not have enough privilege."
+    content:
+      application/json:
+        schema:
+          $ref: "../../../../../shared-schemas/401.yml"
+security:
+  - Authorizer: []

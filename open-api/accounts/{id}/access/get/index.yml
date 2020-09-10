@@ -1,0 +1,24 @@
+summary: Get access settings
+description: This endpoint allows ADMIN users to get the current setting Cloud Conformity uses to access the specified account.
+parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The Cloud Conformity ID of the account.
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          $ref: "./response-200.yml"
+  401:
+    description: "Unauthorized. The requester user does not have enough privilege."
+    content:
+      application/json:
+        schema:
+          $ref: "../../../../shared-schemas/401.yml"
+security:
+  - Authorizer: []

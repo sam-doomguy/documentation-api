@@ -1,0 +1,29 @@
+type: object
+required: [data]
+properties:
+  data:
+    type: object
+    required: [attributes]
+    properties:
+      attributes:
+        type: object
+        description: Please note the server will not accept both `hasRealTimeMonitoring` and `subscriptionType` in the request body. Please provide either `hasRealTimeMonitoring` or `subscriptionType`.
+        properties:
+          name:
+            type: string
+            example: "MyAccount"
+            description: The Name of the account.
+          environment:
+            type: string
+            description: The Name of the environment.
+            example: Prod
+          code:
+            type: string
+            description: A 3-character code you can use to identify the account easily when using the CloudConformity web UI (optional).
+            example: AC2
+          tags:
+            type: array
+            description:
+              An array of strings to group accounts based on the tag associated with it. (optional)
+              There is a maximum of 50 tags per account and maximum of 80 characters per tag.
+              Tags should be alphanumeric, and may contain symbols -  _ and Space.

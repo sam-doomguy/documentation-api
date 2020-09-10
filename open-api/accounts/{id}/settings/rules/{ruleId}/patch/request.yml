@@ -1,0 +1,49 @@
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      attributes:
+        type: object
+        properties:
+          ruleSetting:
+            $ref: "../../../../../../shared-schemas/rule-setting.yml"
+          note:
+            type: string
+            description: A detailed message regarding the reason for this rule configuration.
+            example: copied from account H19NxMi5- via the api
+example:
+  data:
+    attributes:
+      note: copied from account H19NxMi5- via the api
+      ruleSettings:
+        - riskLevel: MEDIUM
+          id: RDS-018
+          exceptions:
+            resources:
+              - i-erw82heiu8
+            tags:
+              - mysql-backups
+          extraSettings:
+            - name: threshold
+              value: 90
+          enabled: false
+        - riskLevel: LOW
+          id: Config-001
+          extraSettings:
+          provider: aws
+          enabled: true
+        - riskLevel: MEDIUM
+          id: RTM-005
+          extraSettings:
+            - name: authorisedCountries
+              countries: true
+              type: countries
+              value:
+              values:
+                - value: CA
+                  label: Canada
+                - value: US
+                  label: United States
+          provider: aws
+          enabled: false

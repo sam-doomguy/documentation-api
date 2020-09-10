@@ -1,0 +1,69 @@
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      type:
+        type: string
+        example: accounts
+      id:
+        type: string
+        description: Conformity account ID.
+        example: H19NxMi5-
+      attributes:
+        type: object
+        properties:
+          settings:
+            type: object
+            properties:
+              rules:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    riskLevel:
+                      type: string
+                      description: Risk level of the Conformity rule.
+                      enum: [LOW, MEDIUM, HIGH, VERY_HIGH, EXTREME]
+                    id:
+                      type: string
+                      description: Rule ID.
+                      example: RDS-018
+                    extraSettings:
+                      $ref: "../../../../../../shared-schemas/extra-settings.yml"
+                    enabled:
+                      type: boolean
+                      description: false if the rule is manually configured to be disabled for the account.
+                      example: false
+                    provider:
+                      type: string
+                      enum: [aws, azure]
+                      description: Name of the cloud provider
+                      example: aws
+      relationships:
+        type: object
+        properties:
+          organisation:
+            $ref: "../../../../../../shared-schemas/organisation-short.yml"
+  meta:
+    type: object
+    properties:
+      notes:
+        type: array
+        description: List of notes for the rule.
+        items:
+          type: object
+          properties:
+            createdBy:
+              type: string
+              description: ID of the user who has created the note.
+              example: "SYmS0YcL-"
+            createdDate:
+              type: integer
+              description: A date-time in Unix Epoch timestamp format (in milliseconds) which
+                is when the note has been created.
+              example: 1511456432526
+            note:
+              type: string
+              description: Note added to the rule.
+              example: hello world

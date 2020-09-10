@@ -207,7 +207,7 @@ properties:
             example: Amazon Route 53
           waste:
             type: integer
-            description: "????"
+            description: Total cost savings identified in the account.
             example: 4
           unit:
             type: string
@@ -223,7 +223,7 @@ properties:
             example: 2020-09
           optimisationRate:
             type: string
-            description: "????"
+            description: Cost optimisation rate in percentage (utilised cost / total cost)
             example: 0
           forecast:
             type: number
@@ -231,7 +231,7 @@ properties:
             example: 10.577014169151289
           optimisationOpportunityCount:
             type: integer
-            description: "????"
+            description: Number of cost optimisation failed checks
             example: 1
       billing-account-map:
         type: object

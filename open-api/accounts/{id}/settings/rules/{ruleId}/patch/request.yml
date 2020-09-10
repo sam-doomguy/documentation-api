@@ -17,8 +17,7 @@ example:
     attributes:
       note: copied from account H19NxMi5- via the api
       ruleSettings:
-        - ruleExists: false
-          riskLevel: MEDIUM
+        - riskLevel: MEDIUM
           id: RDS-018
           exceptions:
             resources:

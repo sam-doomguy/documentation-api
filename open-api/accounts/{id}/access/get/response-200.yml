@@ -19,7 +19,7 @@ properties:
         properties:
           externalId:
             type: string
-            description: "????"
+            description: The External ID used by Conformity when assuming the IAM role.
             example: XTLFTLAXVS7G
           roleArn:
             type: string

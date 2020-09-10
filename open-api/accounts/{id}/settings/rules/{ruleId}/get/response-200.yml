@@ -21,10 +21,6 @@ properties:
                 items:
                   type: object
                   properties:
-                    ruleExists:
-                      type: boolean
-                      example: true
-                      description: "????"
                     riskLevel:
                       type: string
                       description: Risk level of the Conformity rule.
@@ -44,10 +40,6 @@ properties:
                       enum: [aws, azure]
                       description: Name of the cloud provider
                       example: aws
-              available-runs:
-                type: integer
-                description: "????"
-                example: 5
       relationships:
         type: object
         properties:

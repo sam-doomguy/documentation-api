@@ -21,10 +21,6 @@ properties:
                 items:
                   type: object
                   properties:
-                    ruleExists:
-                      type: boolean
-                      example: true
-                      description: "????"
                     riskLevel:
                       type: string
                       description: Risk level of the Conformity rule.
@@ -44,10 +40,6 @@ properties:
                       enum: [aws, azure]
                       description: Name of the cloud provider
                       example: aws
-              available-runs:
-                type: integer
-                description: "????"
-                example: 5
       relationships:
         type: object
         properties:
@@ -100,8 +92,7 @@ example:
                     label: United States
             provider: aws
             enabled: false
-          - ruleExists: false
-            riskLevel: MEDIUM
+          - riskLevel: MEDIUM
             id: RTM-008
             extraSettings:
               - name: authorisedRegions
@@ -113,8 +104,7 @@ example:
                   - eu-west-2
             provider: aws
             enabled: false
-          - ruleExists: false
-            riskLevel: MEDIUM
+          - riskLevel: MEDIUM
             id: RDS-018
             exceptions:
               resources:
@@ -129,7 +119,6 @@ example:
             provider: aws
             enabled: false
         access: {}
-      available-runs: 5
       access:
     relationships:
       organisation:

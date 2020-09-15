@@ -9,17 +9,12 @@ properties:
     description: true for inclusion in bot detection, false for exclusion
     example: false
   riskLevel:
-    type: string
-    description: Risk level of the Conformity rule.
-    enum: [LOW, MEDIUM, HIGH, VERY_HIGH, EXTREME]
+    $ref: "./risk-level.yml"
   exceptions:
     type: array
     items:
       $ref: "./rule-exception.yml"
   provider:
-    type: string
-    enum: [aws, azure]
-    description: Name of the cloud provider
-    example: aws
+    $ref: "./provider.yml"
   extraSettings:
-    $ref: "../shared-schemas/extra-settings.yml"
+    $ref: "./extra-settings.yml"

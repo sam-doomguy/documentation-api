@@ -15,17 +15,7 @@ properties:
   exceptions:
     type: array
     items:
-      type: object
-      properties:
-        resources:
-          type: array
-          description: An array of resource IDs that are exempted from the rule when it runs.
-          items:
-            type: string
-            example: i-erw82heiu8
-        tags:
-          type: array
-          description: An array of resource tags that are exempted from the rule when it runs.
+      $ref: "./rule-exception.yml"
   provider:
     type: string
     enum: [aws, azure]

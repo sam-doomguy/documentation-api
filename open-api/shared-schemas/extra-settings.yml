@@ -28,3 +28,5 @@ items:
     values:
       type: array
       description: An array (sometimes of objects) rules that take on a set of of values
+      items:
+        example: value

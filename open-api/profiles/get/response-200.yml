@@ -3,4 +3,4 @@ properties:
   data:
     type: array
     items:
-      $ref: "../../shared-schemas/profile-short.yml"
+      $ref: ../../shared-schemas/profile-short.yml

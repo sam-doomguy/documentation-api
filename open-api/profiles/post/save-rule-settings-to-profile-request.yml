@@ -43,4 +43,4 @@ properties:
       included:
         type: array
         items:
-          $ref: "../../shared-schemas/profile-rule-setting.yml"
+          $ref: ../../shared-schemas/profile-rule-setting.yml

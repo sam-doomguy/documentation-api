@@ -20,12 +20,12 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/profile-including-rule-settings-200-response.yml"
+          $ref: ../../../shared-schemas/profile-including-rule-settings-200-response.yml
   403:
-    description: "Forbidden. The requester user does not have enough privilege."
+    description: Forbidden. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/403.yml"
+          $ref: ../../../shared-schemas/403.yml
 security:
   - Authorizer: []

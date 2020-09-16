@@ -6,8 +6,8 @@ requestBody:
     application/json:
       schema:
         oneOf:
-          - $ref: "./save-new-profile-request.yml"
-          - $ref: "./save-rule-settings-to-profile-request.yml"
+          - $ref: ./save-new-profile-request.yml
+          - $ref: ./save-rule-settings-to-profile-request.yml
         example:
           included:
             - type: rules
@@ -17,7 +17,7 @@ requestBody:
                 extraSettings:
                   - type: single-number-value
                     name: cpuUtilizationThreshold
-                    value: "2"
+                    value: 2
                 riskLevel: HIGH
                 provider: aws
             - type: rules
@@ -38,7 +38,7 @@ requestBody:
                         default:
                   - name: ttl
                     type: ttl
-                    value: "24"
+                    value: 24
                     ttl: true
                 riskLevel: HIGH
                 provider: aws
@@ -86,8 +86,8 @@ responses:
       application/json:
         schema:
           oneOf:
-            - $ref: "./save-new-profile-response.yml"
-            - $ref: "../../shared-schemas/profile-including-rule-settings-200-response.yml"
+            - $ref: ./save-new-profile-response.yml
+            - $ref: ../../shared-schemas/profile-including-rule-settings-200-response.yml
           example:
             included:
               - type: rules
@@ -97,7 +97,7 @@ responses:
                   extraSettings:
                     - type: single-number-value
                       name: cpuUtilizationThreshold
-                      value: "2"
+                      value: 2
                   riskLevel: HIGH
                   provider: aws
               - type: rules
@@ -118,7 +118,7 @@ responses:
                           default:
                     - name: ttl
                       type: ttl
-                      value: "24"
+                      value: 24
                       ttl: true
                   riskLevel: HIGH
                   provider: aws
@@ -160,16 +160,16 @@ responses:
                     - type: rules
                       id: SNS-002
               401:
-                description: "Unauthorized. The requester user does not have enough privilege."
+                description: Unauthorized. The requester user does not have enough privilege.
                 content:
                   application/json:
                     schema:
-                      $ref: "../../shared-schemas/401.yml"
+                      $ref: ../../shared-schemas/401.yml
               422:
-                description: "Unprocessed Entity. Validation error."
+                description: Unprocessed Entity. Validation error.
                 content:
                   application/json:
                     schema:
-                      $ref: "../../shared-schemas/422-unprocessed-entity.yml"
+                      $ref: ../../shared-schemas/422-unprocessed-entity.yml
 security:
   - Authorizer: []

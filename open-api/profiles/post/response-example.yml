@@ -6,7 +6,7 @@ included:
       extraSettings:
         - type: single-number-value
           name: cpuUtilizationThreshold
-          value: "2"
+          value: 2
       riskLevel: HIGH
       provider: aws
   - type: rules
@@ -27,7 +27,7 @@ included:
               default:
         - name: ttl
           type: ttl
-          value: "24"
+          value: 24
           ttl: true
       riskLevel: HIGH
       provider: aws

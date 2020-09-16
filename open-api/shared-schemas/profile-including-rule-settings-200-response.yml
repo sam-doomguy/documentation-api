@@ -3,9 +3,9 @@ properties:
   included:
     type: array
     items:
-      $ref: "../../../shared-schemas/profile-rule-setting.yml"
+      $ref: "./profile-rule-setting.yml"
   data:
-    $ref: "../../../shared-schemas/profile.yml"
+    $ref: "./profile.yml"
 example:
   included:
     - type: rules

@@ -1,0 +1,11 @@
+type: object
+properties:
+  meta:
+    type: object
+    properties:
+      status:
+        type: string
+        example: sent
+      message:
+        type: string
+        example: Profile will be applied to the accounts in background

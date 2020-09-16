@@ -1,0 +1,27 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The Cloud Conformity ID of the profile
+    example: profile-id
+  meta:
+    type: object
+    properties:
+      accountIds:
+        type: array
+        description: Account IDs that will be configured by the profile.
+        items:
+          type: string
+          example: account-id-1
+      mode:
+        type: string
+        enum: [fill-gaps, overwrite, replace]
+        description: >
+          Mode of how the profile will be applied to the accounts, i.e. "fill-gaps", "overwrite" or "replace":
+            * `fill-gaps` - Merge existing settings with this Profile. If there is a conflict, the account's existing setting will be used.
+            * `overwrite` - Merge existing settings with this Profile. If there is a conflict, the Profile's setting will be used.
+            * `replace` - Clear all existing settings and apply settings from this Profile.
+      notes:
+        type: string
+        description: Log notes. This field is expected to be filled out, ideally with a reason for the profile being applied.
+        example: Applying profile to accounts

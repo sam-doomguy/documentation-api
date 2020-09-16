@@ -1,0 +1,23 @@
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      type:
+        type: string
+        example: profiles
+      id:
+        type: string
+        description: Profile id
+        example: GG0q_XzAN
+      attributes:
+        type: object
+        properties:
+          name:
+            type: string
+            description: Name of the profiles
+            example: Profile 1
+          description:
+            type: string
+            description: description of the profiles
+            example: This profile is used for AWS accounts.

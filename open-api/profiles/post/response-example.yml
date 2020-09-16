@@ -1,0 +1,70 @@
+included:
+  - type: rules
+    id: EC2-055
+    attributes:
+      enabled: false
+      extraSettings:
+        - type: single-number-value
+          name: cpuUtilizationThreshold
+          value: 2
+      riskLevel: HIGH
+      provider: aws
+  - type: rules
+    id: EC2-071
+    attributes:
+      enabled: false
+      riskLevel: HIGH
+      provider: aws
+  - type: rules
+    id: RTM-007
+    attributes:
+      enabled: false
+      extraSettings:
+        - type: multiple-ip-values
+          name: authorisedIps
+          values:
+            - value:
+              default:
+        - name: ttl
+          type: ttl
+          value: 24
+          ttl: true
+      riskLevel: HIGH
+      provider: aws
+  - type: rules
+    id: S3-006
+    attributes:
+      enabled: true
+      exceptions:
+        resources:
+          - fadfad
+        tags:
+          - adsfs
+      extraSettings:
+      riskLevel: VERY_HIGH
+      provider: aws
+  - type: rules
+    id: SNS-002
+    attributes:
+      enabled: false
+      riskLevel: HIGH
+      provider: aws
+data:
+  type: profiles
+  id: d9yHTrzP0
+  attributes:
+    name: hemen test 1
+    description: hemen test 1
+  relationships:
+    ruleSettings:
+      data:
+        - type: rules
+          id: EC2-055
+        - type: rules
+          id: EC2-071
+        - type: rules
+          id: RTM-007
+        - type: rules
+          id: S3-006
+        - type: rules
+          id: SNS-002

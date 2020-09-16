@@ -1,0 +1,46 @@
+type: object
+description: This option allows ADMINs to add rule settings to a profile at creation or afterwards.
+properties:
+  id:
+    type: string
+    description: Profile ID.
+    example: d9yHTrzP0
+  data:
+    type: object
+    properties:
+      type:
+        type: string
+        example: profiles
+      attributes:
+        type: object
+        properties:
+          name:
+            type: string
+            description: The name of the profile.
+            example: new profiles
+          description:
+            type: string
+            description: The description of the profile.
+            example: Some description.
+      relationships:
+        type: object
+        properties:
+          ruleSettings:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      example: rules
+                    id:
+                      type: string
+                      description: Rule ID.
+                      example: RTM-002
+      included:
+        type: array
+        items:
+          $ref: ../../shared-schemas/profile-rule-setting.yml

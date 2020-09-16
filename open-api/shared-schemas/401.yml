@@ -13,7 +13,7 @@ properties:
           properties:
             pointer:
               type: string
-              example: /
+              example: "/"
         details:
           type: string
           example: You are not authorized to perform such actions

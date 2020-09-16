@@ -71,6 +71,4 @@ properties:
     type: boolean
     description: Flag indicating whether the rule is marked as deprecated.
   provider:
-    type: string
-    description: Cloud provider that the rule applies to.
-    enum: [aws, azure]
+    $ref: "./provider.yml"

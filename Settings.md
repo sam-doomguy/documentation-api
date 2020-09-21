@@ -9,66 +9,68 @@ Below is a list of the available API calls:
 - [Delete Communication Setting](#delete-communication-setting)
 
 ## Create Communication Settings
+
 This endpoint is used to create a new one-way communication channel setting.
 This feature can be used in conjunction with a GET request to copy communication settings from one account to others. An example of this function is provided in the examples folder.
 
 **IMPORTANT:**
 &nbsp;&nbsp;&nbsp;Some guidelines about using this endpoint:
+
 1. Settings are created as long as your inputs are valid. The onus is on you to ensure you don't create settings that are duplicate or too similar in nature.
 2. Each communication setting can be **account-level** OR **organisation-level**
-    1. If creating account-level setting, you must have a valid `relationship.account` object.
-    2. If creating organisation-level settings you must set `relationship.account.data: null`
-    3. Only ADMIN users can create organisation-level settings.
-    4. With organisation-level user-based (email & sms) settings, the onus is on you to ensure these users have at least read-only access to all accounts.
+   1. If creating account-level setting, you must have a valid `relationship.account` object.
+   2. If creating organisation-level settings you must set `relationship.account.data: null`
+   3. Only ADMIN users can create organisation-level settings.
+   4. With organisation-level user-based (email & sms) settings, the onus is on you to ensure these users have at least read-only access to all accounts.
 
 ##### Endpoints:
 
 `POST /settings/communication`
 
 ##### Parameters
+
 - `data`: An array containing JSONAPI compliant data objects with following properties
   - `type`: `"settings"`,
   - `attributes`: Object containing
     - `type`: `"communication"`
-    - `channel`: String, must be one of the following: email, sms, slack, pager-duty, sns
+    - `channel`: String, must be one of the following: email, sms, slack, pager-duty, sns, ms-teams
     - `enabled`: Boolean, true for turning on, false for turning off this channel.
-    - `manual`: Boolean, *(only used for SNS channels)* true for allowing users to manually send individual checks, false for disabling this option.
+    - `manual`: Boolean, _(only used for SNS channels)_ true for allowing users to manually send individual checks, false for disabling this option.
     - `filter`: Optional object (defines which checks you want to be included) including services, regions, categories, statuses, ruleIds, riskLevel, suppressed, and tags.
     - `configuration`: Object containing parameters that are different for each channel. For more details consult the [configurations-table](#configuration)
   - `relationships`: Object containing
     - `account`: Object containing
-      - `data`: *(`null` if only creating organisation-level setting)* Data object containing:
+      - `data`: _(`null` if only creating organisation-level setting)_ Data object containing:
         - `type`: `"accounts"`,
         - `accountId`: String, Cloud Conformity accountId
 
-
 ##### Filtering
+
 The table below give more information about filter options:
 
-| Name  | Values |
-| ------------- | ------------- |
-| `filter.regions`  | An array of valid AWS region strings. (e.g. ["us-west-1", "us-west-2"])<br /> For more information about regions, please refer to [Cloud Conformity Region Endpoint](https://us-west-2.cloudconformity.com/v1/regions) |
-| `filter.services`  | An array of AWS service strings from the following: <br /> AutoScaling \| CloudConformity \| CloudFormation \| CloudFront \| CloudTrail \| CloudWatch \|<br />CloudWatchEvents \| CloudWatchLogs \| Config \| DynamoDB \| EBS \| EC2 \| ElastiCache \|<br />Elasticsearch \| ELB \| IAM \| KMS \| RDS \| Redshift \| ResourceGroup \| Route53 \| S3 \| SES \| SNS \| SQS \| VPC \| WAF \| ACM \| Inspector \| TrustedAdvisor \| Shield \| EMR \| Lambda \| Support \| Organizations \| Kinesis \| EFS<br /><br />For more information about services, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services) |
-| `filter.ruleIds`  | An array of valid AWS rule Ids (e.g. ["S3-016", "EC2-001"]). For more information about rules, please refer to [Cloud Conformity Rules API](https://github.com/cloudconformity/documentation-api/blob/master/Rules.md).  |
-| `filter.categories`  | An array of category (AWS well-architected framework category) strings from the following:<br /> security \| cost-optimisation \| reliability \| performance-efficiency  \| operational-excellence <br />|
-| `filter.riskLevels`  | An array of risk-level strings from the following: <br /> LOW\| MEDIUM \| HIGH \| VERY_HIGH \| EXTREME |
-| `filter.statuses`  | *(only used for SNS channels)* An array of statuses strings from the following: SUCCESS \| FAILURE |
-| `filter.tags`  | An array of any assigned metadata tags to your AWS resources |
-
-
+| Name                | Values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `filter.regions`    | An array of valid AWS region strings. (e.g. ["us-west-1", "us-west-2"])<br /> For more information about regions, please refer to [Cloud Conformity Region Endpoint](https://us-west-2.cloudconformity.com/v1/regions)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `filter.services`   | An array of AWS service strings from the following: <br /> AutoScaling \| CloudConformity \| CloudFormation \| CloudFront \| CloudTrail \| CloudWatch \|<br />CloudWatchEvents \| CloudWatchLogs \| Config \| DynamoDB \| EBS \| EC2 \| ElastiCache \|<br />Elasticsearch \| ELB \| IAM \| KMS \| RDS \| Redshift \| ResourceGroup \| Route53 \| S3 \| SES \| SNS \| SQS \| VPC \| WAF \| ACM \| Inspector \| TrustedAdvisor \| Shield \| EMR \| Lambda \| Support \| Organizations \| Kinesis \| EFS<br /><br />For more information about services, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services) |
+| `filter.ruleIds`    | An array of valid AWS rule Ids (e.g. ["S3-016", "EC2-001"]). For more information about rules, please refer to [Cloud Conformity Rules API](https://github.com/cloudconformity/documentation-api/blob/master/Rules.md).                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `filter.categories` | An array of category (AWS well-architected framework category) strings from the following:<br /> security \| cost-optimisation \| reliability \| performance-efficiency \| operational-excellence <br />                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `filter.riskLevels` | An array of risk-level strings from the following: <br /> LOW\| MEDIUM \| HIGH \| VERY_HIGH \| EXTREME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `filter.statuses`   | _(only used for SNS channels)_ An array of statuses strings from the following: SUCCESS \| FAILURE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `filter.tags`       | An array of any assigned metadata tags to your AWS resources                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ##### Configuration
+
 The table below give more information about configuration options:
 
-| Channel  | Configuration |
-| ------------- | ------------- |
-| *all*  | `configuration.channelName` is the label to display in the application (to distinguish between multiple instances of the same channel type). It is optional|
-| email  | `configuration.key` is "users", `configuration.value` is an array of verified users that have at least readOnly access to the account|
-| sms  | `configuration.key` is "users", `configuration.value` is an array of users with verified mobile numbers that have at least readOnly access to the account|
-| slack  | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false}` Boolean, true for adding associated tags to message   |
-| pager-duty  |   `{ "serviceName": "yourServiceName", "serviceKey": "yourServiceKey" }` |
-| sns  |  `{ "arn": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"}`  |
-
+| Channel    | Configuration                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _all_      | `configuration.channelName` is the label to display in the application (to distinguish between multiple instances of the same channel type). It is optional                                                                                                                                                                                                                                                                              |
+| email      | `configuration.key` is "users", `configuration.value` is an array of verified users that have at least readOnly access to the account                                                                                                                                                                                                                                                                                                    |
+| sms        | `configuration.key` is "users", `configuration.value` is an array of users with verified mobile numbers that have at least readOnly access to the account                                                                                                                                                                                                                                                                                |
+| slack      | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false}` Boolean, true for adding associated tags to message                                                                                              |
+| pager-duty | `{ "serviceName": "yourServiceName", "serviceKey": "yourServiceKey" }`                                                                                                                                                                                                                                                                                                                                                                   |
+| sns        | `{ "arn": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"}`                                                                                                                                                                                                                                                                                                                                                                                   |
+| ms-teams   | `{ "url": "https://outlook.office.com/webhook/your-msteams-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false` Boolean, true for adding associated tags to message<br>`"displayExtraData": false}` Boolean, true for adding associated extra data to message |
 
 Example request for creating an account level pager-duty setting:
 
@@ -104,6 +106,7 @@ curl -X POST \
 }' \
 https://us-west-2-api.cloudconformity.com/v1/settings/communication
 ```
+
 Example Response:
 
 ```
@@ -146,37 +149,41 @@ Example Response:
 ]
 ```
 
-
-
-
-
 ## Get Communication Settings
 
 A GET request to this endpoint allows you to get communication settings.
 This feature can be used in conjunction with a POST request to copy communication settings from one account to others. An example of this function is provided in the examples folder.
-
 
 ##### Endpoints:
 
 `GET /settings/communication`
 
 ##### Parameters
-- `channel`: *optional* Provide if you want to only get settings for one specific channel: email, sms, slack, pager-duty, or sns.
-- `accountId`: *optional* Cloud Conformity ID of the account. Provide to get only settings set for the specified account.
-- `includeParents`: *optional* (true|false) Can only be used in conjunction with the accountId parameter. Specify `true` if you want to see both account level settings and organisation level settings.
+
+- `channel`: _optional_ Provide if you want to only get settings for one specific channel: email, sms, slack, pager-duty, or sns.
+- `accountId`: _optional_ Cloud Conformity ID of the account. Provide to get only settings set for the specified account.
+- `includeParents`: _optional_ (true|false) Can only be used in conjunction with the accountId parameter. Specify `true` if you want to see both account level settings and organisation level settings.
 
 **IMPORTANT:**
-&nbsp;&nbsp;&nbsp;Users with different roles can get different results from this endpoint. The table below describes the relationship between user role and type of data you get get.
+&nbsp;&nbsp;&nbsp;Users with different roles can get different results from this endpoint.
 
-| Role | Organisation-Level Settings | Account-Level Settings |
-| ---- | ---- | ---- |
-| ADMIN | Full settings with configurations | Full settings with configurations |
-| FULL access to the account | Settings without configurations | Full settings with configurations |
-| READONLY access to the account |  No settings | Settings without configurations | 
-| NO access to the account |  No settings  | No settings |
+The table below describes the relationship between user role or account access level, and type of data the user can get for account level settings.
 
+| Role / access to the account   | Account-Level Settings           |
+| ------------------------------ | -------------------------------- |
+| ADMIN                          | Full settings with configuration |
+| FULL access to the account     | Full setting with configurations |
+| READONLY access to the account | Setting without configurations   |
+| NO access to the account       | No setting                       |
 
+For organisation level settings, the ADMIN users are the only users who can access those settings. The table below describes the relationship between user role and type of the data user can get for organisation level settings.
 
+| Role       | Organisation-Level Settings      |
+| ---------- | -------------------------------- |
+| ADMIN      | Full settings with configuration |
+| POWER USER | No setting                       |
+| READONLY   | No setting                       |
+| USER       | No setting                       |
 
 Example request for email-only settings:
 
@@ -189,6 +196,7 @@ https://us-west-2-api.cloudconformity.com/v1/settings/communication?accountId=H1
 
 Example Response for an ADMIN user:
 (**Note:** The first object is for an organisation-level setting: `setting.relationships.account.data` is NULL)
+
 ```
 {
     "data": [
@@ -264,37 +272,11 @@ Example Response for an ADMIN user:
 ```
 
 Example response for a user with FULL access to the acount:
-(**Note:** Organisation-level setting's configuration is not shown to this user)
+(**Note:** The list does not contain organisation-level settings as only ADMIN users have access to organisation-level settings).
+
 ```
 {
     "data": [
-        {
-            "type": "settings",
-            "id": "communication:email-HJgeFWmpVf",
-            "attributes": {
-                "type": "communication",
-                "manual": false,
-                "enabled": true,
-                "filter": {
-                    "services": [
-                        "Organizations"
-                    ],
-                    "suppressed": false
-                },
-                "channel": "email"
-            },
-            "relationships": {
-                "organisation": {
-                    "data": {
-                        "type": "organisations",
-                        "id": "ryqMcJn4b"
-                    }
-                },
-                "account": {
-                    "data": null
-                }
-            }
-        },
         {
             "type": "settings",
             "id": "ryqs8LNKW:communication:email-Ske1cKKEvM",
@@ -344,6 +326,7 @@ https://us-west-2-api.cloudconformity.com/v1/settings/communication?channel=emai
 ```
 
 Example Response for an ADMIN user:
+
 ```
 {
     "data": [
@@ -383,7 +366,6 @@ Example Response for an ADMIN user:
 }
 ```
 
-
 Example request for **account-level** email-only settings:
 
 ```
@@ -395,6 +377,7 @@ https://us-west-2-api.cloudconformity.com/v1/settings/communication?accountId=H1
 
 Example Response for an ADMIN user:
 (**Note:** Without the `includeParents` parameter, no organisation-level settings are shown.)
+
 ```
 {
     "data": [
@@ -437,9 +420,8 @@ Example Response for an ADMIN user:
 }
 ```
 
-
-
 ## Get Communication Setting Details
+
 This endpoint allows you to get the details of the specified communication setting.
 
 ##### Endpoints:
@@ -447,20 +429,29 @@ This endpoint allows you to get the details of the specified communication setti
 `GET /settings/id`
 
 ##### Parameters
+
 - `id`: The Cloud Conformity ID of the communication setting
 
 **IMPORTANT:**
-&nbsp;&nbsp;&nbsp;Users with different roles can get different results from this endpoint. The table below describes the relationship between user role and type of data you get get.
+&nbsp;&nbsp;&nbsp;Users with different roles can get different results from this endpoint.
 
-| Role | Organisation-Level Settings | Account-Level Settings |
-| ---- | ---- | ---- |
-| ADMIN | Full setting with configurations | Full settings with configuration |
-| FULL access to the account | Setting without configurations | Full setting with configurations |
-| READONLY access to the account |  No setting | Setting without configurations | 
-| NO access to the account |  No setting  | No setting |
+The table below describes the relationship between user role or account access level, and type of data the user can get for account level settings.
 
+| Role / access to the account   | Account-Level Settings           |
+| ------------------------------ | -------------------------------- |
+| ADMIN                          | Full settings with configuration |
+| FULL access to the account     | Full setting with configurations |
+| READONLY access to the account | Setting without configurations   |
+| NO access to the account       | No setting                       |
 
+For organisation level settings, the ADMIN users are the only users who can access those settings. The table below describes the relationship between user role and type of the data user can get for organisation level settings.
 
+| Role       | Organisation-Level Settings      |
+| ---------- | -------------------------------- |
+| ADMIN      | Full settings with configuration |
+| POWER USER | No setting                       |
+| READONLY   | No setting                       |
+| USER       | No setting                       |
 
 Example Request:
 
@@ -469,7 +460,9 @@ curl -H "Content-Type: application/vnd.api+json" \
 -H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
 https://us-west-2-api.cloudconformity.com/v1/settings/ryqs8LNKW:communication:email-Ske1cKKEvM
 ```
+
 Example Response:
+
 ```
 {
     "data": {
@@ -510,14 +503,13 @@ Example Response:
 }
 ```
 
-
-
-
 ## Update Communication Setting
+
 A PATCH request to this endpoint allows you to update a specific communication setting.
 
 **IMPORTANT:**
 &nbsp;&nbsp;&nbsp;User role defines how they may use this endpoint:
+
 1. Only ADMIN users can update organisation-level settings.
 2. For an account-level setting, both ADMINs and users with FULL access to the account can update it.
 
@@ -526,44 +518,44 @@ A PATCH request to this endpoint allows you to update a specific communication s
 `PATCH /settings/communication/settingId`
 
 ##### Parameters
+
 - `data`: A JSON object containing JSONAPI compliant data object with following properties
   - `type`: `settings`,
   - `attributes`: Object containing
     - `type`: `"communication"`
     - `channel`: String, must be one of the following: email, sms, slack, pager-duty, sns
     - `enabled`: Boolean, true for turning on, false for turning off this channel.
-    - `manual`: Boolean, *(only used for SNS channels)* true for allowing users to manually send individual checks, false for disabling this option.
+    - `manual`: Boolean, _(only used for SNS channels)_ true for allowing users to manually send individual checks, false for disabling this option.
     - `filter`: Optional object (defines which checks you want to be included) including services, regions, categories, statuses, ruleIds, riskLevel, suppressed, and tags.
     - `configuration`: Object containing parameters that are different for each channel. For more details consult the [configurations-table](#configuration)
 
-
 ##### Filtering
+
 The table below give more information about filter options:
 
-| Name  | Values |
-| ------------- | ------------- |
-| `filter.regions`  | An array of valid AWS region strings. (e.g. ["us-west-1", "us-west-2"])<br /> For more information about regions, please refer to [Cloud Conformity Region Endpoint](https://us-west-2.cloudconformity.com/v1/regions) |
-| `filter.services`  | An array of AWS service strings from the following: <br />AutoScaling \| CloudConformity \| CloudFormation \| CloudFront \| CloudTrail \| CloudWatch \|<br />CloudWatchEvents \| CloudWatchLogs \| Config \| DynamoDB \| EBS \| EC2 \| ElastiCache \|<br />Elasticsearch \| ELB \| IAM \| KMS \| RDS \| Redshift \| ResourceGroup \| Route53 \| S3 \| SES \| SNS \| SQS \| VPC \| WAF \| ACM \| Inspector \| TrustedAdvisor \| Shield \| EMR \| Lambda \| Support \| Organizations \| Kinesis \| EFS<br /><br />For more information about services, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services) |
-| `filter.ruleIds`  | An array of valid AWS rule Ids (e.g. ["S3-016", "EC2-001"]). For more information about rules, please refer to [Cloud Conformity Rules API](https://github.com/cloudconformity/documentation-api/blob/master/Rules.md).  |
-| `filter.categories`  | An array of category (AWS well-architected framework category) strings from the following:<br /> security \| cost-optimisation \| reliability \| performance-efficiency  \| operational-excellence <br />|
-| `filter.riskLevels`  | An array of risk-level strings from the following: <br /> LOW\| MEDIUM \| HIGH \| VERY_HIGH \| EXTREME |
-| `filter.statuses`  | *(only used for SNS channels)* An array of statuses strings from the following: SUCCESS \| FAILURE |
-| `filter.tags`  | An array of any assigned metadata tags to your AWS resources |
-
-
+| Name                | Values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `filter.regions`    | An array of valid AWS region strings. (e.g. ["us-west-1", "us-west-2"])<br /> For more information about regions, please refer to [Cloud Conformity Region Endpoint](https://us-west-2.cloudconformity.com/v1/regions)                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `filter.services`   | An array of AWS service strings from the following: <br />AutoScaling \| CloudConformity \| CloudFormation \| CloudFront \| CloudTrail \| CloudWatch \|<br />CloudWatchEvents \| CloudWatchLogs \| Config \| DynamoDB \| EBS \| EC2 \| ElastiCache \|<br />Elasticsearch \| ELB \| IAM \| KMS \| RDS \| Redshift \| ResourceGroup \| Route53 \| S3 \| SES \| SNS \| SQS \| VPC \| WAF \| ACM \| Inspector \| TrustedAdvisor \| Shield \| EMR \| Lambda \| Support \| Organizations \| Kinesis \| EFS<br /><br />For more information about services, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services) |
+| `filter.ruleIds`    | An array of valid AWS rule Ids (e.g. ["S3-016", "EC2-001"]). For more information about rules, please refer to [Cloud Conformity Rules API](https://github.com/cloudconformity/documentation-api/blob/master/Rules.md).                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `filter.categories` | An array of category (AWS well-architected framework category) strings from the following:<br /> security \| cost-optimisation \| reliability \| performance-efficiency \| operational-excellence <br />                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `filter.riskLevels` | An array of risk-level strings from the following: <br /> LOW\| MEDIUM \| HIGH \| VERY_HIGH \| EXTREME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `filter.statuses`   | _(only used for SNS channels)_ An array of statuses strings from the following: SUCCESS \| FAILURE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `filter.tags`       | An array of any assigned metadata tags to your AWS resources                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ##### Configuration
+
 The table below give more information about configuration options:
 
-| Channel  | Configuration |
-| ------------- | ------------- |
-| *all*  | `configuration.channelName` (optional). When setting up multiple channels of the same type, the name can help you identify the channel|
-| email  | `configuration.key` is "users", `configuration.value` is an array of verified users that have at least readOnly access to the account|
-| sms  | `configuration.key` is "users", `configuration.value` is an array of users with verified mobile numbers that have at least readOnly access to the account|
-| slack  | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false}` Boolean, true for adding associated tags to message   |
-| pager-duty  |   `{ "serviceName": "yourServiceName", "serviceKey": "yourServiceKey" }` |
-| sns  |  `{ "arn": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"}`  |
-
+| Channel    | Configuration                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _all_      | `configuration.channelName` (optional). When setting up multiple channels of the same type, the name can help you identify the channel                                                                                                                                                                                                                                                                                                   |
+| email      | `configuration.key` is "users", `configuration.value` is an array of verified users that have at least readOnly access to the account                                                                                                                                                                                                                                                                                                    |
+| sms        | `configuration.key` is "users", `configuration.value` is an array of users with verified mobile numbers that have at least readOnly access to the account                                                                                                                                                                                                                                                                                |
+| slack      | `{ "url": "https://hooks.slack.com/services/your-slack-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false}` Boolean, true for adding associated tags to message                                                                                              |
+| pager-duty | `{ "serviceName": "yourServiceName", "serviceKey": "yourServiceKey" }`                                                                                                                                                                                                                                                                                                                                                                   |
+| sns        | `{ "arn": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"}`                                                                                                                                                                                                                                                                                                                                                                                   |
+| ms-teams   | `{ "url": "https://outlook.office.com/webhook/your-msteams-webhook",` <br>`"channel": "#your-channel",` <br>`"displayIntroducedBy": false,` Boolean, true for adding user to message<br>`"displayResource": false,` Boolean, true for adding resource to message<br>`"displayTags": false` Boolean, true for adding associated tags to message<br>`"displayExtraData": false}` Boolean, true for adding associated extra data to message |
 
 Example request to update an account level pager-duty setting:
 
@@ -588,6 +580,7 @@ curl -X PATCH \
 }' \
 https://us-west-2-api.cloudconformity.com/v1/settings/communication/H19NxM15-:communication:pager-duty-S1xvk1zGwM
 ```
+
 Example Response:
 
 ```
@@ -625,25 +618,22 @@ Example Response:
 ]
 ```
 
-
-
-
-
 ## Delete communication setting
 
 A DELETE request to this endpoint allows a user to delete a communication setting.
 
 **IMPORTANT:**
 &nbsp;&nbsp;&nbsp;User role defines how they may use this endpoint:
+
 1. Only ADMIN users can delete organisation-level settings.
 2. For an account-level setting, both ADMINs and users with FULL access to the account can delete it.
-
 
 ##### Endpoints:
 
 `DELETE /settings/settingId`
 
 Example Request:
+
 ```
 curl -X DELETE \
 -H "Content-Type: application/vnd.api+json" \
@@ -660,12 +650,3 @@ Example Response:
     }
 }
 ```
-
-
-
-
-
-
-
-
-

@@ -39,7 +39,7 @@ are formatted as the following example:
 * **enabled:** Whether or not this rule is enabled
   - Type: boolean
   - Values: true, false
-* **riskLevel:** Risk level associated with this rule.
+* **riskLevel:** Risk level associated with this rule. This property is not returned for rules where the `riskLevel` is not configurable.
   - Type: string
   - Values: "LOW", "MEDIUM", "HIGH", "VERY_HIGH", "EXTREME  ""
 * **exceptions:** If a resource matches these exceptions this rule will not be checked against it.
@@ -62,7 +62,7 @@ are formatted as the following example:
 These formats are are found in `type` field of rule extra settings:
 
 #### multiple-string-values
-* **Usage:** Used when a one or more strings are required.
+* **Usage:** Used when one or more strings are required.
 * **UI:** List of text fields
 
 _Example:_
@@ -90,6 +90,38 @@ _Example:_
   //...
 }
 ```
+
+#### multiple-object-values
+* **Usage:** Used when one or more sets of values are required.
+* **UI:** Table of text fields
+
+_Example:_
+```json5
+{
+  "id": "RTM-01a",
+  //...
+  "extraSettings": [
+    {
+      "name": "desiredInstanceTypes",
+      "type": "multiple-object-values",
+      "valueKeys": [
+        "eventName",
+        "eventSource",
+        "userIdentityType"
+      ],
+      "values": [
+        {
+          "value": {
+            "eventName": "^(iam.amazonaws.com)",
+            "eventSource": "^(IAM).*",
+            "userIdentityType": "^(Delete).*"
+          }
+        }
+      ]
+    }
+  ],
+  //...
+}
 
 #### choice-multiple-value
 * **Usage:** Used when one or more selections from a predefined set of values are required.

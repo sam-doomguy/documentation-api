@@ -49,14 +49,16 @@ There are some attributes you need to pass inside configuration object. The tabl
 | scheduled            | This attribute is optional, means whether the report is scheduled. It must be a boolean value when it was provided.                                                                                                                                                                                                                                                                                                                 |
 | frequency            | This attribute is optional, but when the attribute `scheduled` is true, it must be a [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) string that starts with day of month field. For example, daily cron expression would be `* * *`                                                                                                                                                                          |
 | tz                   | This attribute is optional. It's used as which timezone the report schedule is based on, when the attribute `scheduled` is true. If this attribute was provided, it must be string that is a valid value of [timezone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) name such as `Australia/Sydney`.                                                                                                      |
-| generateReportType   | This attribute is optional. Valid values are `COMPLIANCE-STANDARD` and `GENERIC`. By default, `GENERIC` type reports are produced. If `COMPLIANCE-STANDARD` is specified, `filter.reportComplianceStandardId` has to be: <br><ul><li>a valid standard or framework id string (the report is generated with this compliance standard's)</li><li>one of the following supported standards: ["AWAF" \| "NIST4" \| "CISAWSF" \| "CISAZUREF" \| "SOC2" \| "NIST-CSF" \| "ISO27001" \| "AGISM" ]</li></ul> |
+| generateReportType   | This attribute is optional. Valid values are `COMPLIANCE-STANDARD` and `GENERIC`. By default, `GENERIC` type reports are produced. If `COMPLIANCE-STANDARD` is specified, `filter.reportComplianceStandardId` has to be: <br><ul><li>a valid standard or framework id string (the report is generated with this compliance standard's)</li><li>one of the following supported standards: ["AWAF" \| "NIST4" \| "CISAWSF" \| "CISAZUREF" \| "SOC2" \| "NIST-CSF" \| "ISO27001" \| "AGISM" \| "HIPAA" \| "PCI" \| "ASAE-3150" ]</li></ul> |
 | includeChecks        | Specifies whether or not to include individual checks in PDF reports when total number of checks is below 10000. Defaults to `false`.                                                                                                                                                                                                                                                                                               |
+| shouldEmailIncludePdf| This attribute is optional. Specifies whether or not to include PDF attachment in email. Defaults to `true`.                                                                                                                                                                                                                                                                                                                        |
+| shouldEmailIncludeCsv| This attribute is optional. Specifies whether or not to include CSV attachment in email. Defaults to `true`.                                                                                                                                                                                                                                                                                                                        |
 
 ##### Filtering
 Refer to [Filtering options](./Filtering.md)
 
 
-Example request:
+Example request for an AWS account:
 
 ```
 curl -X POST \
@@ -88,7 +90,7 @@ curl -X POST \
 }' \
 https://us-west-2-api.cloudconformity.com/v1/report-configs
 ```
-Example Response:
+Example Response for an AWS account:
 
 ```
 { "data": {
@@ -135,7 +137,90 @@ Example Response:
 	}
 } }
 ```
-
+Example Request for an Azure account:
+```
+curl -X POST \
+-H "Content-Type: application/vnd.api+json" \
+-H "Authorization: ApiKey YOUR_API_KEY" \
+-d '
+{
+	"data": {
+		"attributes": {
+			"accountId": "ACCOUNT_ID",
+			"configuration": {
+				"title": "Daily Report of Storage Accounts",
+				"scheduled": true,
+				"frequency": "* * *",
+				"tz": "Australia/Sydney",
+				"sendEmail": true,
+				"emails": [
+					"youremail@somecompany.com"
+				],
+				"filter": {
+					services: ["StorageAccounts"],
+					resourceTypes: ["storage-accounts-blob-containers"]
+				}
+			}
+		}
+	}
+}' \
+https://us-west-2-api-development.cloudconformity.com/v1/report-configs
+```
+Example Response for an Azure account:
+```
+{ "data": {
+      "type": "report-config",
+      "id": "ACCOUNT_ID:report-config:REPORT_CONFIG_ID",
+      "attributes": {
+        "type": "report-config",
+        "configuration": {
+          "title": "Daily Blob Storage Report",
+          "scheduled": true,
+          "frequency": "* * *",
+          "tz": "Australia/Sydney",
+          "sendEmail": true,
+          "emails": [
+            "youremail@somecompany.com"
+          ],
+          "filter": {
+            "services": [
+              "StorageAccounts"
+            ],
+            "suppressedFilterMode": "v1",
+            "resourceTypes": [
+              "storage-accounts-blob-containers"
+            ],
+            "suppressed": true
+          }
+        },
+        "created-by": "USER_ID",
+        "created-date": 1592374969200,
+        "is-account-level": true,
+        "is-group-level": false,
+        "is-organisation-level": false
+      },
+      "relationships": {
+        "organisation": {
+          "data": {
+            "type": "organisations",
+            "id": "ORGANISATION_ID"
+          }
+        },
+        "account": {
+          "data": {
+            "type": "accounts",
+            "id": "ACCOUNT_ID"
+          }
+        },
+        "group": {
+          "data": null
+        },
+        "profile": {
+          "data": null
+        }
+      }
+} }
+```
 
 ## List Report Configs
 

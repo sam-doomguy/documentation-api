@@ -58,7 +58,7 @@ There are some attributes you need to pass inside configuration object. The tabl
 Refer to [Filtering options](./Filtering.md)
 
 
-Example request:
+Example request for an AWS account:
 
 ```
 curl -X POST \
@@ -90,7 +90,7 @@ curl -X POST \
 }' \
 https://us-west-2-api.cloudconformity.com/v1/report-configs
 ```
-Example Response:
+Example Response for an AWS account:
 
 ```
 { "data": {
@@ -137,7 +137,90 @@ Example Response:
 	}
 } }
 ```
-
+Example Request for an Azure account:
+```
+curl -X POST \
+-H "Content-Type: application/vnd.api+json" \
+-H "Authorization: ApiKey YOUR_API_KEY" \
+-d '
+{
+	"data": {
+		"attributes": {
+			"accountId": "ACCOUNT_ID",
+			"configuration": {
+				"title": "Daily Report of Storage Accounts",
+				"scheduled": true,
+				"frequency": "* * *",
+				"tz": "Australia/Sydney",
+				"sendEmail": true,
+				"emails": [
+					"youremail@somecompany.com"
+				],
+				"filter": {
+					services: ["StorageAccounts"],
+					resourceTypes: ["storage-accounts-blob-containers"]
+				}
+			}
+		}
+	}
+}' \
+https://us-west-2-api-development.cloudconformity.com/v1/report-configs
+```
+Example Response for an Azure account:
+```
+{ "data": {
+      "type": "report-config",
+      "id": "ACCOUNT_ID:report-config:REPORT_CONFIG_ID",
+      "attributes": {
+        "type": "report-config",
+        "configuration": {
+          "title": "Daily Blob Storage Report",
+          "scheduled": true,
+          "frequency": "* * *",
+          "tz": "Australia/Sydney",
+          "sendEmail": true,
+          "emails": [
+            "youremail@somecompany.com"
+          ],
+          "filter": {
+            "services": [
+              "StorageAccounts"
+            ],
+            "suppressedFilterMode": "v1",
+            "resourceTypes": [
+              "storage-accounts-blob-containers"
+            ],
+            "suppressed": true
+          }
+        },
+        "created-by": "USER_ID",
+        "created-date": 1592374969200,
+        "is-account-level": true,
+        "is-group-level": false,
+        "is-organisation-level": false
+      },
+      "relationships": {
+        "organisation": {
+          "data": {
+            "type": "organisations",
+            "id": "ORGANISATION_ID"
+          }
+        },
+        "account": {
+          "data": {
+            "type": "accounts",
+            "id": "ACCOUNT_ID"
+          }
+        },
+        "group": {
+          "data": null
+        },
+        "profile": {
+          "data": null
+        }
+      }
+} }
+```
 
 ## List Report Configs
 

@@ -506,10 +506,10 @@ A GET request to this endpoint allows you to get rule settings based on the rule
 
 `GET /v1/accounts/{accountId}/settings/rules/{ruleId}`
 
-##### Paramters
+##### Parameters
 
-- `accountId`: Cloud Conformity ID of the account. Provide to get only settings set for the specified account.
-- `ruleId`: Cloud Conformity Rule ID. Provide to get only settings set for the specified rule.
+- `accountId`: Cloud Conformity account ID. Provide to get only rule settings for the specified account.
+- `ruleId`: Cloud Conformity Rule ID. Provide to get only rule settings for the specified rule.
 
 Example Request:
 
@@ -614,7 +614,7 @@ A PATCH request to this endpoint allows you to update rule settings.
 `PATCH accounts/{accountId}/settings/rules`
 
 ##### Parameters
-
+- `accountId`: String, the Conformity account Id
 - `data`: A JSON object containing JSONAPI compliant data object with following properties
   - `attributes`: Object containing
     - `ruleSettings`: Array of rule settings containing
@@ -731,11 +731,12 @@ A PATCH request to this endpoint allows you to update a specific rule's settings
 `PATCH accounts/{accountId}/settings/rules/{ruleId}`
 
 ##### Parameters
-
+- `accountId`: String, the Conformity account Id
+- `ruleId`: String, the Conformity ruleId
 - `data`: A JSON object containing JSONAPI compliant data object with following properties
   - `attributes`: Object containing
     - `ruleSetting`: Object containing
-      - `id`: String, the Conformity RuleId
+      - `id`: String, the Conformity ruleId
       - `enabled`: Boolean, true for enabling, false for disabling the rule.
       - `riskLevel`: String, the risk level of the rule. Must be from the following: LOW\| MEDIUM \| HIGH \| VERY_HIGH \| EXTREME
       - `ruleExists`: Boolean, true for existing, false for not existing rule.

@@ -1,0 +1,23 @@
+type: object
+properties:
+  data:
+    type: object
+    description: A JSON object containing the following properties
+    properties:
+      attributes:
+        type: object
+        description: Object containing the template attributes.
+        required: [type, contents, accountId]
+        properties:
+          type:
+            type: string
+            description: The type of template.
+            example: cloudformation-template
+          contents:
+            type: string
+            description: Stringified representation of the template to scan.
+            example: "---\nAWSTemplateFormatVersion: '2010-09-09'\nResources:\n  S3Bucket:\n    Type: AWS::S3::Bucket\n    Properties:\n      AccessControl: PublicRead"
+          accountId:
+            type: string
+            description: The id of a Account to run the rules against.
+            example: Wf14wI1HT

@@ -21,7 +21,7 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../../shared-schemas/rules-response.yml
+          $ref: ./responses/200.yml
   401:
     description: Unauthorized. The requester user does not have enough privilege.
     content:
@@ -29,16 +29,28 @@ responses:
         schema:
           $ref: ../../../shared-schemas/401.yml
   403:
-    description: Forbidden. This happens when a valid api key is not provided or the user does not have access to the profile.
+    description: Forbidden. This happens when a valid api key is not provided or the user does not have access to the supplied account.
     content:
       application/json:
         schema:
-          $ref: ../../../shared-schemas/403.yml
+          oneOf:
+            - $ref: ../../../shared-schemas/403.yml
+            - $ref: ../../../shared-schemas/403-json-api-spec.yml
+        example:
+          errors:
+            - status: 403
+              detail: Unauthorised
+  404:
+    description: Not Found. The profile that was requested was not found.
+    content:
+      application/json:
+        schema:
+          $ref: ../../../shared-schemas/404-json-api-spec.yml
   500:
     description: The parsing of the template file failed
     content:
       application/json:
         schema:
-          $ref: ./500-could-not-process-template.yml
+          $ref: ./responses/500-could-not-process-template.yml
 security:
   - Authorizer: []

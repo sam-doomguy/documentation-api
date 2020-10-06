@@ -1,4 +1,0 @@
-type: object
-properties:
-  data:
-    $ref: ../../../shared-schemas/user.yml

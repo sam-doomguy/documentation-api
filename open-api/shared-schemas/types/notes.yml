@@ -1,0 +1,18 @@
+type: array
+description: List of notes.
+items:
+  type: object
+  properties:
+    createdBy:
+      type: string
+      description: ID of the user who has created the note.
+      example: SYmS0YcL-
+    createdDate:
+      type: number
+      description: A date-time in Unix Epoch timestamp format (in milliseconds) which
+        is when the note has been created.
+      example: 1511456432526
+    note:
+      type: string
+      description: Note added to the rule.
+      example: hello world

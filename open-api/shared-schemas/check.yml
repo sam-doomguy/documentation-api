@@ -18,7 +18,7 @@ properties:
       categories:
         $ref: ./categories.yml
       compliances:
-        $ref: ./compliance-standards.yml
+        $ref: ./types/compliance-standards.yml
       cost:
         type: number
         description: Estimated cost (USD) of the resource this check applies to (if applicable).

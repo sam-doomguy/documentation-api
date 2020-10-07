@@ -1,0 +1,19 @@
+type: string
+description: A single standard or framework id string.
+enum:
+  - AWAF
+  - CISAWSF
+  - CISAZUREF
+  - CISAWSTTW
+  - PCI
+  - HIPAA
+  - GDPR
+  - APRA
+  - NIST4
+  - SOC2
+  - NIST-CSF
+  - ISO27001
+  - AGISM
+  - ASAE-3150
+  - MAS
+example: NIST4

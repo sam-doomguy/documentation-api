@@ -44,23 +44,7 @@ properties:
     type: object
     properties:
       notes:
-        type: array
-        description: List of notes for the rule.
-        items:
-          type: object
-          properties:
-            createdBy:
-              type: string
-              description: ID of the user who has created the note.
-              example: "SYmS0YcL-"
-            createdDate:
-              type: integer
-              description: A date-time in Unix Epoch timestamp format (in milliseconds) which indicates when the note has been created.
-              example: 1511456432526
-            note:
-              type: string
-              description: Note added to the rule.
-              example: hello world
+        $ref: "./types/notes.yml"
 example:
   data:
     type: accounts
@@ -120,3 +104,8 @@ example:
         data:
           type: organisations
           id: B1nHYYpwx
+    meta:
+      notes:
+        - createdBy: SYmS0YcL-
+          createdDate: 1511456432526
+          note: hello world

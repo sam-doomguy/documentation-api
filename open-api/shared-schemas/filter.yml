@@ -77,42 +77,11 @@ properties:
     description: Only show checks created less than X days ago.
     example: 5
   categories:
-    type: array
-    example: [security]
-    items:
-      type: string
-      description: An array of category (AWS well-architected framework category) strings.
-      enum:
-        [security, cost-optimisation, reliability, performance-efficiency, operational-excellence]
+    $ref: ./categories.yml
   riskLevels:
-    type: string
-    description: Risk level.
-    enum: [EXTREME, VERY_HIGH, HIGH, MEDIUM, LOW]
-    example: EXTREME
+    $ref: ./risk-level.yml
   complianceStandards:
-    type: array
-    example: [AWAF]
-    items:
-      type: string
-      description: An array of supported standard or framework ids.
-      enum:
-        [
-          AWAF,
-          CISAWSF,
-          CISAZUREF,
-          CISAWSTTW,
-          PCI,
-          HIPAA,
-          GDPR,
-          APRA,
-          NIST4,
-          SOC2,
-          NIST-CSF,
-          ISO27001,
-          AGISM,
-          ASAE-3150,
-          MAS,
-        ]
+    $ref: ./compliance-standards.yml
   reportComplianceStandardId:
     type: string
     description: A single standard or framework id string.

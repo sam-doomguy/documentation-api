@@ -75,9 +75,7 @@ properties:
     description: Status of the Conformity Bot for the account.
     example: RUNNING
   cloud-type:
-    type: string
-    enum: [aws, azure]
-    description: Cloud provider that the rule applies to.
+    $ref: ./provider.yml
   managed-group-id:
     type: string
     description: ID of the managed group.

@@ -17,22 +17,9 @@ properties:
     description: Rule title
     example: Security Group Port Range
   categories:
-    type: array
-    items:
-      type: string
-      description: category that the rule belongs to.
-      enum:
-        [
-          "security",
-          "cost-optimisation",
-          "reliability",
-          "performance-efficiency",
-          "operational-excellence",
-        ]
+    $ref: "./categories.yml"
   risk-level:
-    type: string
-    description: Configures the level of risk assigned to the rule.
-    enum: ["EXTREME", "VERY_HIGH", "HIGH", "MEDIUM", "LOW"]
+    $ref: "./risk-level.yml"
   multi-risk-level:
     type: boolean
     description: Determines whether a rule has multiple risk levels for each setting.

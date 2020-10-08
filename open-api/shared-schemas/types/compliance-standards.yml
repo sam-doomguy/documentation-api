@@ -1,8 +1,8 @@
 type: array
-example: [AWAF]
+description: An array of supported standard or framework ids.
 items:
   type: string
-  description: An array of supported standard or framework ids.
+  description: A single standard or framework id string.
   enum:
     - AWAF
     - CISAWSF
@@ -19,3 +19,4 @@ items:
     - AGISM
     - ASAE-3150
     - MAS
+example: [NIST4, AWAF]

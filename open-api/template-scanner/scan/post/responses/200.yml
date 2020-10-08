@@ -2,3 +2,12 @@ type: object
 properties:
   data:
     $ref: ../../../../shared-schemas/checks-response.yml
+  meta:
+    type: object
+    properties:
+      missingParameters:
+        type: array
+        description: List of parameters that are missing values.
+        items:
+          type: string
+          example: AmazonASN

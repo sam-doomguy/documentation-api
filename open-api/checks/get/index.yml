@@ -17,7 +17,16 @@ parameters:
     schema:
       type: string
     description: Indicates the page number, defaults to 0
-  - $ref: "../../shared-schemas/check-filter.yml#/parameters/filter"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/services"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/regions"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/ruleIds"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/tags"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/createdLessThanDays"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/categories"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/riskLevels"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/compliances"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/statuses"
+  - $ref: "../../shared-schemas/check-filter.yml#/parameters/suppressedFilterMode"
 
 responses:
   200:

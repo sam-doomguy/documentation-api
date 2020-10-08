@@ -1,72 +1,52 @@
 parameters:
-  services:
+  filter:
+    name: filter
     in: query
-    name: filter[services]
+    description: Optional parameter including services, regions, categories, statuses, ruleIds, riskLevel, suppressed, and tags.
+    style: deepObject
+    explode: true
+    allowReserved: true
     schema:
-      type: string
-    description: A comma-seperated list of services from either AWS or Azure
-    example: EC2,S3
-  regions:
-    in: query
-    name: filter[regions]
-    schema:
-      type: string
-    description: A comma-seperated list of regions from either AWS or Azure
-    example: us-west-1,us-west-2
-  ruleIds:
-    in: query
-    name: filter[ruleIds]
-    schema:
-      type: string
-    description: A comma-seperated list of rule ids you want the returned checks to belong to
-    example: EC2-001,S3-001
-  tags:
-    in: query
-    name: filter[tags]
-    schema:
-      type: string
-    description: A comma-seperated list of resource tags
-    example: someResourceKey1::someResourceValue1,someResourceKey2::someResourceValue2
-  createdLessThanDays:
-    in: query
-    name: filter[createdLessThanDays]
-    schema:
-      type: number
-    description: Only show checks created less than X days ago.
-    example: 5
-  categories:
-    in: query
-    name: filter[categories]
-    schema:
-      type: string
-    description: A comma-seperated list of Conformity categories
-    example: security,reliability
-  riskLevels:
-    in: query
-    name: filter[riskLevels]
-    schema:
-      type: string
-    description: A comma-seperated list of Conformity risk levels
-    example: LOW,HIGH
-  compliances:
-    in: query
-    name: filter[compliances]
-    schema:
-      type: string
-    description: A comma-seperated list of supported standards or frameworks.
-    example: AWAF,CISAZUREF
-  statuses:
-    in: query
-    name: filter[statuses]
-    schema:
-      type: string
-    description: The status of the checks you want to return
-    example: SUCCESS
-  suppressedFilterMode:
-    in: query
-    name: filter[suppressedFilterMode]
-    schema:
-      type: string
-      enum: [v1, v2]
-    description: The status of the check.
-    example: v1
+      type: object
+      properties:
+        services:
+          type: string
+          description: A comma-seperated list of services from either AWS or Azure
+          example: EC2,S3
+        regions:
+          type: string
+          description: A comma-seperated list of regions from either AWS or Azure
+          example: us-west-1,us-west-2
+        ruleIds:
+          type: string
+          description: A comma-seperated list of rule ids you want the returned checks to belong to
+          example: EC2-001,S3-001
+        tags:
+          type: string
+          description: A comma-seperated list of resource tags
+          example: someResourceKey1::someResourceValue1,someResourceKey2::someResourceValue2
+        createdLessThanDays:
+          type: number
+          description: Only show checks created less than X days ago.
+          example: 5
+        categories:
+          type: string
+          description: A comma-seperated list of Conformity categories
+          example: security,reliability
+        riskLevels:
+          type: string
+          description: A comma-seperated list of Conformity risk levels
+          example: LOW,HIGH
+        compliances:
+          type: string
+          description: A comma-seperated list of supported standards or frameworks.
+          example: AWAF,CISAZUREF
+        statuses:
+          type: string
+          description: The status of the checks you want to return
+          example: SUCCESS
+        suppressedFilterMode:
+          type: string
+          enum: [v1, v2]
+          description: The status of the check.
+          example: v1

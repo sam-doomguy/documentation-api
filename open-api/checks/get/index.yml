@@ -7,16 +7,7 @@ parameters:
       type: string
     required: true
     description: A comma-separated list of Cloud Conformity accountIds.
-  - in: query
-    name: page[size]
-    schema:
-      type: string
-    description: Indicates the number of results that should be returned. Maximum value is 1000 and defaults to 100 if not specified
-  - in: query
-    name: page[number]
-    schema:
-      type: string
-    description: Indicates the page number, defaults to 0
+  - $ref: "../../shared-schemas/check-page.yml#/parameters/page"
   - $ref: "../../shared-schemas/check-filter.yml#/parameters/filter"
 
 responses:

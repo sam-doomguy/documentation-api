@@ -3,6 +3,8 @@ items:
   allOf:
     - $ref: ../check-request.yml
     - type: object
+      required:
+        - relationships
       properties:
         relationships:
           type: object
@@ -15,7 +17,7 @@ items:
                   properties:
                     type:
                       type: string
-                      example: rules
+                      default: rules
                     id:
                       type: string
                       example: CUSTOM-001
@@ -27,7 +29,7 @@ items:
                   properties:
                     type:
                       type: string
-                      example: accounts
+                      default: accounts
                     id:
                       type: string
                       example: H19NxM15-

@@ -11,19 +11,19 @@ parameters:
       properties:
         services:
           type: string
-          description: A comma-seperated list of services from either AWS or Azure
+          description: A comma-seperated list of services from either AWS or Azure.
           example: EC2,S3
         regions:
           type: string
-          description: A comma-seperated list of regions from either AWS or Azure
+          description: A comma-seperated list of regions from either AWS or Azure.
           example: us-west-1,us-west-2
         ruleIds:
           type: string
-          description: A comma-seperated list of rule ids you want the returned checks to belong to
+          description: A comma-seperated list of rule ids you want the returned checks to belong to.
           example: EC2-001,S3-001
         tags:
           type: string
-          description: A comma-seperated list of resource tags
+          description: A comma-seperated list of resource tags.
           example: someResourceKey1::someResourceValue1,someResourceKey2::someResourceValue2
         createdLessThanDays:
           type: number
@@ -31,11 +31,11 @@ parameters:
           example: 5
         categories:
           type: string
-          description: A comma-seperated list of Conformity categories
+          description: A comma-seperated list of Conformity categories.
           example: security,reliability
         riskLevels:
           type: string
-          description: A comma-seperated list of Conformity risk levels
+          description: A comma-seperated list of Conformity risk levels.
           example: LOW,HIGH
         compliances:
           type: string
@@ -43,7 +43,7 @@ parameters:
           example: AWAF,CISAZUREF
         statuses:
           type: string
-          description: The status of the checks you want to return
+          description: The status of the checks you want to return.
           example: SUCCESS
         suppressedFilterMode:
           type: string

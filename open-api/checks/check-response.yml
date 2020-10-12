@@ -13,7 +13,7 @@ properties:
             properties:
               type:
                 type: string
-                example: rules
+                default: rules
               id:
                 type: string
                 example: CUSTOM-001
@@ -25,7 +25,7 @@ properties:
             properties:
               type:
                 type: string
-                example: accounts
+                default: accounts
               id:
                 type: string
                 example: H19NxM15-

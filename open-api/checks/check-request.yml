@@ -1,4 +1,6 @@
 type: object
+required:
+  - type
 properties:
   type:
     type: string
@@ -6,13 +8,20 @@ properties:
     example: checks
   attributes:
     type: object
+    required:
+      - message
+      - not-scored
+      - region
+      - risk-level
+      - service
+      - status
     properties:
       categories:
         type: array
         example: [security]
         items:
           type: string
-          description: An array of category (AWS well-architected framework category) strings. (Optional)
+          description: An array of category (AWS well-architected framework category) strings.
           enum:
             - security
             - cost-optimisation
@@ -21,7 +30,7 @@ properties:
             - operational-excellence
       extradata:
         type: array
-        description: Additional data for the check. (Optional)
+        description: Additional data for the check.
         items:
           type: object
           properties:
@@ -57,7 +66,7 @@ properties:
         example: Bucket S3Bucket allows public 'READ' access.
       not-scored:
         type: boolean
-        description: true for informational checks. (Optional)
+        description: true for informational checks.
         example: false
       region:
         type: string
@@ -65,17 +74,17 @@ properties:
         example: us-west-2
       resolution-page-url:
         type: string
-        description: Custom defined resolution page url. (Optional)
+        description: Custom defined resolution page url.
         example: https://www.cloudconformity.com/conformity-rules/IAM/unused-iam-group.html#
       resource:
         type: string
-        description: The resource this check applies to. (Optional)
+        description: The resource this check applies to.
         example: S3Bucket
       risk-level:
         $ref: ../shared-schemas/risk-level.yml
       rule-title:
         type: string
-        description: rule title. (Optional)
+        description: rule title.
         example: Custom Rule about EC2 SGs
         default: Custom Rule
       service:
@@ -91,7 +100,7 @@ properties:
         example: SUCCESS
       tags:
         type: array
-        description: 'an array of tag strings that follow the format: "key::value". (Optional)'
+        description: 'an array of tag strings that follow the format: "key::value".'
         items:
           type: string
         example: ["key0::value0", "key1::value1"]

@@ -1,0 +1,17 @@
+description: Unauthorized. The requester user does not have enough privilege.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: number
+                example: 401
+              message:
+                type: string
+                example: Unauthorized

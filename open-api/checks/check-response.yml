@@ -1,7 +1,7 @@
 type: object
 properties:
   check:
-    $ref: ./check.yml
+    $ref: ../shared-schemas/check.yml
   relationships:
     type: object
     properties:

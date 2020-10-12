@@ -16,7 +16,7 @@ requestBody:
         type: object
         properties:
           data:
-            $ref: ../../shared-schemas/check-request-post.yml
+            $ref: ./check-request-post.yml
 
 responses:
   200:
@@ -29,7 +29,7 @@ responses:
             data:
               type: array
               items:
-                $ref: ../../shared-schemas/check-response.yml
+                $ref: ../check-response.yml
   400:
     description: Bad Request. Cannot process request due to a client error.
     content:

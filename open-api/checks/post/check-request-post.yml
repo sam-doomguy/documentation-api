@@ -1,7 +1,7 @@
 type: array
 items:
   allOf:
-    - $ref: ./check-request.yml
+    - $ref: ../check-request.yml
     - type: object
       properties:
         relationships:

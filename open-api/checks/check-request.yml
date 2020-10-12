@@ -72,7 +72,7 @@ properties:
         description: The resource this check applies to. (Optional)
         example: S3Bucket
       risk-level:
-        $ref: ./risk-level.yml
+        $ref: ../shared-schemas/risk-level.yml
       rule-title:
         type: string
         description: rule title. (Optional)

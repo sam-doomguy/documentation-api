@@ -20,7 +20,6 @@ responses:
             data:
               $ref: ../../../shared-schemas/checks-response.yml
 
-
   400:
     description: Bad Request. Cannot process request due to a client error.
     content:

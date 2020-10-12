@@ -67,6 +67,7 @@ curl -X POST \
 -d '
 {
 	"data": {
+		"type": "report-config",
 		"attributes": {
 			"accountId": "HksLj2_",
 			"configuration": {
@@ -145,6 +146,7 @@ curl -X POST \
 -d '
 {
 	"data": {
+		"type": "report-config",
 		"attributes": {
 			"accountId": "ACCOUNT_ID",
 			"configuration": {
@@ -457,6 +459,7 @@ curl -X PATCH \
 -d '
 {
 	"data": {
+		"type": "report-config",
 		"attributes": {
 			"configuration": {
 				"title": "Disabed Report",

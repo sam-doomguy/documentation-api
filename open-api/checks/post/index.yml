@@ -27,7 +27,9 @@ responses:
           type: object
           properties:
             data:
-              $ref: ../../shared-schemas/checks-response.yml
+              type: array
+              items:
+                $ref: ../../shared-schemas/check-response.yml
   400:
     description: Bad Request. Cannot process request due to a client error.
     content:

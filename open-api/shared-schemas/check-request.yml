@@ -53,7 +53,7 @@ properties:
               example: sg-2e885d00
       message:
         type: string
-        description: Description of the check. 
+        description: Description of the check.
         example: Bucket S3Bucket allows public 'READ' access.
       not-scored:
         type: boolean
@@ -61,7 +61,7 @@ properties:
         example: false
       region:
         type: string
-        description: The region the check ran in. 
+        description: The region the check ran in.
         example: us-west-2
       resolution-page-url:
         type: string

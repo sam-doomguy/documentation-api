@@ -10,6 +10,8 @@ Not complete set of options. (To be completed!)
 | `filter.ruleIds`  | An array of rule ids. e.g. ["EC2-001", "S3-001"]<br /><br />For more information about services, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services) |
 | `filter.tags`  | An array of any assigned metadata tags to your resources |
 | `filter.text`  | Filter by resource Id, rule title or message. A string. e.g "john", "s3" or "write" |
+| `filter.resource`  | Filter by resource Id for an exact match. A string. e.g "john", "s3" or "write" |
+| `filter.message`  | Filter by message. Will find messages that contain all words regardless of the order. e.g "new message" will find "message new" and "new message" |
 | `filter.createdLessThanDays`  | Only show checks created less than X days ago. When this field is populated, the checks created within the last X days will be returned. When both this field and `filter.createdMoreThanDays` are populated, it will display the checks created between `filter.createdLessThanDays` days ago and `filter.createdMoreThanDays` days ago. Number. e.g. 5. |
 | `filter.createdMoreThanDays`        | Only show checks created more than X days ago. When this field is populated, the checks created up to X days ago will be returned. Number. e.g. 5.
 | `filter.categories`  | An array of category (Conformity category) strings from the following:<br /> security \| cost-optimisation \| operational-excellence \| reliability  \| performance-efficiency <br />|

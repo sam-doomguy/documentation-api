@@ -25,6 +25,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../../shared-schemas/403.yml
+          $ref: ../../../shared-schemas/responses/403.yml
 security:
   - Authorizer: []

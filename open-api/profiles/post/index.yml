@@ -6,8 +6,8 @@ requestBody:
     application/json:
       schema:
         oneOf:
-          - $ref: ./save-new-profile-request.yml
-          - $ref: ./save-rule-settings-to-profile-request.yml
+          - $ref: ./requests/save-new-profile.yml
+          - $ref: ./requests/save-rule-settings-to-profile.yml
         example:
           included:
             - type: rules
@@ -86,8 +86,8 @@ responses:
       application/json:
         schema:
           oneOf:
-            - $ref: ./save-new-profile-response.yml
-            - $ref: ../../shared-schemas/profile-including-rule-settings-200-response.yml
+            - $ref: ./responses/save-new-profile.yml
+            - $ref: ../../shared-schemas/responses/200-profile-including-rule-settings.yml
           example:
             included:
               - type: rules
@@ -164,12 +164,12 @@ responses:
                 content:
                   application/json:
                     schema:
-                      $ref: ../../shared-schemas/401.yml
+                      $ref: ../../shared-schemas/responses/401.yml
               422:
                 description: Unprocessed Entity. Validation error.
                 content:
                   application/json:
                     schema:
-                      $ref: ../../shared-schemas/422-unprocessed-entity.yml
+                      $ref: ../../shared-schemas/responses/422-unprocessed-entity.yml
 security:
   - Authorizer: []

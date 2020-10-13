@@ -14,24 +14,24 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "./response-200.yml"
+          $ref: "./responses/200.yml"
   401:
     description: "Unauthorized. The requester user does not have enough privilege."
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/401.yml"
+          $ref: "../../../shared-schemas/responses/401.yml"
   403:
     description: "Forbidden. This happens when a valid api key is not provided."
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/403.yml"
+          $ref: "../../../shared-schemas/responses/403.yml"
   422:
     description: "No such user. This happens when the provided id does not belong to any user."
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/422-no-such-user.yml"
+          $ref: "../../../shared-schemas/responses/422-no-such-user.yml"
 security:
   - Authorizer: []

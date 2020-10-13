@@ -12,7 +12,7 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: "../../../shared-schemas/report-config-request.yml"
+        $ref: "../../../shared-schemas/requests/report-config.yml"
 responses:
   200:
     description: OK
@@ -22,12 +22,12 @@ responses:
           type: object
           properties:
             data:
-              $ref: "../../../shared-schemas/report-config.yml"
+              $ref: "../../../shared-schemas/types/report-config.yml"
   401:
     description: "Unauthorized. The requester user does not have enough privilege."
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/401.yml"
+          $ref: "../../../shared-schemas/responses/401.yml"
 security:
   - Authorizer: []

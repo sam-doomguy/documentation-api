@@ -7,9 +7,9 @@ requestBody:
     application/json:
       schema:
         oneOf:
-          - $ref: ./request-body/no-account-or-profile.yml
-          - $ref: ./request-body/with-account.yml
-          - $ref: ./request-body/with-profile.yml
+          - $ref: ./requests/no-account-or-profile.yml
+          - $ref: ./requests/with-account.yml
+          - $ref: ./requests/with-profile.yml
       example:
         data:
           attributes:
@@ -27,15 +27,15 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../../shared-schemas/401.yml
+          $ref: ../../../shared-schemas/responses/401.yml
   403:
     description: Forbidden. This happens when a valid api key is not provided or the user does not have access to the supplied account.
     content:
       application/json:
         schema:
           oneOf:
-            - $ref: ../../../shared-schemas/403.yml
-            - $ref: ../../../shared-schemas/403-json-api-spec.yml
+            - $ref: ../../../shared-schemas/responses/403.yml
+            - $ref: ./responses/403-json-api-spec.yml
         example:
           errors:
             - status: 403
@@ -45,7 +45,7 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../../shared-schemas/404-json-api-spec.yml
+          $ref: ./responses/404-json-api-spec.yml
   500:
     description: The parsing of the template file failed
     content:

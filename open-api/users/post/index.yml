@@ -6,25 +6,25 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: "./request-body.yml"
+        $ref: "./request.yml"
 responses:
   200:
     description: OK
     content:
       application/json:
         schema:
-          $ref: "./response-200.yml"
+          $ref: "./responses/200.yml"
   401:
     description: "Unauthorized. The requester user does not have enough privilege."
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/401.yml"
+          $ref: "../../shared-schemas/responses/401.yml"
   422:
     description: "Unprocessed Entity. Validation error."
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/unprocessed-entity-422-response.yml"
+          $ref: "../../shared-schemas/responses/422-unprocessed-entity.yml"
 security:
   - Authorizer: []

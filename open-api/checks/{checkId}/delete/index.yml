@@ -1,6 +1,6 @@
 summary: Get a check
 description: >
-  This endpoint allows you to get the details of the specified check.
+  This endpoint allows you to delete the specified check.
 parameters:
   - in: path
     name: checkId

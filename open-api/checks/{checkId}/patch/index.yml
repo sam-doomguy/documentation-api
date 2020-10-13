@@ -1,12 +1,12 @@
 summary: Update a check
 description: |
-  This endpoint is used to either update one custom check OR suppress/unsuppressed normal check.
+  This endpoint is used to either update one custom check OR suppress/unsuppressed one normal check.
 
   Some guidelines about using this endpoint:
   * When updating a custom check, you must leave `region`, `resource`, `service` attributes and `relationship.account` and `relationship.rule` unchanged.
   These are unique identifier parameters for custom checks and must be always present and unchanged once check is created.
 
-  * Suppression of check via this endpoint only works with FAILING checks and not successful checks.
+  * Suppression of a check via this endpoint only works with FAILING checks and not successful checks.
 
   * The Cloud Conformity ID of a check for an Azure account contains the forward slash character `/` which needs to be replaced with the encoded character `%2F` when passed in the request URL.
   e.g to update a check for an Azure account with the ID:
@@ -31,7 +31,7 @@ requestBody:
           - type: object
             properties:
               data:
-                $ref: ../../check-request.yml
+                $ref: ./check-request-patch.yml
           - type: object
             properties:
               data:

@@ -28,9 +28,9 @@ responses:
                     type: string
                     description: The status of the check.
                     enum:
-                      - SUCCESS
-                      - FAILURE
-                    example: SUCCESS
+                      - success
+                      - failure
+                    example: success
                   message:
                     type: string
                     example: Check successfully deleted

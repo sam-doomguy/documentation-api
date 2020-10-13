@@ -7,7 +7,7 @@ parameters:
     schema:
       type: string
     required: true
-    description: 'The Cloud Conformity ID of the check. Note: The Cloud Conformity ID of a check for an Azure account contains the forward slash character \ which needs to be replaced with the encoded character %2F when passed in the request URL'
+    description: "The Cloud Conformity ID of the check. Note: The Cloud Conformity ID of a check for an Azure account contains the forward slash character / which needs to be replaced with the encoded character %2F when passed in the request URL"
 
 responses:
   200:
@@ -18,7 +18,7 @@ responses:
           type: object
           properties:
             data:
-              $ref: ../../../shared-schemas/checks-response.yml
+              $ref: ../../check-response.yml
   401:
     $ref: ../../401.yml
   403:

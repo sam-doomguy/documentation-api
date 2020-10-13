@@ -75,10 +75,10 @@ responses:
                     properties:
                       pointer:
                         type: string
-                        example: /data/attributes/page[size]
+                        example: /data/attributes/page[regions]
                   details:
                     type: string
-                    example: page[size] must be greater than 0 and less than or equal to 1000
+                    example: Region(s) entered is/are invalid
   500:
     $ref: ../500.yml
 security:

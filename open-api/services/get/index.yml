@@ -1,5 +1,7 @@
 summary: Gets available services and mapped rules
 description: This endpoint returns information about the available services and mapped rules in Cloud Conformity.
+tags:
+  - Services
 responses:
   200:
     description: "200 response"

@@ -1,5 +1,7 @@
 summary: Download Report
 description: This end point allows you to download the report using a report-download-endpoint link.
+tags:
+  - Reports
 parameters:
   - in: path
     name: reportId

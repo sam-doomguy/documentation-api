@@ -1,11 +1,13 @@
 summary: Create Report Config
 description: This endpoint is used to create a new report config.
+tags:
+  - Report Configs
 requestBody:
   required: true
   content:
     application/json:
       schema:
-        $ref: "../../shared-schemas/requests/report-config.yml"
+        $ref: ../../shared-schemas/requests/report-config.yml
 responses:
   200:
     description: OK
@@ -15,18 +17,18 @@ responses:
           type: object
           properties:
             data:
-              $ref: "../../shared-schemas/types/report-config.yml"
+              $ref: ../../shared-schemas/types/report-config.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/responses/401.yml"
+          $ref: ../../shared-schemas/responses/401.yml
   422:
-    description: "Unprocessed Entity. Validation error."
+    description: Unprocessed Entity. Validation error.
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/responses/422-unprocessed-entity.yml"
+          $ref: ../../shared-schemas/responses/422-unprocessed-entity.yml
 security:
   - Authorizer: []

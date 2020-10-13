@@ -1,5 +1,7 @@
 summary: Get Profile and Rule Settings
 description: This endpoint allows ADMINs to delete a specified profile and all affiliated rule settings.
+tags:
+  - Profiles
 parameters:
   - in: path
     name: id

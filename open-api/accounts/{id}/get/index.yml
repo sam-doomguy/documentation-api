@@ -1,5 +1,7 @@
 summary: Get account details
 description: This endpoint allows you to get the details of the specified account.
+tags:
+  - Accounts
 parameters:
   - in: path
     name: id
@@ -13,12 +15,12 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/responses/200-single-account.yml"
+          $ref: ../../../shared-schemas/responses/200-single-account.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/responses/401.yml"
+          $ref: ../../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

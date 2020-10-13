@@ -1,5 +1,7 @@
 summary: Save New Profile and Rule Settings.
 description: This endpoint is used to register a new AWS account with Cloud Conformity.
+tags:
+  - Profiles
 requestBody:
   required: true
   content:

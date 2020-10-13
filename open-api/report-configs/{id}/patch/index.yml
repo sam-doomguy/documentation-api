@@ -1,5 +1,7 @@
 summary: Update Report Config
 description: A PATCH request to this endpoint allows you to update a specific report config.
+tags:
+  - Report Configs
 parameters:
   - in: path
     name: id
@@ -12,7 +14,7 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: "../../../shared-schemas/requests/report-config.yml"
+        $ref: ../../../shared-schemas/requests/report-config.yml
 responses:
   200:
     description: OK
@@ -22,12 +24,12 @@ responses:
           type: object
           properties:
             data:
-              $ref: "../../../shared-schemas/types/report-config.yml"
+              $ref: ../../../shared-schemas/types/report-config.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/responses/401.yml"
+          $ref: ../../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

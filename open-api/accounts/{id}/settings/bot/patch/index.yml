@@ -1,23 +1,25 @@
 summary: Update Account Bot Setting
 description: This endpoint allows ADMIN, POWER USERS, and users with CUSTOM access to accounts to get the current setting that Cloud Conformity uses to determine when Conformity Bot is run and on which regions the Conformity Bot is disabled. This endpoint also supports updating single attributes under the `settings` field (see below) in which case, only attributes passed in the request body will be updated.
+tags:
+  - Accounts
 requestBody:
   required: true
   content:
     application/json:
       schema:
-        $ref: "./request.yml"
+        $ref: ./request.yml
 responses:
   200:
     description: OK
     content:
       application/json:
         schema:
-          $ref: "./responses/200.yml"
+          $ref: ./responses/200.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../../../shared-schemas/responses/401.yml"
+          $ref: ../../../../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

@@ -5,6 +5,8 @@ description:
   For example, even if our bots run rule RDS-018 for your account hourly, if you have never configured it, it will not be
   part of the data body we send back.
   This endpoint only returns configured rules. If you want to include default rule settings, set `includeDefaults=true` in query parameters.
+tags:
+  - Accounts
 parameters:
   - in: path
     name: id
@@ -24,18 +26,18 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../../../../shared-schemas/responses/200-rules.yml"
+          $ref: ../../../../../shared-schemas/responses/200-rules.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../../../shared-schemas/responses/401.yml"
+          $ref: ../../../../../shared-schemas/responses/401.yml
   404:
-    description: "Not found."
+    description: Not found.
     content:
       application/json:
         schema:
-          $ref: "../../../../../shared-schemas/responses/404.yml"
+          $ref: ../../../../../shared-schemas/responses/404.yml
 security:
   - Authorizer: []

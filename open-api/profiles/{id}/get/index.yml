@@ -1,5 +1,7 @@
 summary: Get Profile and Rule Settings
 description: This endpoint allows ADMINs to get the details of the specified profile.
+tags:
+  - Profiles
 parameters:
   - in: path
     name: id

@@ -1,6 +1,8 @@
 summary: Get all users
 description: Gets all of the users of the requester user's organisation.
   Only ADMINs can perform get all users within the same organisation.
+tags:
+  - Users
 responses:
   200:
     description: OK

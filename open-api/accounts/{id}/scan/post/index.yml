@@ -4,6 +4,8 @@ description: This endpoint allows you to run Conformity Bot for the specified ac
   Amazon throttles API requests for each AWS account on a per-region basis to help the performance of the service.
   To avoid API throttling, it's important to ensure that your application doesn't use this API at a high rate.
   Refer to [AWS Service Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to find out more about AWS throttle rate.
+tags:
+  - Accounts
 parameters:
   - in: path
     name: id
@@ -17,12 +19,12 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "./responses/200.yml"
+          $ref: ./responses/200.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../../shared-schemas/responses/401.yml"
+          $ref: ../../../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

@@ -1,5 +1,7 @@
 summary: Apply Profile to Accounts
 description: This endpoint allows ADMINs to apply profile and rule settings to a set of accounts under your organisation.
+tags:
+  - Profiles
 parameters:
   - in: path
     name: id

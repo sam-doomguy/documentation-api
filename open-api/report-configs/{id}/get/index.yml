@@ -1,5 +1,7 @@
 summary: Get Report Config Details
 description: This endpoint allows you to get the details of the specified report config.
+tags:
+  - Report Configs
 parameters:
   - in: path
     name: id
@@ -16,12 +18,12 @@ responses:
           type: object
           properties:
             data:
-              $ref: "../../../shared-schemas/types/report-config.yml"
+              $ref: ../../../shared-schemas/types/report-config.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/responses/401.yml"
+          $ref: ../../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

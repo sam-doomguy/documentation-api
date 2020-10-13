@@ -1,5 +1,7 @@
 summary: List All Profiles
 description: Using this endpoint ADMINs can get a list of profiles associated to an organisation.
+tags:
+  - Profiles
 responses:
   200:
     description: OK

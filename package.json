@@ -5,7 +5,8 @@
   "scripts": {
     "validate": "swagger-cli validate open-api/openapi.yml",
     "build": "swagger-cli bundle open-api/openapi.yml --outfile build/openapi3.yml --type yaml",
-    "format-api-docs": "prettier open-api --write"
+    "format-api-docs": "prettier open-api --write",
+    "start": "redoc-cli serve open-api/openapi.yml"
   },
   "repository": {
     "type": "git",
@@ -16,12 +17,11 @@
     "url": "https://github.com/cloudconformity/documentation-api/issues"
   },
   "homepage": "https://github.com/cloudconformity/documentation-api#readme",
-  "dependencies": {
-    "swagger-cli": "^4.0.4"
-  },
   "devDependencies": {
     "husky": "^4.2.5",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "redoc-cli": "^0.9.12",
+    "swagger-cli": "^4.0.4"
   },
   "husky": {
     "hooks": {

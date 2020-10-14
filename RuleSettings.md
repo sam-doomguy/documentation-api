@@ -1,11 +1,29 @@
 # Cloud Conformity API rule settings guide
 
-## Rule settings
 Every rule in Cloud Conformity can be configured via API. These rule settings can disable or enable rules, change 
 default risk level, setup exceptions and configure rule-specific settings.
 
-Rule settings returned from `GET /v1/accounts/{accountId}/settings/rules?includeDefaults=true` endpoint 
-are formatted as the following example:
+Below is a list of the available API calls
+
+- [Get Rule Settings](#get-rule-settings)
+- [Get Rule Settings By Id](#get-rule-settings-by-Id)
+- [Update Rule Settings](#update-rule-settings)
+- [Update Rule Settings By Id](#update-rule-settings-by-Id)
+
+## Get Rule Settings
+
+A GET request to this endpoint allows you to get rule settings.
+
+##### Endpoints:
+
+`GET /v1/accounts/{accountId}/settings/rules?includeDefaults=true`
+
+##### Paramters
+
+- `accountId`: Cloud Conformity ID of the account. Provide to get only settings set for the specified account.
+- `includeDefaults`: _optional_ (true|false) Specify `true` if you want to see default rule settings which have not been configured.
+
+##### Examples:
 ```json
 {
   "id": "EC2-012",
@@ -58,10 +76,10 @@ are formatted as the following example:
   - Values: true, false
 
     
-## Extra setting types
+###### Extra setting types
 These formats are are found in `type` field of rule extra settings:
 
-#### multiple-string-values
+###### multiple-string-values
 * **Usage:** Used when one or more strings are required.
 * **UI:** List of text fields
 
@@ -91,7 +109,7 @@ _Example:_
 }
 ```
 
-#### multiple-object-values
+###### multiple-object-values
 * **Usage:** Used when one or more sets of values are required.
 * **UI:** Table of text fields
 
@@ -122,8 +140,9 @@ _Example:_
   ],
   //...
 }
+```
 
-#### choice-multiple-value
+###### choice-multiple-value
 * **Usage:** Used when one or more selections from a predefined set of values are required.
 * **UI:** List of checkboxes
 
@@ -161,7 +180,7 @@ _Example:_
 }
 ```
 
-#### choice-single-value
+###### choice-single-value
 * **Usage:** Used when a single value should be selected from multiple choices. 
 * **UI:** List of radio buttons
 
@@ -204,7 +223,7 @@ _Example:_
 }
 ```
 
-#### countries
+###### countries
 * **Usage:** Used when one or more countries should be selected.
 * **UI:** Multi-select list of countries
 
@@ -241,7 +260,7 @@ _Example:_
 }
 ```
 
-#### multiple-aws-account-values
+###### multiple-aws-account-values
 * **Usage:** Used when one or more AWS Account IDs are required.
 * **UI:** List of text fields accepting AWS Account IDs (12 digits)
 
@@ -268,7 +287,7 @@ _Example:_
 }
 ```
 
-#### multiple-ip-values
+###### multiple-ip-values
 * **Usage:** Used when one or more IP addresses or CIDRs are required.
 * **UI:** List of text fields accepting IP address or CIDRs.
  
@@ -296,7 +315,7 @@ _Example:_
 }
 ```
 
-#### multiple-number-values
+###### multiple-number-values
 * **Usage:** Used when a one or more numbers are required.
 * **UI:** List of text fields accepting numbers
 
@@ -324,7 +343,7 @@ _Example:_
 }
 ```
 
-#### regions
+###### regions
 * **Usage:** Used when one or more AWS region should be selected.
 * **UI:** List of on/off sliders for every supported AWS region 
 
@@ -353,7 +372,7 @@ _Example:_
 }
 ```
 
-#### single-number-value
+###### single-number-value
 * **Usage:** Used when a single numeric value is required. 
 * **UI:** Text field accepting numbers
 
@@ -373,7 +392,7 @@ _Example:_
 }
 ```
 
-#### single-string-value
+###### single-string-value
 * **Usage:** Used when a single string value is required. 
 * **UI:** Text field
 
@@ -394,7 +413,7 @@ _Example:_
 }
 ```
 
-#### single-value-regex
+###### single-value-regex
 * **Usage:** Used when a regular expression is required. 
 * **UI:** Text field accepting regular expressions
 
@@ -414,7 +433,7 @@ _Example:_
 }
 ```
 
-#### ttl
+###### ttl
 * **Usage:** Real-time monitoring (RTM) rules have _Time To Live_. This is the 
 number of hours that an RTM check remains valid after which time it is expired 
 and may get triggered again.
@@ -433,5 +452,459 @@ _Example:_
     }
   ],
   //...
+}
+```
+
+###### multiple-vpc-gateway-mappings
+* **Usage:** Used when one or more VPC gateway mappings are required.
+* **UI:** List of VPC Id and Gateway Id mapping
+
+_Example:_
+```json5
+{
+  "id": "VPC-013",
+  //...
+  "extraSettings": [
+    {
+      "type": "multiple-vpc-gateway-mappings",
+      "name": "SpecificVPCToSpecificGatewayMapping",
+      "mappings": [
+        {
+          "values": [
+            {
+              "type": "single-string-value",
+              "name": "vpcId",
+              "value": "vpc-001"
+            },
+            {
+              "type": "multiple-string-values",
+              "name": "gatewayIds",
+              "values": [
+                {
+                  "value": "nat-001"
+                },
+                {
+                  "value": "nat-002"
+                 }
+              ]
+            }
+          ]
+        }
+            //...
+      ]
+    }
+  ],
+  //...
+}
+```
+
+## Get Rule Settings By Id
+
+A GET request to this endpoint allows you to get rule settings based on the rule Id.
+
+##### Endpoints:
+
+`GET /v1/accounts/{accountId}/settings/rules/{ruleId}`
+
+##### Parameters
+
+- `accountId`: Cloud Conformity account ID. Provide to get only rule settings for the specified account.
+- `ruleId`: Cloud Conformity Rule ID. Provide to get only rule settings for the specified rule.
+
+Example Request:
+
+```
+curl --location --request GET 'https://us-west-2-api-development.cloudconformity.com/v1/accounts/accountId/settings/rules/VPC-013' \
+--H 'Authorization: ApiKey apikeyId' \
+--H 'Content-Type: application/vnd.api+json'
+```
+
+Example Response:
+```
+{
+  "data": {
+    "type": "accounts",
+    "id": "accountId",
+    "attributes": {
+      "settings": {
+        "rules": [
+          {
+            "ruleExists": true,
+            "riskLevel": "LOW",
+            "extraSettings": [
+              {
+                "type": "multiple-vpc-gateway-mappings",
+                "name": "SpecificVPCToSpecificGatewayMapping",
+                "mappings": [
+                  {
+                    "values": [
+                      {
+                        "type": "single-string-value",
+                        "name": "vpcId",
+                        "value": "vpc-001"
+                      },
+                      {
+                        "type": "multiple-string-values",
+                        "name": "gatewayIds",
+                        "values": [
+                          {
+                            "value": "nat-0011"
+                          },
+                          {
+                            "value": "nat-0022"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "values": [
+                      {
+                        "type": "single-string-value",
+                        "name": "vpcId",
+                        "value": "vpc-002"
+                      },
+                      {
+                        "type": "multiple-string-values",
+                        "name": "gatewayIds",
+                        "values": [
+                          {
+                            "value": "nat-002"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "provider": "aws",
+            "id": "VPC-013",
+            "enabled": true,
+            "exceptions": {
+              "resources": null,
+              "tags": null
+            }
+          }
+        ],
+        "access": {}
+      },
+      "access": null,
+      "cloud-type": "aws"
+    },
+    "relationships": {
+      "organisation": {
+        "data": {
+          "type": "organisations",
+          "id": "organisationId"
+        }
+      }
+    }
+  }
+}
+
+```
+
+## Update Rule Settings
+
+A PATCH request to this endpoint allows you to update rule settings.
+
+##### Endpoints:
+
+`PATCH accounts/{accountId}/settings/rules`
+
+##### Parameters
+- `accountId`: String, the Conformity account Id
+- `data`: A JSON object containing JSONAPI compliant data object with following properties
+  - `attributes`: Object containing
+    - `ruleSettings`: Array of rule settings containing
+      - `id`: String, the Conformity RuleId
+      - `enabled`: Boolean, true for enabling, false for disabling the rule.
+      - `riskLevel`: String, the risk level of the rule. Must be from the following: LOW\| MEDIUM \| HIGH \| VERY_HIGH \| EXTREME
+      - `ruleExists`: Boolean, true for existing, false for not existing rule.
+      - `provider`: String, the cloud provider which Conformity currently supports: aws \| azure
+      - `extraSettings`: Object containing parameters that are extra setting of the rule
+
+Example Request:
+```
+curl --location --request PATCH 'https://us-west-2-api-development.cloudconformity.com/v1/accounts/accountId/settings/rules' \
+--header 'Authorization: ApiKey apiKey' \
+--header 'Content-Type: application/vnd.api+json' \
+--data-raw '
+{
+  "data":{
+    "attributes":{
+      "ruleSettings": [
+        {
+          "riskLevel": "MEDIUM",
+          "id": "S3-019",
+          "extraSettings": [
+            {
+              "name": "s3_buckets",
+              "label": "S3 Buckets",
+              "type": "multiple-string-values",
+              "values": [
+                {
+                  "value": "test-bucket"
+                },
+                {
+                  "value": "test-bucket-2"
+                }
+              ]
+            }
+          ],
+          "provider": "aws",
+          "enabled": true,
+          "exceptions": {
+            "resources": null,
+            "tags": null
+          }
+        }
+      ],
+      "note":"test"
+    }
+  }
+}
+'
+```
+
+Example Response:
+
+```
+{
+  "data": {
+    "type": "accounts",
+    "id": "accountId",
+    "attributes": {
+      "settings": {
+        "rules": [
+          {
+            "riskLevel": "MEDIUM",
+            "id": "S3-019",
+            "extraSettings": [
+              {
+                "name": "s3_buckets",
+                "label": "S3 Buckets",
+                "type": "multiple-string-values",
+                "values": [
+                  {
+                    "value": "test-bucket"
+                  },
+                  {
+                    "value": "test-bucket-2"
+                  }
+                ]
+              }
+            ],
+            "provider": "aws",
+            "enabled": true,
+            "exceptions": {
+              "resources": null,
+              "tags": null
+            }
+          }
+        ],
+        "access": {}
+      },
+      "access": null,
+      "cloud-type": "aws"
+    },
+    "relationships": {
+      "organisation": {
+        "data": {
+          "type": "organisations",
+          "id": "organisationId"
+        }
+      }
+    }
+  }
+}
+```
+
+
+## Update Rule Settings By Id
+
+A PATCH request to this endpoint allows you to update a specific rule's settings.
+
+##### Endpoints:
+
+`PATCH accounts/{accountId}/settings/rules/{ruleId}`
+
+##### Parameters
+- `accountId`: String, the Conformity account Id
+- `ruleId`: String, the Conformity ruleId
+- `data`: A JSON object containing JSONAPI compliant data object with following properties
+  - `attributes`: Object containing
+    - `ruleSetting`: Object containing
+      - `id`: String, the Conformity ruleId
+      - `enabled`: Boolean, true for enabling, false for disabling the rule.
+      - `riskLevel`: String, the risk level of the rule. Must be from the following: LOW\| MEDIUM \| HIGH \| VERY_HIGH \| EXTREME
+      - `ruleExists`: Boolean, true for existing, false for not existing rule.
+      - `provider`: String, the cloud provider which Conformity currently supports: aws \| azure
+      - `extraSettings`: Object containing parameters that are extra setting of the rule
+      
+Example Request:
+
+```
+curl --location --request PATCH 'https://us-west-2-api-development.cloudconformity.com/v1/accounts/accountId/settings/rules/VPC-013' \
+--header 'Authorization: ApiKey apiKey' \
+--header 'Content-Type: application/vnd.api+json' \
+--data-raw 
+{
+  "data":{
+    "attributes":{
+      "ruleSetting": {
+        "id": "VPC-013",
+        "enabled": true,
+        "riskLevel": "LOW",
+        "ruleExists":true,
+        "extraSettings": [
+          {
+            "type": "multiple-vpc-gateway-mappings",
+            "name": "SpecificVPCToSpecificGatewayMapping",
+            "mappings": [
+              {
+                "values": [
+                  {
+                    "type": "single-string-value",
+                    "name": "vpcId",
+                    "value": "vpc-001"
+                  },
+                  {
+                    "type": "multiple-string-values",
+                    "name": "gatewayIds",
+                    "values": [
+                      {
+                        "value": "nat-0011"
+                      },
+                      {
+                        "value": "nat-0022"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "type": "single-string-value",
+                    "name": "vpcId",
+                    "value": "vpc-002"
+                  },
+                  {
+                    "type": "multiple-string-values",
+                    "name": "gatewayIds",
+                    "values": [
+                      {
+                        "value": "nat-002"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "provider": "aws",
+        "exceptions": {
+          "resources": null,
+          "tags": null
+        }
+      },
+      "note":"note for updating the rule setting"
+    }
+  }
+}
+'
+```
+
+Example Response:
+
+```
+{
+  "data": {
+    "type": "accounts",
+    "id": "accountId",
+    "attributes": {
+      "settings": {
+        "rules": [
+          {
+            "enabled": false,
+            "id": "S3-021",
+            "riskLevel": "HIGH"
+          },
+          {
+            "ruleExists": true,
+            "riskLevel": "LOW",
+            "extraSettings": [
+              {
+                "type": "multiple-vpc-gateway-mappings",
+                "name": "SpecificVPCToSpecificGatewayMapping",
+                "mappings": [
+                  {
+                    "values": [
+                      {
+                        "type": "single-string-value",
+                        "name": "vpcId",
+                        "value": "vpc-001"
+                      },
+                      {
+                        "type": "multiple-string-values",
+                        "name": "gatewayIds",
+                        "values": [
+                          {
+                            "value": "nat-0011"
+                          },
+                          {
+                            "value": "nat-0022"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "values": [
+                      {
+                        "type": "single-string-value",
+                        "name": "vpcId",
+                        "value": "vpc-002"
+                      },
+                      {
+                        "type": "multiple-string-values",
+                        "name": "gatewayIds",
+                        "values": [
+                          {
+                            "value": "nat-002"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "provider": "aws",
+            "id": "VPC-013",
+            "enabled": true,
+            "exceptions": {
+              "resources": null,
+              "tags": null
+            }
+          }
+        ],
+        "access": {}
+      },
+      "access": null,
+      "cloud-type": "aws"
+    },
+    "relationships": {
+      "organisation": {
+        "data": {
+          "type": "organisations",
+          "id": "organisationId"
+        }
+      }
+    }
+  }
 }
 ```

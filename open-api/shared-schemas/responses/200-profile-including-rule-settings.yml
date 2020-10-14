@@ -3,9 +3,9 @@ properties:
   included:
     type: array
     items:
-      $ref: "../types/profile-rule-setting.yml"
+      $ref: ../types/profile-rule-setting.yml
   data:
-    $ref: "../types/profile.yml"
+    $ref: ../types/profile.yml
 example:
   included:
     - type: rules
@@ -15,7 +15,7 @@ example:
         extraSettings:
           - type: single-number-value
             name: cpuUtilizationThreshold
-            value: "2"
+            value: 2
         riskLevel: HIGH
         provider: aws
     - type: rules
@@ -36,7 +36,7 @@ example:
                 default:
           - name: ttl
             type: ttl
-            value: "24"
+            value: 24
             ttl: true
         riskLevel: HIGH
         provider: aws

@@ -29,6 +29,6 @@ properties:
     type: object
     properties:
       organisation:
-        $ref: "../../../../../shared-schemas/types/organisation-short.yml"
+        $ref: ../../../../../shared-schemas/types/organisation-short.yml
       account:
-        $ref: "../../../../../shared-schemas/types/account-short.yml"
+        $ref: ../../../../../shared-schemas/types/account-short.yml

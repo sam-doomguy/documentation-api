@@ -22,29 +22,29 @@ properties:
                   type: object
                   properties:
                     riskLevel:
-                      $ref: "../fields/risk-level.yml"
+                      $ref: ../fields/risk-level.yml
                     id:
                       type: string
                       description: Rule ID.
                       example: RDS-018
                     extraSettings:
-                      $ref: "../types/extra-settings.yml"
+                      $ref: ../types/extra-settings.yml
                     enabled:
                       type: boolean
                       description: false if the rule is manually configured to be disabled for the account.
                       example: false
                     provider:
-                      $ref: "../fields/provider.yml"
+                      $ref: ../fields/provider.yml
       relationships:
         type: object
         properties:
           organisation:
-            $ref: "../types/organisation-short.yml"
+            $ref: ../types/organisation-short.yml
   meta:
     type: object
     properties:
       notes:
-        $ref: "../types/notes.yml"
+        $ref: ../types/notes.yml
 example:
   data:
     type: accounts

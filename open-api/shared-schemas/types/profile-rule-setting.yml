@@ -15,8 +15,8 @@ properties:
         description: true if the rule is enabled.
         example: false
       exceptions:
-        $ref: "../types/rule-exception.yml"
+        $ref: ../types/rule-exception.yml
       extraSettings:
-        $ref: "./extra-settings.yml"
+        $ref: ./extra-settings.yml
       riskLevel:
-        $ref: "../fields/risk-level.yml"
+        $ref: ../fields/risk-level.yml

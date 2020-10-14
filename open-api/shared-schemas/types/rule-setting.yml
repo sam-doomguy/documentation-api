@@ -9,12 +9,12 @@ properties:
     description: true for inclusion in bot detection, false for exclusion
     example: false
   riskLevel:
-    $ref: "../fields/risk-level.yml"
+    $ref: ../fields/risk-level.yml
   exceptions:
     type: array
     items:
-      $ref: "./rule-exception.yml"
+      $ref: ./rule-exception.yml
   provider:
-    $ref: "../fields/provider.yml"
+    $ref: ../fields/provider.yml
   extraSettings:
-    $ref: "./extra-settings.yml"
+    $ref: ./extra-settings.yml

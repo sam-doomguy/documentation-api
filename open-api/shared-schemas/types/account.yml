@@ -2,7 +2,7 @@ type: object
 properties:
   name:
     type: string
-    example: "MyAccount"
+    example: MyAccount
     description: The Name of the account.
   environment:
     type: string
@@ -149,7 +149,7 @@ properties:
           lastModifiedFrom:
             type: string
             description: The IP address where the last modification to Conformity Bot has been done from.
-            example: "13.237.98.102"
+            example: 13.237.98.102
           disabled:
             type: boolean
             description: true if the Conformity Bot is disabled for the current accounts.
@@ -188,7 +188,7 @@ properties:
       version:
         type: string
         description: Version of the cost package.
-        example: "1.0.14"
+        example: 1.0.14
       last-updated-date:
         type: integer
         description: A date-time in Unix Epoch timestamp format (in milliseconds) which is the last
@@ -215,7 +215,7 @@ properties:
             example: 1.0849829999999998
           billId:
             type: string
-            description: ID of the bill in the format of "YYYY-MM" (YYYY - 4 digit year and MM - 2 digit month).
+            description: ID of the bill in the format of YYYY-MM (YYYY - 4 digit year and MM - 2 digit month).
             example: 2020-09
           optimisationRate:
             type: string
@@ -271,7 +271,7 @@ properties:
               example: 9.577014169151289
             id:
               type: string
-              description: ID of the bill in the format of "YYYY-MM" (YYYY - 4 digit year and MM - 2 digit month).
+              description: ID of the bill in the format of YYYY-MM (YYYY - 4 digit year and MM - 2 digit month).
               example: 2020-09
             status:
               type: string

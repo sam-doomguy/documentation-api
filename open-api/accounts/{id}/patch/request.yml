@@ -11,7 +11,7 @@ properties:
         properties:
           name:
             type: string
-            example: "MyAccount"
+            example: MyAccount
             description: The Name of the account.
           environment:
             type: string

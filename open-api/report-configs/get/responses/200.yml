@@ -3,4 +3,4 @@ properties:
   data:
     type: array
     items:
-      $ref: "../../../shared-schemas/types/report-config.yml"
+      $ref: ../../../shared-schemas/types/report-config.yml

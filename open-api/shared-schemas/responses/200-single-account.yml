@@ -11,7 +11,7 @@ properties:
         description: ID of the account.
         example: H19NxMi5-
       attributes:
-        $ref: "../types/account.yml"
+        $ref: ../types/account.yml
       subscription-type:
         type: string
         enum: [advanced, essentials]
@@ -24,4 +24,4 @@ properties:
         type: object
         properties:
           organisation:
-            $ref: "../types/organisation-short.yml"
+            $ref: ../types/organisation-short.yml

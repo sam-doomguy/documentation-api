@@ -1,5 +1,5 @@
 allOf:
-  - $ref: "./profile-short.yml"
+  - $ref: ./profile-short.yml
   - type: object
     properties:
       relationships:

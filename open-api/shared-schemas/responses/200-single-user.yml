@@ -1,4 +1,4 @@
 type: object
 properties:
   data:
-    $ref: "../types/user.yml"
+    $ref: ../types/user.yml

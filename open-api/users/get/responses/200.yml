@@ -3,4 +3,4 @@ properties:
   data:
     type: array
     items:
-      $ref: "../../../shared-schemas/types/user.yml"
+      $ref: ../../../shared-schemas/types/user.yml

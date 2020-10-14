@@ -4,16 +4,16 @@ tags:
   - Services
 responses:
   200:
-    description: "200 response"
+    description: 200 response
     content:
       application/json:
         schema:
-          $ref: "./responses/200.yml"
+          $ref: ./responses/200.yml
   403:
-    description: "403 response"
+    description: 403 response
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/responses/403.yml"
+          $ref: ../../shared-schemas/responses/403.yml
 security:
   - Authorizer: []

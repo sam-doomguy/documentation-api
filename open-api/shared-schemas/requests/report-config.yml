@@ -69,7 +69,7 @@ properties:
             frequency: "* * *"
             tz: Australia/Sydney
             sendEmail: true
-            emails: ["user@email.com"]
+            emails: [user@email.com]
             filter:
               services: [IAM]
               suppressed: true

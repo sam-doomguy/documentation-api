@@ -17,9 +17,9 @@ properties:
     description: Rule title
     example: Security Group Port Range
   categories:
-    $ref: "./categories.yml"
+    $ref: ./categories.yml
   risk-level:
-    $ref: "../fields/risk-level.yml"
+    $ref: ../fields/risk-level.yml
   multi-risk-level:
     type: boolean
     description: Determines whether a rule has multiple risk levels for each setting.
@@ -33,7 +33,7 @@ properties:
   package:
     type: string
     description: Flag indicating if the rule belongs to an add-on or base package.
-    enum: ["base", "cost", "rtm"]
+    enum: [base, cost, rtm]
   is-organisational:
     type: boolean
     description: Flag indicating if the rule runs on an organisational level.
@@ -43,7 +43,7 @@ properties:
   level:
     type: string
     description: Level at which the rule runs.
-    enum: ["resource", "service", "cross-account", "account", "provider", "event"]
+    enum: [resource, service, cross-account, account, provider, event]
   release-date:
     type: string
     format: date-time
@@ -58,4 +58,4 @@ properties:
     type: boolean
     description: Flag indicating whether the rule is marked as deprecated.
   provider:
-    $ref: "../fields/provider.yml"
+    $ref: ../fields/provider.yml

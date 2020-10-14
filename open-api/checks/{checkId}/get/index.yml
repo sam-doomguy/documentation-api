@@ -18,7 +18,7 @@ responses:
           type: object
           properties:
             data:
-              $ref: ../../check-response.yml
+              $ref: ../check-response.yml
   401:
     $ref: ../../401.yml
   403:

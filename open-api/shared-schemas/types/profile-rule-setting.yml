@@ -1,0 +1,22 @@
+type: object
+properties:
+  type:
+    type: string
+    example: rules
+  id:
+    type: string
+    description: ID of the rule.
+    example: EC2-001
+  attributes:
+    type: object
+    properties:
+      enable:
+        type: boolean
+        description: true if the rule is enabled.
+        example: false
+      exceptions:
+        $ref: ../types/rule-exception.yml
+      extraSettings:
+        $ref: ./extra-settings.yml
+      riskLevel:
+        $ref: ../fields/risk-level.yml

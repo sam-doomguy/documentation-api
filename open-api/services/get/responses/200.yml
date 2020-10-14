@@ -1,0 +1,41 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          example: services
+        id:
+          type: string
+          example: EC2
+          description: Identifier of the services
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the service
+              example: EC2
+            provider:
+              $ref: ../../../shared-schemas/fields/provider.yml
+        relationships:
+          type: object
+          properties:
+            rules:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: rules
+                  id:
+                    description: Identifier of the rule
+                    example: EC2-001
+  included:
+    type: array
+    items:
+      $ref: ../../../shared-schemas/types/rule.yml

@@ -1,0 +1,6 @@
+type: string
+enum:
+  - aws
+  - azure
+description: Name of the cloud provider.
+example: aws

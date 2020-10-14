@@ -2,30 +2,32 @@ summary: Add sso user
 description: Add a new  sso user in the requester user's organisation.
   This endpoint is only available for organisations with an external identity provider setup.
   Only ADMINS from an external identity provider can use this endpoint to add new sso users to their organisation.
+tags:
+  - Users
 requestBody:
   required: true
   content:
     application/json:
       schema:
-        $ref: "./request-body.yml"
+        $ref: ./request.yml
 responses:
   200:
     description: OK
     content:
       application/json:
         schema:
-          $ref: "./response-200.yml"
+          $ref: ./responses/200.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/401.yml"
+          $ref: ../../../shared-schemas/responses/401.yml
   422:
-    description: "Unprocessed Entity. Validation error."
+    description: Unprocessed Entity. Validation error.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/unprocessed-entity-422-response.yml"
+          $ref: ../../../shared-schemas/responses/422-unprocessed-entity.yml
 security:
   - Authorizer: []

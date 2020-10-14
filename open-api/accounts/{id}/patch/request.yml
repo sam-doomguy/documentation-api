@@ -1,9 +1,11 @@
 type: object
-required: [data]
+required:
+  - data
 properties:
   data:
     type: object
-    required: [attributes]
+    required:
+      - attributes
     properties:
       attributes:
         type: object
@@ -11,7 +13,7 @@ properties:
         properties:
           name:
             type: string
-            example: "MyAccount"
+            example: MyAccount
             description: The Name of the account.
           environment:
             type: string

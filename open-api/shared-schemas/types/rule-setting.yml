@@ -1,0 +1,20 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Rule Id, same as the one provided in the endpoint.
+    example: RDS-018
+  enabled:
+    type: boolean
+    description: true for inclusion in bot detection, false for exclusion
+    example: false
+  riskLevel:
+    $ref: ../fields/risk-level.yml
+  exceptions:
+    type: array
+    items:
+      $ref: ./rule-exception.yml
+  provider:
+    $ref: ../fields/provider.yml
+  extraSettings:
+    $ref: ./extra-settings.yml

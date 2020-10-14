@@ -1,5 +1,7 @@
 summary: List all reports
 description: This end point allows you to query all reports that you have access to, based on the query parameters provided.
+tags:
+  - Reports
 parameters:
   - in: query
     name: accountId
@@ -25,12 +27,12 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "./response-200.yml"
+          $ref: ./responses/200.yml
   401:
     description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/401.yml"
+          $ref: ../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

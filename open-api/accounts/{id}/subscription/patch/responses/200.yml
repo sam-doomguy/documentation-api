@@ -1,0 +1,21 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          example: accounts
+        id:
+          type: string
+          description: ID of the accounts
+          example: AgA12vIwb
+        attributes:
+          $ref: ../../../../../shared-schemas/types/account.yml
+        relationships:
+          type: object
+          properties:
+            organisation:
+              $ref: ../../../../../shared-schemas/types/organisation-short.yml

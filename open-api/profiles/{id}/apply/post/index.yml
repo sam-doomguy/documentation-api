@@ -1,5 +1,7 @@
 summary: Apply Profile to Accounts
 description: This endpoint allows ADMINs to apply profile and rule settings to a set of accounts under your organisation.
+tags:
+  - Profiles
 parameters:
   - in: path
     name: id
@@ -19,12 +21,12 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ./response-200.yml
+          $ref: ./responses/200.yml
   403:
     description: Forbidden. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: ../../../../shared-schemas/403.yml
+          $ref: ../../../../shared-schemas/responses/403.yml
 security:
   - Authorizer: []

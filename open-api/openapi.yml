@@ -1,163 +1,198 @@
-openapi: "3.0.1"
+openapi: 3.0.1
 info:
-  title: "Cloud Conformity"
+  title: Cloud Conformity
   version: "2020-08-20T00:27:06Z"
 servers:
-  - url: "https://eu-west-1-api.cloudconformity.com/v1"
-    description: "eu-west-1"
-  - url: "https://us-west-2-api.cloudconformity.com/v1"
-    description: "us-west-2"
+  - url: https://eu-west-1-api.cloudconformity.com/v1
+    description: eu-west-1
+  - url: https://us-west-2-api.cloudconformity.com/v1
+    description: us-west-2
+tags:
+  - name: Accounts
+    description: Managing Conformity accounts.
+  - name: API Keys
+    description: Managing Conformity api keys.
+  - name: Checks
+    description: Managing Conformity checks.
+  - name: Events
+    description: Managing Conformity events.
+  - name: External IDs
+    description: Managing Conformity external IDs.
+  - name: Groups
+    description: Managing Conformity groups.
+  - name: Scans
+    description: Managing Conformity scans.
+  - name: Organisations
+    description: Managing Conformity organisations.
+  - name: Profiles
+    description: Managing Conformity profiles.
+  - name: Report Configs
+    description: Managing Conformity report configs.
+  - name: Reports
+    description: Managing Conformity reports.
+  - name: Resources
+    description: Managing Conformity resources.
+  - name: Services
+    description: Managing Conformity services.
+  - name: Settings
+    description: Managing Conformity settings.
+  - name: Communication settings
+    description: Managing Conformity communication settings.
+  - name: Template scanner
+    description: Managing Conformity template scanner.
+  - name: Users
+    description: Managing users.
 paths:
   /accounts:
     get:
-      $ref: "./accounts/get/index.yml"
+      $ref: ./accounts/get/index.yml
     post:
-      $ref: "./accounts/post/index.yml"
+      $ref: ./accounts/post/index.yml
   /accounts/{id}:
     get:
-      $ref: "./accounts/{id}/get/index.yml"
+      $ref: ./accounts/{id}/get/index.yml
     delete:
-      $ref: "./accounts/{id}/delete/index.yml"
+      $ref: ./accounts/{id}/delete/index.yml
     patch:
-      $ref: "./accounts/{id}/patch/index.yml"
+      $ref: ./accounts/{id}/patch/index.yml
   /accounts/{id}/subscription:
     patch:
-      $ref: "./accounts/{id}/subscription/patch/index.yml"
+      $ref: ./accounts/{id}/subscription/patch/index.yml
   /accounts/{id}/access:
     get:
-      $ref: "./accounts/{id}/access/get/index.yml"
+      $ref: ./accounts/{id}/access/get/index.yml
   /accounts/{id}/settings/rules/{ruleId}:
     get:
-      $ref: "./accounts/{id}/settings/rules/{ruleId}/get/index.yml"
+      $ref: ./accounts/{id}/settings/rules/{ruleId}/get/index.yml
     patch:
-      $ref: "./accounts/{id}/settings/rules/{ruleId}/patch/index.yml"
+      $ref: ./accounts/{id}/settings/rules/{ruleId}/patch/index.yml
   /accounts/{id}/settings/rules:
     get:
-      $ref: "./accounts/{id}/settings/rules/get/index.yml"
+      $ref: ./accounts/{id}/settings/rules/get/index.yml
     patch:
-      $ref: "./accounts/{id}/settings/rules/patch/index.yml"
+      $ref: ./accounts/{id}/settings/rules/patch/index.yml
   /accounts/{id}/settings/bot:
     patch:
-      $ref: "./accounts/{id}/settings/bot/patch/index.yml"
+      $ref: ./accounts/{id}/settings/bot/patch/index.yml
   /accounts/{id}/scan:
     post:
-      $ref: "./accounts/{id}/scan/post/index.yml"
+      $ref: ./accounts/{id}/scan/post/index.yml
   /api-keys:
     get:
-      $ref: "./api-keys/get/index.yml"
+      $ref: ./api-keys/get/index.yml
   /api-keys/{keyId}:
     get:
-      $ref: "./api-keys/{keyId}/get/index.yml"
+      $ref: ./api-keys/{keyId}/get/index.yml
   /checks:
     get:
-      $ref: "./checks/get/index.yml"
+      $ref: ./checks/get/index.yml
     post:
-      $ref: "./checks/post/index.yml"
+      $ref: ./checks/post/index.yml
   /checks/{checkId}:
     get:
-      $ref: "./checks/{checkId}/get/index.yml"
+      $ref: ./checks/{checkId}/get/index.yml
   /events:
     get:
-      $ref: "./events/get/index.yml"
+      $ref: ./events/get/index.yml
   /external-ids:
     post:
-      $ref: "./external-ids/post/index.yml"
+      $ref: ./external-ids/post/index.yml
   /groups:
     get:
-      $ref: "./groups/get/index.yml"
+      $ref: ./groups/get/index.yml
     post:
-      $ref: "./groups/post/index.yml"
+      $ref: ./groups/post/index.yml
   /groups/{groupId}:
     get:
-      $ref: "./groups/{groupId}/get/index.yml"
+      $ref: ./groups/{groupId}/get/index.yml
     delete:
-      $ref: "./groups/{groupId}/delete/index.yml"
+      $ref: ./groups/{groupId}/delete/index.yml
     patch:
-      $ref: "./groups/{groupId}/patch/index.yml"
+      $ref: ./groups/{groupId}/patch/index.yml
   /iac-scanning/scan:
     post:
-      $ref: "./iac-scanning/scan/post/index.yml"
+      $ref: ./iac-scanning/scan/post/index.yml
   /organisation/external-id:
     get:
-      $ref: "./organisation/external-id/get/index.yml"
+      $ref: ./organisation/external-id/get/index.yml
   /profiles:
     get:
-      $ref: "./profiles/get/index.yml"
+      $ref: ./profiles/get/index.yml
     post:
-      $ref: "./profiles/post/index.yml"
+      $ref: ./profiles/post/index.yml
   /profiles/{id}:
     get:
-      $ref: "./profiles/{id}/get/index.yml"
+      $ref: ./profiles/{id}/get/index.yml
     delete:
-      $ref: "./profiles/{id}/delete/index.yml"
+      $ref: ./profiles/{id}/delete/index.yml
     patch:
-      $ref: "./profiles/{id}/patch/index.yml"
+      $ref: ./profiles/{id}/patch/index.yml
   /profiles/{id}/apply:
     post:
-      $ref: "./profiles/{id}/apply/post/index.yml"
+      $ref: ./profiles/{id}/apply/post/index.yml
   /report-configs:
     get:
-      $ref: "./report-configs/get/index.yml"
+      $ref: ./report-configs/get/index.yml
     post:
-      $ref: "./report-configs/post/index.yml"
+      $ref: ./report-configs/post/index.yml
   /report-configs/{id}:
     get:
-      $ref: "./report-configs/{id}/get/index.yml"
+      $ref: ./report-configs/{id}/get/index.yml
     delete:
-      $ref: "./report-configs/{id}/delete/index.yml"
+      $ref: ./report-configs/{id}/delete/index.yml
     patch:
-      $ref: "./report-configs/{id}/patch/index.yml"
+      $ref: ./report-configs/{id}/patch/index.yml
   /reports:
     get:
-      $ref: "./reports/get/index.yml"
+      $ref: ./reports/get/index.yml
   /reports/{reportId}/{entityId}/{type}:
     get:
-      $ref: "./reports/{reportId}/{entityId}/{type}/get/index.yml"
+      $ref: ./reports/{reportId}/{entityId}/{type}/get/index.yml
   /resources:
     get:
-      $ref: "./resources/get/index.yml"
+      $ref: ./resources/get/index.yml
   /services:
     get:
-      $ref: "./services/get/index.yml"
+      $ref: ./services/get/index.yml
   /settings/{settingId}:
     get:
-      $ref: "./settings/{settingId}/get/index.yml"
+      $ref: ./settings/{settingId}/get/index.yml
     delete:
-      $ref: "./settings/{settingId}/delete/index.yml"
+      $ref: ./settings/{settingId}/delete/index.yml
   /settings/communication:
     get:
-      $ref: "./settings/communication/get/index.yml"
+      $ref: ./settings/communication/get/index.yml
     post:
-      $ref: "./settings/communication/post/index.yml"
+      $ref: ./settings/communication/post/index.yml
   /settings/communication/{settingId}:
     patch:
-      $ref: "./settings/communication/{settingId}/patch/index.yml"
+      $ref: ./settings/communication/{settingId}/patch/index.yml
   /template-scanner/scan:
     post:
-      $ref: "./template-scanner/scan/post/index.yml"
+      $ref: ./template-scanner/scan/post/index.yml
   /users:
     get:
-      $ref: "./users/get/index.yml"
+      $ref: ./users/get/index.yml
     post:
-      $ref: "./users/post/index.yml"
+      $ref: ./users/post/index.yml
   /users/{id}:
     get:
-      $ref: "./users/{id}/get/index.yml"
+      $ref: ./users/{id}/get/index.yml
     delete:
-      $ref: "./users/{id}/delete/index.yml"
+      $ref: ./users/{id}/delete/index.yml
     patch:
-      $ref: "./users/{id}/patch/index.yml"
+      $ref: ./users/{id}/patch/index.yml
   /users/sso:
     post:
-      $ref: "./users/sso/post/index.yml"
+      $ref: ./users/sso/post/index.yml
   /users/whoami:
     get:
-      $ref: "./users/whoami/get/index.yml"
+      $ref: ./users/whoami/get/index.yml
 
 components:
   securitySchemes:
     Authorizer:
-      type: "apiKey"
-      name: "Authorization"
-      in: "header"
-      x-amazon-apigateway-authtype: "custom"
+      type: apiKey
+      name: Authorization
+      in: header
+      x-amazon-apigateway-authtype: custom

@@ -1,6 +1,8 @@
 summary: Update account
 description: This endpoint allows ADMINs to change the account name, enviornment, and code.
   We recommend you first use `GET /accounts/{id}` to verify that the subscription needs to be updated.
+tags:
+  - Accounts
 parameters:
   - in: path
     name: id
@@ -13,19 +15,19 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: "./request.yml"
+        $ref: ./request.yml
 responses:
   200:
     description: OK
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/single-account-response.yml"
+          $ref: ../../../shared-schemas/responses/200-single-account.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/401.yml"
+          $ref: ../../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

@@ -9,7 +9,7 @@ properties:
           ruleSettings:
             type: array
             items:
-              $ref: "../../../../../shared-schemas/rule-setting.yml"
+              $ref: ../../../../../shared-schemas/types/rule-setting.yml
           note:
             type: string
             description: A detailed message regarding the reason for this rule configuration.

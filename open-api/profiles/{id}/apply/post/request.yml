@@ -15,7 +15,10 @@ properties:
           example: account-id-1
       mode:
         type: string
-        enum: [fill-gaps, overwrite, replace]
+        enum:
+          - fill-gaps
+          - overwrite
+          - replace
         description: >
           Mode of how the profile will be applied to the accounts, i.e. "fill-gaps", "overwrite" or "replace":
             * `fill-gaps` - Merge existing settings with this Profile. If there is a conflict, the account's existing setting will be used.

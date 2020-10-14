@@ -20,7 +20,11 @@ properties:
       role:
         type: string
         description: The role which the user is assigned to.
-        enum: [ADMIN, POWER_USER, READ_ONLY, USER]
+        enum:
+          - ADMIN
+          - POWER_USER
+          - READ_ONLY
+          - USER
       email:
         type: string
         description: User email address
@@ -29,7 +33,7 @@ properties:
     type: object
     properties:
       organisation:
-        $ref: "./organisation-short.yml"
+        $ref: ./organisation-short.yml
       accountAccessList:
         type: array
         description: User's access level for accounts in the organisation. This is included in
@@ -44,4 +48,7 @@ properties:
             level:
               type: string
               description: The level of access the user has to the account
-              enum: [NONE | READONLY | FULL]
+              enum:
+                - NONE
+                - READONLY
+                - FULL

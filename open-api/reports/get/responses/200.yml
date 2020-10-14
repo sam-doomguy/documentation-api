@@ -33,13 +33,19 @@ properties:
               example: accountId:CONFORMITY_BOT
             status:
               type: string
-              enum: [CREATED, READY, PENDING, ERROR]
+              enum:
+                - CREATED
+                - READY
+                - PENDING
+                - ERROR
               example: READY
             formats:
               type: array
               items:
                 type: string
-                enum: [CSV, PDF]
+                enum:
+                  - CSV
+                  - PDF
                 example: CSV
             # included:
             #   type: array

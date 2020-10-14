@@ -19,7 +19,10 @@ parameters:
     name: type
     schema:
       type: string
-      enum: [pdf, csv, xlsx]
+      enum:
+        - pdf
+        - csv
+        - xlsx
     required: true
     description: The report type
 responses:

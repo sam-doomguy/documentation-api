@@ -14,7 +14,9 @@ properties:
         $ref: ../types/account.yml
       subscription-type:
         type: string
-        enum: [advanced, essentials]
+        enum:
+          - advanced
+          - essentials
         example: advanced
         description: /`advanced` comes with Real-Time threat monitoring enabled, `essentials`
           comes with Real-Time threat monitoring disabled. Please note the server will not

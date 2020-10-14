@@ -7,7 +7,11 @@ properties:
       attributes:
         type: object
         description: Object containing user attributes.
-        required: [firstName, lastName, email, role]
+        required:
+          - firstName
+          - lastName
+          - email
+          - role
         properties:
           firstName:
             type: string
@@ -24,7 +28,11 @@ properties:
           role:
             type: string
             description: The role which the user is assigned to.
-            enum: [ADMIN, POWER_USER, READ_ONLY, USER]
+            enum:
+              - ADMIN
+              - POWER_USER
+              - READ_ONLY
+              - USER
           accessList:
             type: array
             description:
@@ -42,4 +50,7 @@ properties:
                 level:
                   type: string
                   description: The level of access the user has to the account
-                  enum: [NONE | READONLY | FULL]
+                  enum:
+                    - NONE
+                    - READONLY
+                    - FULL

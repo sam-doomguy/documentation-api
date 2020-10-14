@@ -13,7 +13,7 @@ parameters:
     name: includes
     schema:
       type: string
-      enum: [ruleSettings]
+      default: ruleSettings
     required: false
     description: The extra information .
 responses:

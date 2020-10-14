@@ -1,9 +1,11 @@
 type: object
-required: [data]
+required:
+  - data
 properties:
   data:
     type: object
-    required: [attributes]
+    required:
+      - attributes
     properties:
       attributes:
         type: object
@@ -25,7 +27,9 @@ properties:
               field will be replaced with `subscriptionType` in the future.
           subscriptionType:
             type: string
-            enum: [advanced, essentials]
+            enum:
+              - advanced
+              - essentials
             example: advanced
             description: /`advanced` comes with Real-Time threat monitoring enabled, `essentials`
               comes with Real-Time threat monitoring disabled.

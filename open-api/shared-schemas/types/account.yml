@@ -15,7 +15,9 @@ properties:
   status:
     type: string
     description: Status of the account.
-    enum: [ACTIVE, TRIALLING]
+    enum:
+      - ACTIVE
+      - TRIALLING
   has-real-time-monitoring:
     type: boolean
     description: true when the Real-Time Threat monitoring add-on is enabled.
@@ -63,7 +65,9 @@ properties:
     deprecated: true
   subscription-type:
     type: string
-    enum: [advanced, essentials]
+    enum:
+      - advanced
+      - essentials
     example: advanced
     description: /`advanced` comes with Real-Time threat monitoring enabled, `essentials`
       comes with Real-Time threat monitoring disabled. Please note the server will not
@@ -71,7 +75,9 @@ properties:
       provide either `hasRealTimeMonitoring` or `subscriptionType`.
   bot-status:
     type: string
-    enum: [PENDING, RUNNING]
+    enum:
+      - PENDING
+      - RUNNING
     description: Status of the Conformity Bot for the account.
     example: RUNNING
   cloud-type:
@@ -113,7 +119,12 @@ properties:
                   items:
                     type: string
                     description: Severity level of the notifications that the channel receives notification.
-                    enum: [EXTREME, VERY_HIGH, HIGH, MEDIUM, LOW]
+                    enum:
+                      - EXTREME
+                      - VERY_HIGH
+                      - HIGH
+                      - MEDIUM
+                      - LOW
                     example: EXTREME
       rules:
         type: array
@@ -174,7 +185,9 @@ properties:
         properties:
           type:
             type: string
-            enum: [KEY, CROSS_ACCOUNT]
+            enum:
+              - KEY
+              - CROSS_ACCOUNT
             description: Type of access to the account.
             example: CROSS_ACCOUNT
           stackId:
@@ -276,7 +289,10 @@ properties:
             status:
               type: string
               description: The status of the bill.
-              enum: [pending, partial, succeeded]
+              enum:
+                - pending
+                - partial
+                - succeeded
             current:
               type: boolean
               description: true if this item is the bill of the current month.

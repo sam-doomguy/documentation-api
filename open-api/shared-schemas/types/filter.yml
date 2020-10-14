@@ -86,15 +86,20 @@ properties:
     $ref: ./compliance-standard-id.yml
   statuses:
     type: array
-    example: [SUCCESS]
+    example:
+      - SUCCESS
     items:
       type: string
       description: Whether to use the "v1" or "v2" suppressed functionality.
-      enum: [SUCCESS, FAILURE]
+      enum:
+        - SUCCESS
+        - FAILURE
   suppressedFilterMode:
     type: string
     description: The status of the check.
-    enum: [v1, v2]
+    enum:
+      - v1
+      - v2
     example: v1
     default: v1
   suppressed:
@@ -102,8 +107,11 @@ properties:
     description: Show Suppressed rules. A boolean. Will default to true for "v1", and omitted for "v2".
   providers:
     type: array
-    example: [aws]
+    example:
+      - aws
     items:
       type: string
       description: Cloud providers.
-      enum: [aws, azure]
+      enum:
+        - aws
+        - azure

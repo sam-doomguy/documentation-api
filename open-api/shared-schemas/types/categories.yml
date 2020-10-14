@@ -1,5 +1,6 @@
 type: array
-example: [security]
+example:
+  - security
 items:
   type: string
   description: An array of category (AWS well-architected framework category) strings.

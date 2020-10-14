@@ -7,7 +7,9 @@ properties:
       attributes:
         type: object
         description: Object containing the template attributes.
-        required: [type, contents]
+        required:
+          - type
+          - contents
         properties:
           type:
             type: string

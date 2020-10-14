@@ -33,7 +33,10 @@ properties:
   package:
     type: string
     description: Flag indicating if the rule belongs to an add-on or base package.
-    enum: [base, cost, rtm]
+    enum:
+      - base
+      - cost
+      - rtm
   is-organisational:
     type: boolean
     description: Flag indicating if the rule runs on an organisational level.
@@ -43,7 +46,13 @@ properties:
   level:
     type: string
     description: Level at which the rule runs.
-    enum: [resource, service, cross-account, account, provider, event]
+    enum:
+      - resource
+      - service
+      - cross-account
+      - account
+      - provider
+      - event
   release-date:
     type: string
     format: date-time

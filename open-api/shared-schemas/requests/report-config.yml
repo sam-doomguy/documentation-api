@@ -12,7 +12,8 @@ properties:
             example: HksLj2_
           configuration:
             type: object
-            required: [title]
+            required:
+              - title
             properties:
               title:
                 type: string
@@ -45,7 +46,9 @@ properties:
                 type: string
                 description: This attribute is optional. Specifies the report type to be generated.
                 example: COMPLIANCE-STANDARD
-                enum: [GENERIC, COMPLIANCE-STANDARD]
+                enum:
+                  - GENERIC
+                  - COMPLIANCE-STANDARD
               includeChecks:
                 type: boolean
                 description: Specifies whether or not to include individual checks in PDF reports when total number of checks is below 10000.
@@ -69,7 +72,9 @@ properties:
             frequency: "* * *"
             tz: Australia/Sydney
             sendEmail: true
-            emails: [user@email.com]
+            emails:
+              - user@email.com
             filter:
-              services: [IAM]
+              services:
+                - IAM
               suppressed: true

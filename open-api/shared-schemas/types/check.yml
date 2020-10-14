@@ -133,7 +133,13 @@ properties:
       pretty-risk-level:
         type: string
         description: Human readable version of the risk level of the Conformity rule.
-        enum: [Low, Medium, High, Very High, Extreme, Unknown]
+        enum:
+          - Low
+          - Medium
+          - High
+          - Very High
+          - Extreme
+          - Unknown
         example: Medium
       provider:
         $ref: ../fields/provider.yml

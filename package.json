@@ -6,7 +6,7 @@
     "validate": "swagger-cli validate open-api/openapi.yml",
     "build": "swagger-cli bundle open-api/openapi.yml --outfile build/openapi3.yml --type yaml",
     "format-api-docs": "prettier open-api --write",
-    "start": "redoc-cli serve open-api/openapi.yml"
+    "start": "redoc-cli serve open-api/openapi.yml --watch"
   },
   "repository": {
     "type": "git",

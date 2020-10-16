@@ -76,7 +76,7 @@ properties:
         example: S3Bucket
         readOnly: true
       risk-level:
-        $ref: ../../../shared-schemas/risk-level.yml
+        $ref: ../../../shared-schemas/fields/risk-level.yml
       rule-title:
         type: string
         description: rule title.

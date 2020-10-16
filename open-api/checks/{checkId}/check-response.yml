@@ -16,7 +16,7 @@ properties:
         description: Id of the account the check was generated for.
         example: FJagHgv1g
       categories:
-        $ref: ../../shared-schemas/categories.yml
+        $ref: ../../shared-schemas/types/categories.yml
       compliances:
         $ref: ../../shared-schemas/types/compliance-standards.yml
       cost:
@@ -136,7 +136,7 @@ properties:
         enum: [Low, Medium, High, Very High, Extreme, Unknown]
         example: Medium
       provider:
-        $ref: ../../shared-schemas/provider.yml
+        $ref: ../../shared-schemas/fields/provider.yml
       providerResourceId:
         type: string
         description: Cloud provider id of the resource the check was generated for (e.g. ARN in AWS).
@@ -169,7 +169,7 @@ properties:
         description: The type of resource this check applies to.
         example: KeyVault Vault
       risk-level:
-        $ref: ../../shared-schemas/risk-level.yml
+        $ref: ../../shared-schemas/fields/risk-level.yml
       rule-title:
         type: string
         description: rule title.

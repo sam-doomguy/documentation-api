@@ -24,7 +24,7 @@ responses:
           type: object
           properties:
             data:
-              $ref: ../../shared-schemas/checks-response.yml
+              $ref: ../check-response.yml
             meta:
               type: object
               properties:

@@ -1,0 +1,72 @@
+summary: Update a check
+description: |
+  This endpoint is used to either update one custom check OR suppress/unsuppressed one normal check.
+
+  Some guidelines about using this endpoint:
+  * When updating a custom check, you must leave `region`, `resource`, `service` attributes and `relationship.account` and `relationship.rule` unchanged.
+  These are unique identifier parameters for custom checks and must be always present and unchanged once check is created.
+
+  * Suppression of a check via this endpoint only works with FAILING checks and not successful checks.
+
+  * The Cloud Conformity ID of a check for an Azure account contains the forward slash character `/` which needs to be replaced with the encoded character `%2F` when passed in the request URL.
+  e.g to update a check for an Azure account with the ID:
+  `ccc:r2gyR4cqg:SecurityCenter-008:SecurityCenter:global:/subscriptions/9f7bcadb-3626-46dx-9917-1397384797f40/providers/Microsoft.Authorization/policyAssignments/SecurityCenterBuiltIn`
+  the URL in the request body should be:
+  `https://us-west-2-api.cloudconformity.com/v1/checks/ccc:r2gyR4cqg:SecurityCenter-008:SecurityCenter:global:%2Fsubscriptions%2F9f7bcadb-3626-46dx-9917-1397384797f40%2Fproviders%2FMicrosoft.Authorization%2FpolicyAssignments%2FSecurityCenterBuiltIn`
+
+parameters:
+  - in: path
+    name: checkId
+    schema:
+      type: string
+    required: true
+    description: "The Cloud Conformity ID of the check. Note: The Cloud Conformity ID of a check for an Azure account contains the forward slash character / which needs to be replaced with the encoded character %2F when passed in the request URL"
+
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        oneOf:
+          - type: object
+            properties:
+              data:
+                $ref: ./check-request-patch.yml
+          - type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  suppressed:
+                    type: boolean
+                    description: Whether or not the check is suppressed
+                    example: true
+                  suppressed-until:
+                    type: number
+                    description: Milliseconds between midnight of January 1, 1970 and the time when you want to suppress the check until. Null if suppressing indefinitely
+                    example: 1526574705655
+              meta:
+                type: object
+                properties:
+                  note:
+                    type: string
+                    description: A message regarding the reason for this check suppression update
+
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              $ref: ../check-response.yml
+  401:
+    $ref: ../../401.yml
+  403:
+    $ref: ../../403.yml
+  500:
+    $ref: ../../500.yml
+security:
+  - Authorizer: []

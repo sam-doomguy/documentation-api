@@ -1,0 +1,44 @@
+summary: Get a check
+description: >
+  This endpoint allows you to delete the specified check.
+parameters:
+  - in: path
+    name: checkId
+    schema:
+      type: string
+    required: true
+    description: >
+      The Cloud Conformity ID of the check. Note that the Cloud Conformity ID of a check for an Azure account contains the
+      forward slash character which needs to be replaced with the encoded character %2F when passed in the request URL
+
+responses:
+  200:
+    description: OK
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            meta:
+              type: array
+              items:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: The status of the check.
+                    enum:
+                      - success
+                      - failure
+                    example: success
+                  message:
+                    type: string
+                    example: Check successfully deleted
+  401:
+    $ref: ../../401.yml
+  403:
+    $ref: ../../403.yml
+  500:
+    $ref: ../../500.yml
+security:
+  - Authorizer: []

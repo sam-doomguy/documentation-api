@@ -1,0 +1,22 @@
+parameters:
+  page:
+    name: page
+    in: query
+    description: Optional parameter including page size, and page number returned
+    style: deepObject
+    explode: true
+    allowReserved: true
+    schema:
+      type: object
+      properties:
+        size:
+          type: number
+          description: Indicates the number of results that should be returned. Maximum value is 1000 and defaults to 100 if not specified
+          example: 5
+          maximum: 1000
+          default: 100
+        number:
+          type: number
+          description: Indicates the page number, defaults to 0
+          example: 0
+          default: 0

@@ -1,0 +1,5 @@
+description: Forbidden. This happens when a valid api key is not provided or the user does not have access to the profile.
+content:
+  application/json:
+    schema:
+      $ref: ../shared-schemas/403.yml

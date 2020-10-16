@@ -1,0 +1,106 @@
+type: object
+required:
+  - type
+properties:
+  type:
+    type: string
+    description: Name of the data type.
+    example: checks
+  attributes:
+    type: object
+    required:
+      - message
+      - not-scored
+      - region
+      - risk-level
+      - service
+      - status
+    properties:
+      categories:
+        type: array
+        example: [security]
+        items:
+          type: string
+          description: An array of category (AWS well-architected framework category) strings.
+          enum:
+            - security
+            - cost-optimisation
+            - reliability
+            - performance-efficiency
+            - operational-excellence
+      extradata:
+        type: array
+        description: Additional data for the check.
+        items:
+          type: object
+          properties:
+            label:
+              type: string
+              description: Text to describe the data.
+              maxLength: 20
+              example: Group Id
+            name:
+              type: string
+              description: Conformity internal reference for the data ("Resource" is the default value for this).
+              maxLength: 20
+              example: GroupId
+            type:
+              type: string
+              description: The type of the extra data.
+              maxLength: 20
+              example: META
+            value:
+              oneOf:
+                - type: string
+                  maxLength: 150
+                - type: number
+                  maxLength: 150
+                - type: object
+                - type: boolean
+                - type: array
+                  items: {}
+              example: sg-2e885d00
+      message:
+        type: string
+        description: Description of the check.
+        example: Bucket S3Bucket allows public 'READ' access.
+      not-scored:
+        type: boolean
+        description: true for informational checks.
+        example: false
+      region:
+        type: string
+        description: The region the check ran in.
+        example: us-west-2
+      resolution-page-url:
+        type: string
+        description: Custom defined resolution page url.
+        example: https://www.cloudconformity.com/conformity-rules/IAM/unused-iam-group.html#
+      resource:
+        type: string
+        description: The resource this check applies to.
+        example: S3Bucket
+      risk-level:
+        $ref: ../shared-schemas/risk-level.yml
+      rule-title:
+        type: string
+        description: rule title.
+        example: Custom Rule about EC2 SGs
+        default: Custom Rule
+      service:
+        type: string
+        description: The cloud provider service name.
+        example: S3
+      status:
+        type: string
+        description: The status of the check.
+        enum:
+          - SUCCESS
+          - FAILURE
+        example: SUCCESS
+      tags:
+        type: array
+        description: 'an array of tag strings that follow the format: "key::value".'
+        items:
+          type: string
+        example: ["key0::value0", "key1::value1"]

@@ -91,6 +91,10 @@ paths:
   /checks/{checkId}:
     get:
       $ref: ./checks/{checkId}/get/index.yml
+    patch:
+      $ref: ./checks/{checkId}/patch/index.yml
+    delete:
+      $ref: ./checks/{checkId}/delete/index.yml
   /events:
     get:
       $ref: ./events/get/index.yml

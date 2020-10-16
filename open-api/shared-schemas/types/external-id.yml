@@ -1,0 +1,17 @@
+type: object
+properties:
+  type:
+    type: string
+    default: external-ids
+  id:
+    type: string
+    description: external id
+    example: 3ff84b20-0f4c-11eb-a7b7-7d9b3c0e866e
+  attributes:
+    type: object
+    properties:
+      valid-until:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          <br> which is the date that the external id is valid until.
+        example: 1597041366544

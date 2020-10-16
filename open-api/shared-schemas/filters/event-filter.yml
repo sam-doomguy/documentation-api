@@ -1,0 +1,46 @@
+parameters:
+  filter:
+    name: filter
+    in: query
+    description: Optional parameter including regions, services, userIds, name, identities, since, until
+    style: deepObject
+    explode: true
+    allowReserved: true
+    schema:
+      type: object
+      properties:
+        regions:
+          type: string
+          description: A comma-seperated list of regions from either AWS or Azure.
+          example: us-west-1,us-west-2
+        services:
+          type: string
+          description: A comma-seperated list of services from either AWS or Azure. For more information about services, please refer to [Cloud Conformity Services Endpoint](https://us-west-2.cloudconformity.com/v1/services)
+          example: EC2,S3
+        userIds:
+          type: string
+          description: A comma-separated list of Cloud Conformity userIds. Only activity-events will have userIds.
+          example: EC2-001,S3-001
+        name:
+          type: string
+          description: >
+            Event name. Supports wild cards. <br/>
+            1. Asterisk at the end: `filter[name]=account.bot.update*` will get all events where the name starts with account.bot.update.<br/>
+            2. Asterisk in the middle:`filter[name]=account.*.update*` will match all account updating events like `account.bot.update` and `account.rule.update`.<br/>
+            3. Use of question marks: `filter[name]=a??.check.create` will match `api.check.created` and not `account.check.created`. Each ? is a character wildcard.
+          example: someResourceKey1::someResourceValue1,someResourceKey2::someResourceValue2
+        identities:
+          type: string
+          description: Only incoming AWS events will have identities.
+          example: user@example.com
+        since:
+          type: number
+          description: A date-time in Unix Epoch timestamp format (in milliseconds)
+            which is the date the start of the time range you want to query for events.
+          example: 1521660152755
+        until:
+          type: number
+          description: A date-time in Unix Epoch timestamp format (in milliseconds)
+            which is the date the end of the time range you want to query for events.
+          example: 1521660152755
+

@@ -1,0 +1,52 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          example: events
+        id:
+          type: string
+          description: ID of the event
+          example: rkTkAsr_GSJlpyCoB_M
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the event.
+              example: account.monitoring.activity
+            time:
+              type: number
+              description: A date-time in Unix Epoch timestamp format (in milliseconds)
+                which is the date that the event was created.
+              example: 1521660152755
+            service:
+              type: string
+              description: The cloud provider service name.
+              example: cloudfront.amazonaws.com
+            identity:
+              type: string
+              description:
+                The identifier of the user that caused the event
+              example: static-deployer
+            region:
+              type: string
+              description: The region the event was created.
+              example: us-west-2
+            description:
+              type: string
+              description: The description of the event.
+              example: cloudfront.amazonaws.com/CreateInvalidation
+            hasChildren:
+              type: boolean
+              description: true when the event has children events.
+              example: false
+        relationships:
+          type: object
+          properties:
+            organisation:
+              $ref: ../../../shared-schemas/types/account-short.yml

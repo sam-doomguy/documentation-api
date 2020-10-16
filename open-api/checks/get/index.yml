@@ -12,8 +12,8 @@ parameters:
       type: string
     required: true
     description: A comma-separated list of Cloud Conformity accountIds.
-  - $ref: ../../shared-schemas/check-page.yml#/parameters/page
-  - $ref: ../../shared-schemas/check-filter.yml#/parameters/filter
+  - $ref: ../../shared-schemas/page.yml#/parameters/page
+  - $ref: ../../shared-schemas/filters/check-filter.yml#/parameters/filter
 
 responses:
   200:

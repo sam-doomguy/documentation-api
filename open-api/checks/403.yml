@@ -2,4 +2,4 @@ description: Forbidden. This happens when a valid api key is not provided or the
 content:
   application/json:
     schema:
-      $ref: ../shared-schemas/403.yml
+      $ref: ../shared-schemas/responses/403.yml

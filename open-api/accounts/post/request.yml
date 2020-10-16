@@ -5,7 +5,11 @@ properties:
     properties:
       attributes:
         type: object
-        required: [name, environment, subscriptionType, access]
+        required:
+          - name
+          - environment
+          - subscriptionType
+          - access
         properties:
           name:
             type: string
@@ -31,7 +35,9 @@ properties:
               field will be replaced with `subscriptionType` in the future.
           subscriptionType:
             type: string
-            enum: [advanced, essentials]
+            enum:
+              - advanced
+              - essentials
             example: advanced
             description: /`advanced` comes with Real-Time threat monitoring enabled, `essentials`
               comes with Real-Time threat monitoring disabled. Please note the server will not

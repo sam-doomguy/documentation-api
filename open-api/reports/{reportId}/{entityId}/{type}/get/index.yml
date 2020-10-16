@@ -1,5 +1,7 @@
 summary: Download Report
 description: This end point allows you to download the report using a report-download-endpoint link.
+tags:
+  - Reports
 parameters:
   - in: path
     name: reportId
@@ -17,7 +19,10 @@ parameters:
     name: type
     schema:
       type: string
-      enum: [pdf, csv, xlsx]
+      enum:
+        - pdf
+        - csv
+        - xlsx
     required: true
     description: The report type
 responses:
@@ -36,6 +41,6 @@ responses:
     content:
       application/json:
         schema:
-          $ref: "../../../../../shared-schemas/401.yml"
+          $ref: ../../../../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

@@ -1,6 +1,8 @@
 summary: Update a user
 description: Update the role and permissions of the specified user.
   Only ADMINs can perform the update to other users within the same organisation.
+tags:
+  - Users
 parameters:
   - in: path
     name: id
@@ -13,25 +15,25 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: "./request-body.yml"
+        $ref: ./request.yml
 responses:
   200:
     description: OK
     content:
       application/json:
         schema:
-          $ref: "./response-200.yml"
+          $ref: ./responses/200.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/401.yml"
+          $ref: ../../../shared-schemas/responses/401.yml
   422:
-    description: "Unprocessed Entity. Validation error."
+    description: Unprocessed Entity. Validation error.
     content:
       application/json:
         schema:
-          $ref: "../../../shared-schemas/422-unprocessed-entity.yml"
+          $ref: ../../../shared-schemas/responses/422-unprocessed-entity.yml
 security:
   - Authorizer: []

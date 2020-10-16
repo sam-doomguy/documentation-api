@@ -1,17 +1,19 @@
 summary: List Report Configs
 description: A GET request to this endpoint allows you to list report configs filter by accountId or groupId or under the organisation if you have enough privileges.
+tags:
+  - Report Configs
 responses:
   200:
     description: OK
     content:
       application/json:
         schema:
-          $ref: "./response-200.yml"
+          $ref: ./responses/200.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../shared-schemas/401.yml"
+          $ref: ../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

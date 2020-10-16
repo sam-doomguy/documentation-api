@@ -5,6 +5,8 @@ description:
   settings from one account to another.
   To copy rule settings from one account to another, you first need to (1) Obtain rule settings from
   the desired account. (2) Paste rule settings as is into the body of the PATCH request following the format below.
+tags:
+  - Accounts
 parameters:
   - in: path
     name: id
@@ -17,19 +19,19 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: "./request.yml"
+        $ref: ./request.yml
 responses:
   200:
     description: OK
     content:
       application/json:
         schema:
-          $ref: "../../../../../shared-schemas/rules-response.yml"
+          $ref: ../../../../../shared-schemas/responses/200-rules.yml
   401:
-    description: "Unauthorized. The requester user does not have enough privilege."
+    description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: "../../../../../shared-schemas/401.yml"
+          $ref: ../../../../../shared-schemas/responses/401.yml
 security:
   - Authorizer: []

@@ -61,5 +61,7 @@ responses:
                     example: A message is required
   500:
     $ref: ../500.yml
+tags:
+  - Checks
 security:
   - Authorizer: []

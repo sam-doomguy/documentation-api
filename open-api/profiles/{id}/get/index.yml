@@ -1,5 +1,7 @@
 summary: Get Profile and Rule Settings
 description: This endpoint allows ADMINs to get the details of the specified profile.
+tags:
+  - Profiles
 parameters:
   - in: path
     name: id
@@ -11,7 +13,7 @@ parameters:
     name: includes
     schema:
       type: string
-      enum: [ruleSettings]
+      default: ruleSettings
     required: false
     description: The extra information .
 responses:
@@ -20,12 +22,12 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../../shared-schemas/profile-including-rule-settings-200-response.yml
+          $ref: ../../../shared-schemas/responses/200-profile-including-rule-settings.yml
   403:
     description: Forbidden. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: ../../../shared-schemas/403.yml
+          $ref: ../../../shared-schemas/responses/403.yml
 security:
   - Authorizer: []

@@ -25,5 +25,7 @@ responses:
     $ref: ../../403.yml
   500:
     $ref: ../../500.yml
+tags:
+  - Checks
 security:
   - Authorizer: []

@@ -1,0 +1,218 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Name of the data type.
+    example: checks
+  id:
+    type: string
+    description: Id of the check.
+    example: ccc:H19NxM15-:CUSTOM-001:EC2:us-west-2:sg-956d00ea
+  attributes:
+    type: object
+    properties:
+      accountId:
+        type: string
+        description: Id of the account the check was generated for.
+        example: FJagHgv1g
+      categories:
+        $ref: ./categories.yml
+      compliances:
+        $ref: ./compliance-standards.yml
+      cost:
+        type: number
+        description: Estimated cost (USD) of the resource this check applies to (if applicable).
+        example: 3.1968
+      created-date:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date that the check was created.
+        example: 1521660152755
+      descriptorType:
+        type: string
+        description: The type of descriptor used by the check.
+        example: s3-bucket
+      eventId:
+        type: string
+        description: Conformity identifier for the event that triggered RTM to generate the check.
+        example: Skzp7ra1WW
+      excluded:
+        type: boolean
+        description: true when the checks resource matches the rule exceptions setting.
+        example: false
+      extradata:
+        type: array
+        description: Additional data for the check.
+        items:
+          type: object
+          properties:
+            label:
+              type: string
+              description: Text to describe the data.
+              maxLength: 20
+              example: Group Id
+            name:
+              type: string
+              description: Conformity internal reference for the data ("Resource" is the default value for this).
+              maxLength: 20
+              example: GroupId
+            type:
+              type: string
+              description: The type of the extra data.
+              maxLength: 20
+              example: META
+            value:
+              oneOf:
+                - type: string
+                  maxLength: 150
+                - type: number
+                  maxLength: 150
+                - type: object
+                - type: boolean
+                - type: array
+                  items: {}
+              example: sg-2e885d00
+      failure-discovery-date:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date the failure was discovered on.
+        example: 1521660152755
+      failure-introduced-by:
+        type: string
+        description:
+          The cloud provider or Conformity user identifier of the user that caused the event that triggered
+          RTM to transition the check state to failure.
+        example: someone@test.com
+      ignored:
+        type: boolean
+        description: true when check is to be ignored.
+        example: false
+      last-updated-date:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date the check was last updated.
+        example: 1521660152755
+      last-updated-by:
+        type: string
+        description:
+          The cloud provider or Conformity user identifier of the user that caused the event that triggered
+          RTM to generate the check.
+        example: someone@test.com
+      last-modified-date:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date the check was last modified.
+        example: 1521660152755
+      lastStatusUpdateDate:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date the checks status was last updated.
+        example: 1521660152755
+      link:
+        type: string
+        description: Link to the resource the check refers to.
+        example: https://s3.console.aws.amazon.com/s3/buckets/gm-bucket-4/?region=us-east-1&tab=overview
+      link-title:
+        type: string
+        description: Title of the resource linked to.
+        example: gm-bucket-4
+      message:
+        type: string
+        description: Description of the check.
+        example: Bucket S3Bucket allows public 'READ' access.
+      not-scored:
+        type: boolean
+        description: true for informational checks.
+        example: false
+      notes:
+        $ref: ./notes.yml
+      organisationId:
+        type: string
+        description: Id of the organisation the check was generated for.
+        example: F1r9_41ul
+      pretty-risk-level:
+        type: string
+        description: Human readable version of the risk level of the Conformity rule.
+        enum:
+          - Low
+          - Medium
+          - High
+          - Very High
+          - Extreme
+          - Unknown
+        example: Medium
+      provider:
+        $ref: ../fields/provider.yml
+      providerResourceId:
+        type: string
+        description: Cloud provider id of the resource the check was generated for (e.g. ARN in AWS).
+        example: arn:aws:sns:us-east-1:123456789012:MyTopic
+      region:
+        type: string
+        description: The region the check ran in.
+        example: us-west-2
+      resolved-date:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date the check was resolved.
+        example: 1521660152755
+      resolved-by:
+        type: string
+        description:
+          The cloud provider or Conformity user identifier of the user that caused the event that triggered
+          RTM to resolve the check.
+        example: someone@test.com
+      resolution-page-url:
+        type: string
+        description: Custom defined resolution page url.
+        example: https://www.cloudconformity.com/conformity-rules/IAM/unused-iam-group.html#
+      resource:
+        type: string
+        description: The resource this check applies to.
+        example: S3Bucket
+      resourceName:
+        type: string
+        description: The type of resource this check applies to.
+        example: KeyVault Vault
+      risk-level:
+        $ref: ../fields/risk-level.yml
+      rule-title:
+        type: string
+        description: rule title.
+        example: Custom Rule about EC2 SGs
+        default: Custom Rule
+      service:
+        type: string
+        description: The cloud provider service name.
+        example: S3
+      status:
+        type: string
+        description: The status of the check.
+        enum:
+          - SUCCESS
+          - FAILURE
+        example: SUCCESS
+      suppressed:
+        type: boolean
+        description: true if the check has been suppressed.
+        example: true
+      suppressed-until:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date the checks is suppressed until.
+        example: 1521660152755
+      tags:
+        type: array
+        description: 'an array of tag strings that follow the format: "key::value"'
+        items:
+          type: string
+        example: ["key0::value0", "key1::value1"]
+      ttl:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date that the check will be deleted.
+        example: 1521660152755
+      waste:
+        type: number
+        description: Estimated cost saving (USD) for the resource if the failed check is resolved (if applicable).
+        example: 54.32

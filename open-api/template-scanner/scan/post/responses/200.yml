@@ -1,4 +1,45 @@
 type: object
 properties:
   data:
-    $ref: ../../../../shared-schemas/checks-response.yml
+    type: array
+    items:
+      allOf:
+        - $ref: ../../../../shared-schemas/types/check.yml
+        - type: object
+          properties:
+            relationships:
+              type: object
+              properties:
+                rule:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: rules
+                        id:
+                          type: string
+                          example: CUSTOM-001
+                account:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: accounts
+                        id:
+                          type: string
+                          example: H19NxM15-
+  meta:
+    type: object
+    properties:
+      missingParameters:
+        type: array
+        description: List of parameters that are missing values.
+        items:
+          type: string
+          example: AmazonASN

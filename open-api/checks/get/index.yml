@@ -81,5 +81,7 @@ responses:
                     example: Region(s) entered is/are invalid
   500:
     $ref: ../500.yml
+tags:
+  - Checks
 security:
   - Authorizer: []

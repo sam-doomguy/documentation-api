@@ -1,0 +1,12 @@
+type: array
+example:
+  - security
+items:
+  type: string
+  description: An array of category (AWS well-architected framework category) strings.
+  enum:
+    - security
+    - cost-optimisation
+    - reliability
+    - performance-efficiency
+    - operational-excellence

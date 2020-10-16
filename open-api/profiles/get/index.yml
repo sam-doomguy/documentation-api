@@ -1,18 +1,20 @@
 summary: List All Profiles
 description: Using this endpoint ADMINs can get a list of profiles associated to an organisation.
+tags:
+  - Profiles
 responses:
   200:
     description: OK
     content:
       application/json:
         schema:
-          $ref: ./response-200.yml
+          $ref: ./responses/200.yml
   403:
     description: Forbidden. This happens when a valid api key is not provided or the user does not have access to the profile.
     content:
       application/json:
         schema:
-          $ref: ../../shared-schemas/403.yml
+          $ref: ../../shared-schemas/responses/403.yml
 
 security:
   - Authorizer: []

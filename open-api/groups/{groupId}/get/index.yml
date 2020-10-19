@@ -1,7 +1,14 @@
-summary: List All Groups
-description: This endpoint allows you to query all groups with accounts that you have access to.
+summary: Get Group Details
+description: This endpoint allows you to get the details of the specified group with accounts that you have access to.
 tags:
   - Groups
+parameters:
+  - in: path
+    name: groupId
+    schema:
+      type: string
+    required: true
+    description: The Cloud Conformity ID of the group.
 responses:
   200:
     description: OK

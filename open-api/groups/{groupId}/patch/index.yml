@@ -3,7 +3,7 @@ description: This endpoint allows an ADMIN user to update a new group.
 tags:
   - Groups
 parameters:
-  - in: path
+  - in: query
     name: groupId
     schema:
       type: string

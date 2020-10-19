@@ -227,7 +227,7 @@ _Example:_
 * **Usage:** Used when one or more countries should be selected.
 * **UI:** Multi-select list of countries
 
-Value of each item is a country code. List of countries and their respective codes is available [here](https://gist.github.com/sam-negotiator/3682b4e74b1c4cf746690987a2b40c6d).
+Value of each item is a country code. List of countries and their respective codes is available [here](./RuleSettingsCountryList.md).
 
 _Example:_
 ```json5

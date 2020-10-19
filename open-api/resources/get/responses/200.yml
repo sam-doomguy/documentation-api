@@ -1,0 +1,66 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          default: resources
+        id:
+          type: string
+          description: Id of the resource.
+          example: ccrn:aws:r1gyR4cqg:CloudFormation:us-west-2:CloudConformityMonitoring
+        attributes:
+          type: object
+          properties:
+            account-id:
+              type: string
+              description: Id of the account of the resource.
+              example: r1gyR4cqg
+            ccrn:
+              type: string
+              description: Id of the resource.
+              example: ccrn:aws:r1gyR4cqg:CloudFormation:us-west-2:CloudConformityMonitoring
+            resource:
+              type: string
+              description: Resource name.
+              example: CloudConformityMonitoring
+            region:
+              type: string
+              description: The region the resource is located in.
+              example: us-west-2
+            descriptor-type:
+              type: string
+              description: The descriptor type used for describing the resource.
+              example: cfm-stack
+            link:
+              type: string
+              description: The link to the resource.
+              example: https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks?filter=active
+            link-title:
+              type: string
+              description: The title of the link.
+              example: CloudConformityMonitoring
+            resource-name:
+              type: string
+              description: The name of the resource.
+              example: CloudFormation Stack
+            tags:
+              type: array
+              description: The list of the tags associated with the resource.
+              items:
+                type: string
+                example: Version::4
+            provider:
+              $ref: ../../../shared-schemas/fields/provider.yml
+            excluded-rules:
+              type: array
+              description: List of the rules which the resource has been excluded ../../../shared-schemas/fields/provider.yml
+              items:
+                type: object
+                properties:
+                  rule-id:
+                    type: string
+                    example: CFM-001

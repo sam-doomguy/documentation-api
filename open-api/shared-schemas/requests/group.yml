@@ -1,0 +1,28 @@
+type: object
+required:
+  - data
+properties:
+  data:
+    type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+            description: "The name of the group to be created.
+              Name should be between 3 to 100 characters.
+              Name should be alphanumeric, may contain symbols \" - _ ' # & : , . / | and Space."
+            example: my-group
+          tags:
+            type: array
+            description: An array of strings to group accounts based on the tag associated with it.
+              Tags should be alphanumeric, and may contain symbols - \_ and Space.
+            maxItems: 50
+            items:
+              type: string
+              example: dev

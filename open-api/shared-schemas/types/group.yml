@@ -1,0 +1,67 @@
+type: object
+properties:
+  type:
+    type: string
+    default: groups
+  id:
+    type: string
+    description: ID of the group.
+    example: uUmE2v0ns
+  attributes:
+    type: object
+    description: Attributes of the group object.
+    properties:
+      name:
+        type: string
+        description: Name of the group.
+        example: test-group
+      tags:
+        type: array
+        description: The list of the tags associated with the group.
+        items:
+          type: string
+          example: dev-environment
+      created-date:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date that the group was created.
+        example: 1587441074460
+      last-modified-date:
+        type: number
+        description: A date-time in Unix Epoch timestamp format (in milliseconds)
+          which is the date that the group was last modified.
+        example: 1590647034893
+  relationships:
+    type: object
+    description: The entities which are related to the group.
+    properties:
+      organisation:
+        type: object
+        description: The organisation which the group is related to.
+        properties:
+          data:
+            type: object
+            properties:
+              type:
+                type: string
+                default: organisations
+              id:
+                type: string
+                description: ID of the organisation.
+                example: B1nHYYpwx
+      accounts:
+        type: object
+        description: The list of the accounts which are a part of the group.
+        properties:
+          data:
+            type: array
+            items:
+              type: object
+              properties:
+                type:
+                  type: string
+                  default: accounts
+                id:
+                  type: string
+                  description: The Conformity ID of the account.
+                  example: 16gZQXGZf

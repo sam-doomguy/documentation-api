@@ -14,9 +14,9 @@ properties:
         properties:
           name:
             type: string
-            description: "The name of the group to be created.
+            description: 'The name of the group to be created.
               Name should be between 3 to 100 characters.
-              Name should be alphanumeric, may contain symbols \" - _ ' # & : , . / | and Space."
+              Name should be alphanumeric, may contain symbols " - _ '' # & : , . / | and Space.'
             example: my-group
           tags:
             type: array

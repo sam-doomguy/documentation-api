@@ -14,7 +14,9 @@ properties:
           properties:
             pointer:
               type: string
+              description: Pointer to the attribute in the request where the validation error is pointing to.
               example: /data/attributes/name
         details:
           type: string
+          description: The details of the error.
           example: Name is required

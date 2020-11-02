@@ -85,6 +85,7 @@ Below is a list of the available APIs:
 - [Checks](./Checks.md)
 - [Events](./Events.md)
 - [External Ids](./ExternalId.md)
+- [Groups](./Groups.md)
 - [Profiles](./Profiles.md)
 - [Report Configs](./ReportConfigs.md)
 - [Resources](./Resources.md)

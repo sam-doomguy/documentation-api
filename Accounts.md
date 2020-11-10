@@ -442,6 +442,29 @@ Example Response:
   ]
 }
 ```
+Note: If the account contains rule settings that are marked as deprecated and have not been disabled (`enabled`: `false`), the following meta warning will be included in the response:
+```json
+{
+  "meta": {
+    "deprecation": {
+      "warning": {
+        "message": "1 manually configured rule in this account is deprecated. Refer to our Help Pages for instructions.",
+        "link": "https://www.cloudconformity.com/help/rules.html",
+        "rules": [
+          {
+            "riskLevel": "LOW",
+            "id": "RuleID-001",
+            "extraSettings": null,
+            "provider": "aws",
+            "enabled": true,
+            "exceptions": { "resources": null, "tags": null }
+          }
+        ]
+      }
+    }
+  }
+}
+```
 
 ## Get Account Access Setting
 
@@ -981,6 +1004,29 @@ Example Response:
   }
 }
 ```
+Note: If the rule setting being retrieved from the account is marked as deprecated and has not been disabled (`enabled`: `false`), the following meta warning will be included in the response:
+```json
+{
+  "meta": {
+    "deprecation": {
+      "warning": {
+        "message": "1 manually configured rule in this account is deprecated. Refer to our Help Pages for instructions.",
+        "link": "https://www.cloudconformity.com/help/rules.html",
+        "rules": [
+          {
+            "riskLevel": "LOW",
+            "id": "RuleID-001",
+            "extraSettings": null,
+            "provider": "aws",
+            "enabled": true,
+            "exceptions": { "resources": null, "tags": null }
+          }
+        ]
+      }
+    }
+  }
+}
+```
 
 ## Update rule setting
 
@@ -1143,6 +1189,29 @@ Example Response:
   }
 }
 ```
+Note: If the account contains rule settings that are marked as deprecated and have not been disabled (`enabled`: `false`), the following meta warning will be included in the response:
+```json
+{
+  "meta": {
+    "deprecation": {
+      "warning": {
+        "message": "1 manually configured rule in this account is deprecated. Refer to our Help Pages for instructions.",
+        "link": "https://www.cloudconformity.com/help/rules.html",
+        "rules": [
+          {
+            "riskLevel": "LOW",
+            "id": "RuleID-001",
+            "extraSettings": null,
+            "provider": "aws",
+            "enabled": true,
+            "exceptions": { "resources": null, "tags": null }
+          }
+        ]
+      }
+    }
+  }
+}
+```
 
 #### Errors:
 
@@ -1257,6 +1326,29 @@ Example Response:
           "type": "organisations",
           "id": "B1nHYYpwx"
         }
+      }
+    }
+  }
+}
+```
+Note: If the account contains rule settings that are marked as deprecated and have not been disabled, the following meta warning will be included in the response:
+```json
+{
+  "meta": {
+    "deprecation": {
+      "warning": {
+        "message": "1 manually configured rule in this account is deprecated. Refer to our Help Pages for instructions.",
+        "link": "https://www.cloudconformity.com/help/rules.html",
+        "rules": [
+          {
+            "riskLevel": "LOW",
+            "id": "RuleID-001",
+            "extraSettings": null,
+            "provider": "aws",
+            "enabled": true,
+            "exceptions": { "resources": null, "tags": null }
+          }
+        ]
       }
     }
   }
@@ -1434,6 +1526,29 @@ Example Response:
           "type": "organisations",
           "id": "B1nHYYpwx"
         }
+      }
+    }
+  }
+}
+```
+Note: If the account contains rule settings that are marked as deprecated and have not been disabled, the following meta warning will be included in the response:
+```json
+{
+  "meta": {
+    "deprecation": {
+      "warning": {
+        "message": "1 manually configured rule in this account is deprecated. Refer to our Help Pages for instructions.",
+        "link": "https://www.cloudconformity.com/help/rules.html",
+        "rules": [
+          {
+            "riskLevel": "LOW",
+            "id": "RuleID-001",
+            "extraSettings": null,
+            "provider": "aws",
+            "enabled": true,
+            "exceptions": { "resources": null, "tags": null }
+          }
+        ]
       }
     }
   }

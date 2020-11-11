@@ -2,6 +2,13 @@ summary: Get your API Keys Detail
 description: This endpoint allows you to query your API Key details.
 tags:
   - API Keys
+parameters:
+  - in: path
+    name: keyId
+    schema:
+      type: string
+    required: true
+    description: The ID of the api key.
 responses:
   200:
     description: OK

@@ -1,6 +1,8 @@
 summary: Get a check
 description: >
   This endpoint allows you to delete the specified check.
+tags:
+  - Checks
 parameters:
   - in: path
     name: checkId

@@ -1,6 +1,8 @@
 summary: Get a check
 description: >
   This endpoint allows you to get the details of the specified check.
+tags:
+  - Checks
 parameters:
   - in: path
     name: checkId
@@ -25,7 +27,5 @@ responses:
     $ref: ../../403.yml
   500:
     $ref: ../../500.yml
-tags:
-  - Checks
 security:
   - Authorizer: []

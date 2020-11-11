@@ -3,7 +3,7 @@ description: A DELETE request to this endpoint allows an ADMIN to delete the spe
 tags:
   - Groups
 parameters:
-  - in: query
+  - in: path
     name: groupId
     schema:
       type: string

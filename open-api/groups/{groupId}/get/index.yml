@@ -3,7 +3,7 @@ description: This endpoint allows you to get the details of the specified group 
 tags:
   - Groups
 parameters:
-  - in: query
+  - in: path
     name: groupId
     schema:
       type: string

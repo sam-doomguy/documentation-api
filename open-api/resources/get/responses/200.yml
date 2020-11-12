@@ -57,7 +57,7 @@ properties:
               $ref: ../../../shared-schemas/fields/provider.yml
             excluded-rules:
               type: array
-              description: List of the rules which the resource has been excluded ../../../shared-schemas/fields/provider.yml
+              description: List of the rules which the resource has been excluded.
               items:
                 type: object
                 properties:

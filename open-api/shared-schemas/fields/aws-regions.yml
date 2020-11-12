@@ -1,5 +1,6 @@
 type: string
 description: AWS regions.
+example: us-east-1
 enum:
   - global
   - us-east-1

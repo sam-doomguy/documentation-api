@@ -8,6 +8,7 @@ properties:
         status:
           type: integer
           example: 500
+          description: Error code.
         detail:
           type: string
           example: Internal Server Error

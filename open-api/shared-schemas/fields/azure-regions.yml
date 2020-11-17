@@ -1,5 +1,6 @@
 type: string
 description: Azure regions.
+example: eastus
 enum:
   - global
   - eastasia

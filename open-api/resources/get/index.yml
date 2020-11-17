@@ -1,6 +1,6 @@
-summary: Get access settings
+summary: Get list of resources
 description:
-  This endpoint allows a user with FULL access to get the list of excluded resources due to exceptions been configured.
+  This endpoint allows a user with FULL access to get the list of excluded resources due to exceptions that have been configured.
   There is a 10k limit to the maximum number of excluded resources that can be returned.
   Paging will not work for excluded resources higher than this limit.
   To fetch larger numbers, segment your requests using account and/or region filtering.
@@ -12,7 +12,7 @@ parameters:
     name: excluded
     schema:
       type: string
-      default: true
+      enum: [true]
     required: true
     description: true for returning excluded resources. Currently only `true` is supported.
   - in: query
@@ -44,7 +44,7 @@ parameters:
   - in: query
     name: filter[regions]
     schema:
-      oneOf:
+      allOf:
         - $ref: ../../shared-schemas/fields/aws-regions.yml
         - $ref: ../../shared-schemas/fields/azure-regions.yml
     required: false
@@ -57,7 +57,7 @@ parameters:
     required: false
     description: Used to filter based on Any assigned metadata tags to your resources.
   - in: query
-    name: filter[provider]
+    name: filter[providers]
     schema:
       $ref: ../../shared-schemas/fields/provider.yml
     required: false

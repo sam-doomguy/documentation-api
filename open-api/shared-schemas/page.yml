@@ -11,12 +11,12 @@ parameters:
       properties:
         size:
           type: number
-          description: Indicates the number of results that should be returned. Maximum value is 1000 and defaults to 100 if not specified
+          description: Indicates the number of results that should be returned.
           example: 5
           maximum: 1000
           default: 100
         number:
           type: number
-          description: Indicates the page number, defaults to 0
+          description: Indicates the page number.
           example: 0
           default: 0

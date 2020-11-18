@@ -13,12 +13,14 @@ parameters:
     name: aws
     schema:
       type: boolean
-    description: true | false; defaults to true for returning AWS events.
+      default: true
+    description: If true returns only AWS events.
   - in: query
     name: cc
     schema:
       type: boolean
-    description: true | false; defaults to true for returning Cloud Conformity activity-events.
+      default: true
+    description: If true returns Cloud Conformity activity-events.
   - $ref: ../../shared-schemas/page.yml#/parameters/page
   - $ref: ../../shared-schemas/filters/event-filter.yml#/parameters/filter
 responses:

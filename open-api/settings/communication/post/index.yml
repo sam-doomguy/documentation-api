@@ -1,5 +1,6 @@
 tags:
   - Communication settings
+summary: TODO.
 responses:
   200:
     description: 200 response

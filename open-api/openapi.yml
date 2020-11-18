@@ -2,6 +2,12 @@ openapi: 3.0.1
 info:
   title: Cloud Conformity
   version: "2020-08-20T00:27:06Z"
+  description: Open api documentation for Cloud Conformity.
+  contact:
+    name: Trend Micro
+    url: https://trendmicro.com
+  license:
+    name: "Copyright (c) Trend Micro Inc. - All Rights Reserved"
 servers:
   - url: https://eu-west-1-api.cloudconformity.com/v1
     description: eu-west-1

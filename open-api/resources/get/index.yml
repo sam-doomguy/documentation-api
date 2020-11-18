@@ -12,7 +12,7 @@ parameters:
     name: excluded
     schema:
       type: string
-      enum: [true]
+      enum: ["true"]
     required: true
     description: true for returning excluded resources. Currently only `true` is supported.
   - in: query

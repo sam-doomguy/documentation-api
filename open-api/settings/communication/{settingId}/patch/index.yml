@@ -1,5 +1,6 @@
 tags:
   - Communication settings
+summary: TODO.
 parameters:
   - in: path
     name: settingId

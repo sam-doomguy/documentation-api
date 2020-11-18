@@ -18,8 +18,9 @@ parameters:
     name: includeDefaults
     schema:
       type: boolean
+      default: false
     required: false
-    description: Optional, Whether or not to include default rule settings. Defaults to false.
+    description: Optional, Whether or not to include default rule settings.
 responses:
   200:
     description: OK

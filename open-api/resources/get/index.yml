@@ -32,7 +32,6 @@ parameters:
       default: 100
     required: false
     description: Indicates the number of excluded resources that should be returned.
-      The maximum value is 2000 and defaults to 100 if not specified.
   - in: query
     name: page[number]
     schema:
@@ -40,28 +39,30 @@ parameters:
       example: 2
       default: 0
     required: false
-    description: Indicates the page number, defaults to 0.
+    description: Indicates the page number.
   - in: query
     name: filter[regions]
     schema:
       allOf:
         - $ref: ../../shared-schemas/fields/aws-regions.yml
         - $ref: ../../shared-schemas/fields/azure-regions.yml
+      example: us-east-1,eu-west-1,ap-southeast-2
     required: false
-    description: Used to filter based on provider regions.
+    description: Used to filter based on provider regions. Accepts a comma-separated list of regions.
   - in: query
     name: filter[tags]
     schema:
       type: string
-      example: tag1
+      example: tag1,tag2,tag3
     required: false
-    description: Used to filter based on Any assigned metadata tags to your resources.
+    description: Used to filter based on Any assigned metadata tags to your resources. Accepts a comma-separated list of tags.
   - in: query
     name: filter[providers]
     schema:
-      $ref: ../../shared-schemas/fields/provider.yml
+      type: string
+      example: aws,azure
     required: false
-    description: Used to filter based on the cloud provider.
+    description: Used to filter based on the cloud providers. Accepts a comma-separated list of providers.
 responses:
   200:
     description: OK

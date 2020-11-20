@@ -3,8 +3,8 @@ description: AWS well-architected framework categories
 items:
   type: string
   enum:
-    - "security"
-    - "cost-optimisation"
-    - "reliability"
-    - "performance-efficiency"
-    - "operational-excellence"
+    - security
+    - cost-optimisation
+    - reliability
+    - performance-efficiency
+    - operational-excellence

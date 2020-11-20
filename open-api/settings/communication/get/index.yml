@@ -20,7 +20,7 @@ description: |
   | ADMIN                          | Full settings with configuration      |
   | FULL access to the account     | Full settings with configuration      |
   | READONLY access to the account | Settings without configuration        |
-  | NO access to the account	   | No settings                           |
+  | NO access to the account	     | No settings                           |
 
 tags:
   - Communication settings
@@ -28,9 +28,7 @@ parameters:
   - in: query
     name: channel
     schema:
-      type: string
-    description: "Provide if you want to only get settings for one specific channel: email, sms, slack, pager-duty, or sns."
-    example: abc
+      $ref: ../../../shared-schemas/fields/communication-channels.yml
   - in: query
     name: accountId
     schema:
@@ -43,11 +41,16 @@ parameters:
     description: Can only be used in conjunction with the accountId parameter. Specify true if you want to see both account level settings and organisation level settings.
 responses:
   200:
-    description: OK.
+    description: OK
     content:
       application/json:
         schema:
-          $ref: ./responses/200.yml
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: ../../../shared-schemas/types/communication-settings-response-base.yml
   401:
     description: Unauthorized. The requested user does not have enough privilege.
     content:

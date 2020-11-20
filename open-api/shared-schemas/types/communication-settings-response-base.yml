@@ -1,0 +1,35 @@
+type: object
+properties:
+  type:
+    $ref: ./communication-settings-type.yml
+  id:
+    type: string
+    description: ID of communication setting
+    example: communication:email-3JD1mkXfz
+  attributes:
+    allOf:
+      - $ref: ./communication-settings-attributes.yml
+      - type: object
+        properties:
+          created-by:
+            type: string
+            description: ID of user that created this communication setting
+            example: n6yTeW_lx
+          created-date:
+            type: string
+            description: Epoch string for the date time when the communication setting was created
+            example: 1565165403747
+          is-account-level:
+            type: boolean
+            description: Defines if communication setting is set at an account level
+            example: false
+          is-group-level:
+            type: boolean
+            description: Defines if communication setting is set for a group
+            example: false
+          is-organisation-level:
+            type: boolean
+            description: Defines if communication setting is set at an organisation level
+            example: true
+  relationships:
+    $ref: ./communication-settings-relationships.yml

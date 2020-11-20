@@ -24,7 +24,12 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ./responses/200.yml
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: ../../../shared-schemas/types/communication-settings-response-base.yml
   401:
     description: Unauthorized. The requester user does not have enough privilege.
     content:

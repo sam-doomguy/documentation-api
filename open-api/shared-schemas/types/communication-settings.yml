@@ -89,9 +89,7 @@ properties:
         description: Epoch string for the date time when the communication setting was created
         example: 1565165403747
       channel:
-        type: string
-        description: Description for the type of communication setting
-        example: email
+        $ref: ../fields/communication-channels.yml
       is-account-level:
         type: boolean
         description: Defines if communication setting is set at an account level

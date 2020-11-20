@@ -1,0 +1,28 @@
+type: object
+properties:
+  account:
+    type: object
+    properties:
+      data:
+        type: object
+        description: <code>null</code> if only creating organization-level setting.
+        properties:
+          type:
+            type: string
+            example: accounts
+          id:
+            type: string
+            description: Cloud Conformity account ID
+  organisation:
+    type: object
+    properties:
+      data:
+        type: object
+        description: Information about organisation.
+        properties:
+          type:
+            type: string
+            example: organisations
+          id:
+            type: string
+            description: Cloud Conformity organisation ID

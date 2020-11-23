@@ -25,12 +25,12 @@ description: |
 tags:
   - Communication settings
 responses:
-  200:
-    description: OK.
-    content:
-      application/json:
-        schema:
-          $ref: ../../../shared-schemas/types/communication-settings.yml
+  # 200:
+  #   description: OK.
+  #   content:
+  #     application/json:
+  #       schema:
+  #         $ref: ../../../shared-schemas/types/communication-settings.yml
   403:
     description: Forbidden. This happens when an invalid api key is provided or the user does not have access to the api keys.
     content:

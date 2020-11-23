@@ -12,7 +12,7 @@ properties:
             example: accounts
           id:
             type: string
-            description: Cloud Conformity account ID
+            description: Cloud Conformity account ID.
   organisation:
     type: object
     properties:
@@ -25,4 +25,4 @@ properties:
             example: organisations
           id:
             type: string
-            description: Cloud Conformity organisation ID
+            description: Cloud Conformity organisation ID.

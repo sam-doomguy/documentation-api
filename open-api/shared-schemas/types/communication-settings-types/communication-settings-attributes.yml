@@ -1,0 +1,9 @@
+type: object
+description: Object containing attributes type, channel, enabled, manual, filter, configuration.
+properties:
+  type:
+    type: string
+    example: communication
+  enabled:
+    type: boolean
+    example: true

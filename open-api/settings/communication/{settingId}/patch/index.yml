@@ -13,35 +13,38 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ./request.yml
+        $ref: ../../request.yml
 responses:
   200:
-    description: OK
+    description: Successful response.
     content:
       application/json:
         schema:
-          type: object
-          properties:
-            data:
-              $ref: ../../../../shared-schemas/types/communication-settings-response-base.yml
+          $ref: ../../response.yml
+  400:
+    description: Bad Request.
+    content:
+      application/son:
+        schema:
+          $ref: ../../400.yml
   401:
     description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
           $ref: ../../../../shared-schemas/responses/401.yml
-  422:
-    description: 422 Unprocessable Entity
-    content:
-      application/json:
-        schema:
-          $ref: ../../../../shared-schemas/responses/422-unprocessed-entity.yml
   403:
     description: 403 Forbidden
     content:
       application/json:
         schema:
           $ref: ../../../../shared-schemas/responses/403.yml
+  422:
+    description: 422 Unprocessable Entity
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../shared-schemas/responses/422-unprocessed-entity.yml
   500:
     description: 500 Internal Server Error
     content:

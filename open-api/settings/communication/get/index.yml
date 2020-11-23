@@ -41,7 +41,7 @@ parameters:
     description: Can only be used in conjunction with the accountId parameter. Specify true if you want to see both account level settings and organisation level settings.
 responses:
   200:
-    description: OK
+    description: Successful response.
     content:
       application/json:
         schema:
@@ -50,7 +50,13 @@ responses:
             data:
               type: array
               items:
-                $ref: ../../../shared-schemas/types/communication-settings-response-base.yml
+                $ref: ../response.yml
+  400:
+    description: Bad Request.
+    content:
+      application/son:
+        schema:
+          $ref: ../400.yml
   401:
     description: Unauthorized. The requested user does not have enough privilege.
     content:
@@ -63,12 +69,6 @@ responses:
       application/json:
         schema:
           $ref: ../../../shared-schemas/responses/403.yml
-  415:
-    description: Unsupported media type.
-    content:
-      application/json:
-        schema:
-          $ref: ../../../shared-schemas/responses/415-unsupported-media-type.yml
   422:
     description: Unknown. This happens when parameter is unknown.
     content:

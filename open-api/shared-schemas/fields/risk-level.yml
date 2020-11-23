@@ -1,10 +1,9 @@
-type: array
+type: string
 description: Risk level of the Conformity rule.
-items:
-  type: string
-  enum:
-    - "LOW"
-    - "MEDIUM"
-    - "HIGH"
-    - "VERY_HIGH"
-    - "EXTREME"
+enum:
+  - LOW
+  - MEDIUM
+  - HIGH
+  - VERY_HIGH
+  - EXTREME
+example: MEDIUM

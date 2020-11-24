@@ -1,4 +1,4 @@
-oneOf:
+anyOf:
   - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-email.yml
   - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-sms.yml
   - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-ms-teams.yml

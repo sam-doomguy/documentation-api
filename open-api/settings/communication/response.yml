@@ -6,10 +6,10 @@ allOf:
         description: ID of setting.
         example: communication:email-3JD1mkXfz
   - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-response-common.yml
-  - oneOf:
-      - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-email.yml
-      - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-sms.yml
-      - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-ms-teams.yml
-      - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-slack.yml
-      - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-sns.yml
-      - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-pager-duty.yml
+  - anyOf:
+    - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-email.yml
+    - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-sms.yml
+    - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-ms-teams.yml
+    - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-slack.yml
+    - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-sns.yml
+    - $ref: ../../shared-schemas/types/communication-settings-types/communication-settings-pager-duty.yml

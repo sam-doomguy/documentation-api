@@ -1,0 +1,25 @@
+type: object
+properties:
+  attributes:
+    type: object
+    properties:
+      created-by:
+        type: string
+        description: ID of user that created this communication setting.
+        example: n6yTeW_lx
+      created-date:
+        type: string
+        description: Epoch string for the date time when the communication setting was created.
+        example: 1565165403747
+      is-account-level:
+        type: boolean
+        description: Defines if communication setting is set at an account level.
+        example: false
+      is-group-level:
+        type: boolean
+        description: Defines if communication setting is set for a group.
+        example: false
+      is-organisation-level:
+        type: boolean
+        description: Defines if communication setting is set at an organisation level.
+        example: true

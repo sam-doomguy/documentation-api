@@ -1,0 +1,31 @@
+type: object
+properties:
+  type:
+    $ref: ./communication-settings-type.yml
+  attributes:
+    allOf:
+      - $ref: ./communication-settings-attributes.yml
+      - type: object
+        properties:
+          channel:
+            type: string
+            enum:
+              - pager-duty
+            example: pager-duty
+          filter:
+            $ref: ./communication-settings-filter.yml
+          configuration:
+            allOf:
+              - $ref: ./communication-settings-configuration.yml
+              - type: object
+                properties:
+                  serviceName:
+                    type: string
+                    description: Your service name.
+                    example: "yourServiceName"
+                  serviceKey:
+                    type: string
+                    description: Your service key.
+                    example: "yourServiceKey"
+  relationships:
+    $ref: ./communication-settings-relationships.yml

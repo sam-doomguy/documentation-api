@@ -1,0 +1,40 @@
+type: object
+properties:
+  type:
+    $ref: ./communication-settings-type.yml
+  attributes:
+    allOf:
+      - $ref: ./communication-settings-attributes.yml
+      - type: object
+        properties:
+          channel:
+            type: string
+            enum:
+              - slack
+            example: slack
+          filter:
+            $ref: ./communication-settings-filter.yml
+          configuration:
+            allOf:
+              - $ref: ./communication-settings-configuration.yml
+              - type: object
+                properties:
+                  url:
+                    type: string
+                    description: Webhook url.
+                    example: "https://hooks.slack.com/services/your-slack-webhook"
+                  channel:
+                    type: string
+                    description: Channel name.
+                    example: "#your-channel"
+                  displayIntroducedBy:
+                    type: boolean
+                    description: True for adding user to message.
+                  displayResource:
+                    type: boolean
+                    description: True for adding resource to message.
+                  displayTags:
+                    type: boolean
+                    description: True for adding associated tags to message.
+  relationships:
+    $ref: ./communication-settings-relationships.yml

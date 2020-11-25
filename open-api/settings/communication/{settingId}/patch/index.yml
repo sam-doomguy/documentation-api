@@ -1,39 +1,55 @@
+summary: Update Communication Settings
+description: |
+  This endpoint allows you to update a specific communication setting.
+
+  **IMPORTANT**: User role defines how they may use this endpoint:
+
+  1. Only ADMIN users can update organisation-level settings.
+  2. For an account-level setting, both ADMINs and users with FULL access to the account can update it.
 tags:
   - Communication settings
-parameters:
-  - in: path
-    name: settingId
-    schema:
-      type: string
-    required: true
-    description: The ID of the setting.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../request.yml
 responses:
   200:
-    description: 200 response
-    content: {}
+    description: Successful response.
+    content:
+      application/json:
+        schema:
+          $ref: ../../response.yml
   400:
-    description: 400 response
-    content: {}
-  422:
-    description: 422 response
-    content: {}
+    description: Bad Request.
+    content:
+      application/son:
+        schema:
+          $ref: ../../400.yml
   401:
-    description: 401 response
-    content: {}
-  423:
-    description: 423 response
-    content: {}
-  500:
-    description: 500 response
-    content: {}
-  402:
-    description: 402 response
-    content: {}
+    description: Unauthorized. The requester user does not have enough privilege.
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../shared-schemas/responses/401.yml
   403:
-    description: 403 response
-    content: {}
-  404:
-    description: 404 response
-    content: {}
+    description: 403 Forbidden
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../shared-schemas/responses/403.yml
+  422:
+    description: 422 Unprocessable Entity
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../shared-schemas/responses/422-unprocessed-entity.yml
+  500:
+    description: 500 Internal Server Error
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../shared-schemas/responses/500.yml
 security:
   - Authorizer: []

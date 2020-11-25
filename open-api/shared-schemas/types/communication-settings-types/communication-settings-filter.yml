@@ -1,0 +1,24 @@
+type: object
+properties:
+  regions:
+    oneOf:
+      - $ref: ../../fields/aws-regions.yml
+      - $ref: ../../fields/azure-regions.yml
+  services:
+    $ref: ../services.yml
+  ruleIds:
+    type: array
+    description: An array of valid AWS rule Ids (e.g. ["S3-016", "EC2-001"]). For more information about rules, please refer to [Cloud Conformity Rules API](https://github.com/cloudconformity/documentation-api/blob/master/Rules.md).
+    items:
+      type: string
+      example: S3-016
+  categories:
+    $ref: ../categories.yml
+  riskLevels:
+    $ref: ../../fields/risk-level-array.yml
+  tags:
+    type: array
+    description: An array of any assigned metadata tags to your AWS resources.
+    items:
+      type: string
+      example: tagName

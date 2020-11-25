@@ -1,0 +1,43 @@
+type: object
+properties:
+  type:
+    $ref: ./communication-settings-type.yml
+  attributes:
+    allOf:
+      - $ref: ./communication-settings-attributes.yml
+      - type: object
+        properties:
+          channel:
+            type: string
+            enum:
+              - sns
+            example: sns
+          manual:
+            type: boolean
+            example: True
+            description: True for enable users to manually send individual checks.
+          filter:
+            allOf:
+              - $ref: ./communication-settings-filter.yml
+              - type: object
+                properties:
+                  statuses:
+                    type: array
+                    description: Array of possible check outcomes.
+                    items:
+                      type: string
+                      enum:
+                        - SUCCESS
+                        - FAILURE
+          configuration:
+            allOf:
+              - $ref: ./communication-settings-configuration.yml
+              - type: object
+                properties:
+                  arn:
+                    type: string
+                    description: Amazon Resource Number of SNS
+                    example: |
+                      { "arn": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"}
+  relationships:
+    $ref: ./communication-settings-relationships.yml

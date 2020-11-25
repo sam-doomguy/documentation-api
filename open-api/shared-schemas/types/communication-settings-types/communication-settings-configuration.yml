@@ -1,0 +1,6 @@
+type: object
+properties:
+  channelName:
+    type: string
+    description: Label to display in the application (to distinguish between multiple instances of the same channel type).
+    example: someChannelName

@@ -1,0 +1,29 @@
+type: object
+properties:
+  type:
+    $ref: ./communication-settings-type.yml
+  attributes:
+    allOf:
+      - $ref: ./communication-settings-attributes.yml
+      - type: object
+        properties:
+          channel:
+            type: string
+            enum:
+              - email
+            example: email
+          filter:
+            $ref: ./communication-settings-filter.yml
+          configuration:
+            allOf:
+              - $ref: ./communication-settings-configuration.yml
+              - type: object
+                properties:
+                  users:
+                    type: array
+                    description: Array of users with at least `readOnly` access to the account.
+                    items:
+                      type: string
+                      example: ["t-UoU9CsK"]
+  relationships:
+    $ref: ./communication-settings-relationships.yml

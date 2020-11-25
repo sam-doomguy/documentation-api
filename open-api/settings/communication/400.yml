@@ -1,0 +1,19 @@
+type: object
+properties:
+  errors:
+    type: array
+    items:
+      type: object
+      properties:
+        status:
+          type: number
+          example: 400
+        source:
+          type: object
+          properties:
+            pointer:
+              type: string
+              example: /data/attributes/channel
+        detail:
+          type: string
+          example: Cannot get jira settings via the API.

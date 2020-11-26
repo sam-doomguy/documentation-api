@@ -1,76 +1,39 @@
-summary: Delete Communication Setting
-description: |
-  This endpoint allows a user to delete a communication setting.
-
-  **Important**: User role defines how they may use this endpoint:
-
-  1. Only ADMIN users can delete organisation-level settings.
-  2. For an account-level setting, both ADMINs and users with FULL access to the account can delete it.
 tags:
-  - Communication settings
+  - Settings
 parameters:
   - in: path
     name: settingId
     schema:
       type: string
     required: true
-    description: ID of the communication setting.
-    example: communication:email-57DryxMDh
+    description: The ID of the setting.
 responses:
   200:
     description: 200 response
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            meta:
-              type: object
-              properties:
-                status:
-                  type: string
-                  example: deleted
+    content: {}
   400:
-    description: Bad Request.
-    content:
-      application/json:
-        schema:
-          $ref: ../../communication/400.yml
+    description: 400 response
+    content: {}
+  422:
+    description: 422 response
+    content: {}
   401:
-    description: Unauthorized. The requested user does not have enough privilege.
-    content:
-      application/json:
-        schema:
-          $ref: ../../../shared-schemas/responses/401.yml
-  403:
-    description: Forbidden. This happens when an invalid api key is provided or the user does not have access to the api keys.
-    content:
-      application/json:
-        schema:
-          $ref: ../../../shared-schemas/responses/403.yml
-  404:
-    description: Not Found.
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                allOf:
-                  - type: object
-                    properties:
-                      status:
-                        type: integer
-                        example: 404
-                  - $ref: ../../../shared-schemas/responses/404.yml
-
+    description: 401 response
+    content: {}
+  423:
+    description: 423 response
+    content: {}
   500:
-    description: Internal Server Error
-    content:
-      application/json:
-        schema:
-          $ref: ../../../shared-schemas/responses/500.yml
+    description: 500 response
+    content: {}
+  402:
+    description: 402 response
+    content: {}
+  403:
+    description: 403 response
+    content: {}
+  404:
+    description: 404 response
+    content: {}
 security:
   - Authorizer: []

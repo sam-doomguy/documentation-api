@@ -24,25 +24,39 @@ description: |
 
 tags:
   - Communication settings
+parameters:
+  - in: path
+    name: settingId
+    schema:
+      type: string
+    required: true
+    description: ID of the communication setting.
+    example: communication:email-57DryxMDh
 responses:
-  # 200:
-  #   description: OK.
-  #   content:
-  #     application/json:
-  #       schema:
-  #         $ref: ../../../shared-schemas/types/communication-settings.yml
+  200:
+    description: Successful response.
+    content:
+      application/json:
+        schema:
+          $ref: ../../communication/response.yml
+  400:
+    description: Bad Request.
+    content:
+      application/json:
+        schema:
+          $ref: ../../communication/400.yml
+  401:
+    description: Unauthorized. The requested user does not have enough privilege.
+    content:
+      application/json:
+        schema:
+          $ref: ../../../shared-schemas/responses/401.yml
   403:
     description: Forbidden. This happens when an invalid api key is provided or the user does not have access to the api keys.
     content:
       application/json:
         schema:
           $ref: ../../../shared-schemas/responses/403.yml
-  415:
-    description: Unsupported media type.
-    content:
-      application/json:
-        schema:
-          $ref: ../../../shared-schemas/responses/415-unsupported-media-type.yml
   500:
     description: Internal Server Error
     content:

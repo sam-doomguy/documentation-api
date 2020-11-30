@@ -9,7 +9,8 @@ servers:
     description: us-west-2
 tags:
   - name: Accounts
-    description: Managing Conformity accounts.
+    description:
+      $ref: ./accounts/description.md
   - name: API Keys
     description: Managing Conformity api keys.
   - name: Checks

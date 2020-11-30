@@ -1,5 +1,6 @@
 summary: Update Account Bot Setting
-description: This endpoint allows ADMIN, POWER USERS, and users with CUSTOM access to accounts to get the current setting that Cloud Conformity uses to determine when Conformity Bot is run and on which regions the Conformity Bot is disabled. This endpoint also supports updating single attributes under the `settings` field (see below) in which case, only attributes passed in the request body will be updated.
+description:
+  $ref: ./description.md
 tags:
   - Accounts
 parameters:

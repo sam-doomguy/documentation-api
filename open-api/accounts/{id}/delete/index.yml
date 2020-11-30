@@ -1,5 +1,5 @@
 summary: Delete account
-description: A DELETE request to this endpoint allows an ADMIN to delete the specified account.
+description: A DELETE request to this endpoint allows an `ADMIN` to delete the specified account.
 tags:
   - Accounts
 parameters:

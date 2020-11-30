@@ -16,7 +16,7 @@ Below is a list of the available API calls:
 - [Update Rule Settings](#update-rule-settings)
 - [Delete Account](#delete-account)
 
-## Create an Account
+des## Create an Account
 
 This endpoint is used to register a new AWS account with Cloud Conformity. \
 **Note:**
@@ -678,6 +678,30 @@ We recommend you first [Get account details](#get-account-details) to verify tha
 
 _Please note the server will not accept both hasRealTimeMonitoring and subscriptionType in the request body. Please provide either hasRealTimeMonitoring or subscriptionType_
 
+Example Request with the old field hasRealTimeMonitoring:
+
+```shell script
+curl -X PATCH \
+-H "Content-Type: application/vnd.api+json" \
+-H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
+-d '
+{
+  "data": {
+    "attributes": {
+      "costPackage": true,
+      "hasRealTimeMonitoring": false
+    }
+  }
+}' \
+https://us-west-2-api.cloudconformity.com/v1/accounts/AgA12vIwb/subscription
+```
+
+Example Request with new field subscriptionType:
+
+```shell script
+curl -X PATCH \
+-H "Content-Type: application/vnd.api+json" \
+-H "Authorization: ApiKey S1YnrbQuWagQS0MvbSchNHDO73XHqdAqH52RxEPGAggOYiXTxrwPfmiTNqQkTq3p" \
 Example Request with the old field hasRealTimeMonitoring:
 
 ```shell script

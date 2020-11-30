@@ -1,7 +1,6 @@
 summary: Update rule setting
 description:
-  A PATCH request to this endpoint allows you to customize rule setting for the specified rule Id of the specified account.
-  This feature is used in conjunction with the GET request to the same endpoint for copying rule setting from one account to another. An example of this function is provided in the examples folder.
+  $ref: ./description.md
 tags:
   - Accounts
 parameters:

@@ -1,5 +1,6 @@
 summary: Create account
-description: This endpoint is used to register a new AWS account with Cloud Conformity.
+description:
+  $ref: ./description.md
 tags:
   - Accounts
 requestBody:

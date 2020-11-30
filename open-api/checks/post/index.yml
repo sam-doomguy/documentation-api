@@ -1,12 +1,6 @@
 summary: Create a check
-description: |
-  This endpoint is used to create a custom check. You may pass one check or an array of checks in the JSON body.
-  Some guidelines about using this endpoint:
-  * Each check object you enter will require `check.relationships.account`.
-  If you provide an account which you don't have WRITE access to, the check will not be saved.
-  * Check Ids are constructed as: `ccc:accountId:ruleId:service:region:resourceId`
-  * If you add a check with the same accountId, ruleId, service, region, AND resourceId as another existing check in the database, this new check WILL write over the existing check.
-  * Since resource is an optional attribute, checks entered without resource will not have the resourceId part of the check Id.
+description:
+  $ref: ./description.md
 
 requestBody:
   required: true

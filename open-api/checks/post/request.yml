@@ -1,0 +1,35 @@
+type: array
+items:
+  allOf:
+    - $ref: ../check-request.yml
+    - type: object
+      required:
+        - relationships
+      properties:
+        relationships:
+          type: object
+          properties:
+            rule:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      default: rules
+                    id:
+                      type: string
+                      example: CUSTOM-001
+            account:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      default: accounts
+                    id:
+                      type: string
+                      example: H19NxM15-

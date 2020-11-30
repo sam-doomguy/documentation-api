@@ -1,10 +1,6 @@
 summary: Get all checks
-description: >
-  This endpoint allows you to collect checks for specified accounts.
-  Note that there is a 10k limit to the maximum number of overall results that can be returned.
-  Paging will not work for higher than this limit. To fetch larger numbers, segment your requests
-  using account and region filtering.
-  On larger accounts, filter requests per account, per region, per service.
+description:
+  $ref: ./description.md
 parameters:
   - in: query
     name: accountIds

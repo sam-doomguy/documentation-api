@@ -8,12 +8,6 @@ properties:
         status:
           type: integer
           example: 401
-        source:
-          type: object
-          properties:
-            pointer:
-              type: string
-              example: "/"
         details:
           type: string
           example: You are not authorized to perform such actions

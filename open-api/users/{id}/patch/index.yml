@@ -1,6 +1,6 @@
 summary: Update a user
-description: Update the role and permissions of the specified user.
-  Only ADMINs can perform the update to other users within the same organisation.
+description:
+  $ref: ./description.md
 tags:
   - Users
 parameters:

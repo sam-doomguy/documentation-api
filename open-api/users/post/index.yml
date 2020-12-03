@@ -1,6 +1,6 @@
 summary: Invite user
-description: This endpoint allows you to invite a user to your organisation.
-  Only ADMINs can perform the invite user within the same organisation.
+description:
+  $ref: ./description.md
 tags:
   - Users
 requestBody:

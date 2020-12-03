@@ -1,5 +1,6 @@
 summary: Get a user
-description: Gets a user by id.
+description:
+  $ref: ./description.md
 tags:
   - Users
 parameters:

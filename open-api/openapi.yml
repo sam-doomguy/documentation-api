@@ -42,7 +42,8 @@ tags:
   - name: Template scanner
     description: Managing Conformity template scanner.
   - name: Users
-    description: Managing users.
+    description:
+      $ref: ./users/description.md
 paths:
   /accounts:
     get:

@@ -2,7 +2,7 @@ summary: Create Communication Settings
 description:
   $ref: ./description.md
 tags:
-  - Communication settings
+  - Settings
 requestBody:
   required: true
   content:

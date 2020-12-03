@@ -2,7 +2,7 @@ summary: Get Communication Setting Details
 description:
   $ref: ./description.md
 tags:
-  - Communication settings
+  - Settings
 parameters:
   - in: path
     name: settingId

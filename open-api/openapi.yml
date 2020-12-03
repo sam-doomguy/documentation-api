@@ -39,8 +39,6 @@ tags:
     description: Managing Conformity services.
   - name: Settings
     description: Managing Conformity settings.
-  - name: Communication settings
-    description: Managing Conformity communication settings.
   - name: Template scanner
     description: Managing Conformity template scanner.
   - name: Users

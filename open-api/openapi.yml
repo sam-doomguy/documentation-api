@@ -26,7 +26,8 @@ tags:
   - name: Organisations
     description: Managing Conformity organisations.
   - name: Profiles
-    description: Managing Conformity profiles.
+    description:
+      $ref: ./profiles/description.md
   - name: Report Configs
     description: Managing Conformity report configs.
   - name: Reports

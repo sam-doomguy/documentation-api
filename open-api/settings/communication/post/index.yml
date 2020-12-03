@@ -1,15 +1,6 @@
 summary: Create Communication Settings
-description: |
-  This endpoint is used to create a new one-way communication channel setting. This feature can be used in conjunction with a GET request to copy communication settings from one account to others. An example of this function is provided in the examples folder.
-
-  **IMPORTANT**: Some guidelines about using this endpoint:
-
-  1. Settings are created as long as your inputs are valid. The onus is on you to ensure you don't create settings that are duplicate or too similar in nature.
-  2. Each communication setting can be **account-level** OR **organisation-level**
-    1. If creating account-level setting, you must have a valid `relationship.account` object.
-    2. If creating organisation-level settings you must set `relationship.account.data: null`
-    3. Only ADMIN users can create organisation-level settings.
-    4. With organisation-level user-based (email & sms) settings, the onus is on you to ensure these users have at least read-only access to all accounts.
+description:
+  $ref: ./description.md
 tags:
   - Communication settings
 requestBody:

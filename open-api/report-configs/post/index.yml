@@ -1,5 +1,6 @@
 summary: Create Report Config
-description: This endpoint is used to create a new report config.
+description:
+  $ref: ./description.md
 tags:
   - Report Configs
 requestBody:

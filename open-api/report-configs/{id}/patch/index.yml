@@ -1,5 +1,9 @@
 summary: Update Report Config
 description: A PATCH request to this endpoint allows you to update a specific report config.
+  <br/>
+  <br/>
+  **Note:** accountId or groupId could not be changed after report-config was created.
+
 tags:
   - Report Configs
 parameters:

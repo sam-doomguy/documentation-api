@@ -31,7 +31,8 @@ tags:
   - name: Report Configs
     description: Managing Conformity report configs.
   - name: Reports
-    description: Managing Conformity reports.
+    description:
+      $ref: ./reports/description.md
   - name: Resources
     description: Managing Conformity resources.
   - name: Services

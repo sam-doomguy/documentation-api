@@ -1,5 +1,6 @@
 summary: List All Events
-description: This endpoint allows you to collect events that you have access to.
+description:
+  $ref: ./description.md
 tags:
   - Events
 parameters:

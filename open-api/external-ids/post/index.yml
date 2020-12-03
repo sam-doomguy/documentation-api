@@ -1,6 +1,6 @@
 summary: Creates a new External ID
-description: This endpoint allows you to create a new temporary external ID.
-  <br> We recommend using your organisation's external ID for new account creation, however we still support individual external IDs.
+description:
+  $ref: ./description.md
 tags:
   - External IDs
 responses:

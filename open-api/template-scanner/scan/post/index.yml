@@ -1,6 +1,6 @@
 summary: Scan a template file
-description: Validates and scans the resources found in the template against a set of
-  Conformity's rules
+description:
+  $ref: ./description.md
 tags:
   - Template scanner
 requestBody:

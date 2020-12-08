@@ -1,0 +1,35 @@
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      type:
+        type: string
+        example: account
+      attributes:
+        type: object
+        required:
+          - name
+          - environment
+          - subscriptionType
+          - access
+        properties:
+          name:
+            type: string
+            description: The Name of the account.
+            example: MySubscription
+          environment:
+            type: string
+            description: The Name of the environment.
+            example: MyEnvironment
+          access:
+            type: object
+            properties:
+              subscriptionId:
+                type: string
+                description: The ID of the Azure subscription to be added.
+                example: YOUR_AZURE_SUBSCRIPTION_ID
+              activeDirectoryId:
+                type: string
+                description: The ID of Azure Active Directory on Conformity
+                example: YOUR_ACTIVE_DIRECTORY_ID

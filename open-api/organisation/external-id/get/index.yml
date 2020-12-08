@@ -1,6 +1,6 @@
 summary: Get External ID
-description: This endpoint allows you to get your organisation's external ID.
-  <br> **note**&#58; *The endpoint will return an error if no accounts have previously been added to the organisation.*
+description:
+  $ref: ./description.md
 tags:
   - Organisations
   - External IDs

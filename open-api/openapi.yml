@@ -9,7 +9,8 @@ servers:
     description: us-west-2
 tags:
   - name: Accounts
-    description: Managing Conformity accounts.
+    description:
+      $ref: ./accounts/description.md
   - name: API Keys
     description: Managing Conformity api keys.
   - name: Checks
@@ -25,23 +26,24 @@ tags:
   - name: Organisations
     description: Managing Conformity organisations.
   - name: Profiles
-    description: Managing Conformity profiles.
+    description:
+      $ref: ./profiles/description.md
   - name: Report Configs
     description: Managing Conformity report configs.
   - name: Reports
-    description: Managing Conformity reports.
+    description:
+      $ref: ./reports/description.md
   - name: Resources
     description: Managing Conformity resources.
   - name: Services
     description: Managing Conformity services.
   - name: Settings
     description: Managing Conformity settings.
-  - name: Communication settings
-    description: Managing Conformity communication settings.
   - name: Template scanner
     description: Managing Conformity template scanner.
   - name: Users
-    description: Managing users.
+    description:
+      $ref: ./users/description.md
 paths:
   /accounts:
     get:

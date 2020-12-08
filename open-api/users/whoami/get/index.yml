@@ -1,5 +1,6 @@
 summary: Get current user
-description: Gets current user.
+description:
+  $ref: ./description.md
 tags:
   - Users
 responses:

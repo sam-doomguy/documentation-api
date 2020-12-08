@@ -1,7 +1,6 @@
 summary: Add sso user
-description: Add a new  sso user in the requester user's organisation.
-  This endpoint is only available for organisations with an external identity provider setup.
-  Only ADMINS from an external identity provider can use this endpoint to add new sso users to their organisation.
+description:
+  $ref: ./description.md
 tags:
   - Users
 requestBody:

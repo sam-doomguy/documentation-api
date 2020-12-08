@@ -1,9 +1,6 @@
 summary: Scan Account
-description: This endpoint allows you to run Conformity Bot for the specified account.
-  This operation makes API calls to AWS on your behalf.
-  Amazon throttles API requests for each AWS account on a per-region basis to help the performance of the service.
-  To avoid API throttling, it's important to ensure that your application doesn't use this API at a high rate.
-  Refer to [AWS Service Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to find out more about AWS throttle rate.
+description:
+  $ref: ./description.md
 tags:
   - Accounts
 parameters:

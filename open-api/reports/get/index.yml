@@ -1,5 +1,6 @@
 summary: List all reports
-description: This end point allows you to query all reports that you have access to, based on the query parameters provided.
+description:
+  $ref: ./description.md
 tags:
   - Reports
 parameters:

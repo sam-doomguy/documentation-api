@@ -1,6 +1,6 @@
 summary: Update account
-description: This endpoint allows ADMINs to change the account name, enviornment, and code.
-  We recommend you first use `GET /accounts/{id}` to verify that the subscription needs to be updated.
+description:
+  $ref: ./description.md
 tags:
   - Accounts
 parameters:

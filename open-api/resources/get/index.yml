@@ -1,10 +1,6 @@
 summary: Get list of resources
 description:
-  This endpoint allows a user with FULL access to get the list of excluded resources due to exceptions that have been configured.
-  There is a 10k limit to the maximum number of excluded resources that can be returned.
-  Paging will not work for excluded resources higher than this limit.
-  To fetch larger numbers, segment your requests using account and/or region filtering.
-  On larger organisations, filter requests per account, per region or provider to avoid timeouts.
+  $ref: ./description.md
 tags:
   - Resources
 parameters:

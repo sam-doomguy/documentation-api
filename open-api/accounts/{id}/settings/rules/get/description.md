@@ -5,6 +5,31 @@ For example, even if our bots run rule `RDS-018` for your account hourly, if you
 
 This endpoint only returns configured rules. If you want to include default rule settings, set `includeDefaults=true` in query parameters.
 
+**Note:** If the account contains rule settings that are marked as deprecated and have not been disabled, the following meta warning will be included in the response:
+
+```json
+{
+  "meta": {
+    "deprecation": {
+      "warning": {
+        "message": "1 manually configured rule in this account is deprecated. Refer to our Help Pages for instructions.",
+        "link": "https://www.cloudconformity.com/help/rules.html",
+        "rules": [
+          {
+            "riskLevel": "LOW",
+            "id": "RuleID-001",
+            "extraSettings": null,
+            "provider": "aws",
+            "enabled": true,
+            "exceptions": { "resources": null, "tags": null }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
 ### Rule settings
 
 Every rule in Cloud Conformity can be configured via API. These rule settings can disable or enable rules, change

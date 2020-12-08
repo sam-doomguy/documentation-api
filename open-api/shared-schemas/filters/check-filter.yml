@@ -2,7 +2,7 @@ parameters:
   filter:
     name: filter
     in: query
-    description: Optional parameter including services, regions, categories, statuses, ruleIds, riskLevel, suppressed, and tags.
+    description: Optional parameter including services, regions, categories, statuses, ruleIds, riskLevel, suppressed, tags, and checks.
     style: deepObject
     explode: true
     allowReserved: true

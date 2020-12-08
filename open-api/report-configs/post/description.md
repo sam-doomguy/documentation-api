@@ -11,6 +11,177 @@ Some guidelines about using this endpoint:
   - If creating organisation-level report config you don't provide any `accountId` or `groupId`.
   - Only ADMIN/POWER users can create organisation-level and group-level report-configs.
 
+Example request for an AWS account:
+
+```
+curl -X POST \
+-H "Content-Type: application/vnd.api+json" \
+-H "Authorization: ApiKey YOUR_API_KEY" \
+-d '
+{
+	"data": {
+		"type": "report-config",
+		"attributes": {
+			"accountId": "HksLj2_",
+			"configuration": {
+				"title": "Daily report of IAM",
+				"scheduled": true,
+				"frequency": "* * *",
+				"tz": "Australia/Sydney",
+				"sendEmail": true,
+				"emails": [
+					"youremail@somecompany.com"
+				],
+				"filter": {
+					"services": [
+						"IAM"
+					],
+					"suppressed": true
+				}
+			}
+		}
+	}
+}' \
+https://us-west-2-api.cloudconformity.com/v1/report-configs
+```
+
+Example Response for an AWS account:
+
+```
+{ "data": {
+	"type": "report-config",
+	"id": "vO4SPFxrcC",
+	"attributes": {
+		"type": "report-config",
+		"configuration": {
+			"title": "Daily Report of IAM",
+			"scheduled": true,
+			"frequency": "* * *",
+			"tz": "Australia/Sydney",
+			"sendEmail": true,
+			"emails": [
+				"youremail@somecompany.com"
+			],
+			"filter": {
+				"services": [
+					"IAM"
+				],
+				"suppressed": true
+			}
+		},
+		"is-account-level": true,
+		"is-group-level": false,
+		"is-organisation-level": false
+	},
+	"relationships": {
+		"organisation": {
+			"data": {
+				"type": "organisations",
+				"id": "2kj0JksM"
+			}
+		},
+		"account": {
+			"data": {
+				"type": "accounts",
+				"id": "HksLj2_"
+			}
+		},
+		"group": {
+			"data": null
+		}
+	}
+} }
+```
+
+Example Request for an Azure account:
+
+```
+curl -X POST \
+-H "Content-Type: application/vnd.api+json" \
+-H "Authorization: ApiKey YOUR_API_KEY" \
+-d '
+{
+	"data": {
+		"type": "report-config",
+		"attributes": {
+			"accountId": "ACCOUNT_ID",
+			"configuration": {
+				"title": "Daily Report of Storage Accounts",
+				"scheduled": true,
+				"frequency": "* * *",
+				"tz": "Australia/Sydney",
+				"sendEmail": true,
+				"emails": [
+					"youremail@somecompany.com"
+				],
+				"filter": {
+					services: ["StorageAccounts"],
+					resourceTypes: ["storage-accounts-blob-containers"]
+				}
+			}
+		}
+	}
+}' \
+https://us-west-2-api-development.cloudconformity.com/v1/report-configs
+```
+
+Example Response for an Azure account:
+
+```
+{ "data": {
+      "type": "report-config",
+      "id": "ACCOUNT_ID:report-config:REPORT_CONFIG_ID",
+      "attributes": {
+        "type": "report-config",
+        "configuration": {
+          "title": "Daily Blob Storage Report",
+          "scheduled": true,
+          "frequency": "* * *",
+          "tz": "Australia/Sydney",
+          "sendEmail": true,
+          "emails": [
+            "youremail@somecompany.com"
+          ],
+          "filter": {
+            "services": [
+              "StorageAccounts"
+            ],
+            "suppressedFilterMode": "v1",
+            "resourceTypes": [
+              "storage-accounts-blob-containers"
+            ],
+            "suppressed": true
+          }
+        },
+        "created-by": "USER_ID",
+        "created-date": 1592374969200,
+        "is-account-level": true,
+        "is-group-level": false,
+        "is-organisation-level": false
+      },
+      "relationships": {
+        "organisation": {
+          "data": {
+            "type": "organisations",
+            "id": "ORGANISATION_ID"
+          }
+        },
+        "account": {
+          "data": {
+            "type": "accounts",
+            "id": "ACCOUNT_ID"
+          }
+        },
+        "group": {
+          "data": null
+        },
+        "profile": {
+          "data": null
+        }
+      }
+} }
+```
+
 ### Filtering
 
 Not complete set of options. (To be completed!)

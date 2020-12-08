@@ -1,7 +1,5 @@
 This endpoint is only available for organisations with an external identity provider setup.
 
-Only ADMINS from an external identity provider can use this endpoint to add new sso users to their organisation.
-
 Please note only accounts (listed inside the `accessList`) in the request will get updated, existing account permissions are retained.
 If a new user is added with the role of `USER` and an `accessList` is not provided, the users level permission for all accounts will default to `NONE`.
 If a user is added back into the organisation with the role of `USER`, the user will maintain the old account level permissions, unless an `accessList` is provided to update the permission.

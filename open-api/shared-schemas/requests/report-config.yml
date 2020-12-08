@@ -43,12 +43,7 @@ properties:
                 description: This attribute is optional. It's used as which timezone the report schedule is based on, when the attribute scheduled is true.
                 example: Australia/Sydney
               generateReportType:
-                type: string
-                description: This attribute is optional. Specifies the report type to be generated.
-                example: COMPLIANCE-STANDARD
-                enum:
-                  - GENERIC
-                  - COMPLIANCE-STANDARD
+                $ref: ../../shared-schemas/fields/generated-report-type.yml
               includeChecks:
                 type: boolean
                 description: Specifies whether or not to include individual checks in PDF reports when total number of checks is below 10000.

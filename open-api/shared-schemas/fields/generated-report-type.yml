@@ -1,0 +1,7 @@
+type: string
+description:
+  $ref: ./generated-report-type-description.md
+example: COMPLIANCE-STANDARD
+enum:
+  - GENERIC
+  - COMPLIANCE-STANDARD

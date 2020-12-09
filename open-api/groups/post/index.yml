@@ -34,4 +34,4 @@ responses:
         schema:
           $ref: ../../shared-schemas/responses/422-unprocessed-entity.yml
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

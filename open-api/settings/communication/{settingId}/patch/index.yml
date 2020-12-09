@@ -47,4 +47,4 @@ responses:
         schema:
           $ref: ../../../../shared-schemas/responses/500.yml
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

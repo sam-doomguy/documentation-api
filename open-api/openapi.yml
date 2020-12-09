@@ -200,7 +200,7 @@ paths:
 
 components:
   securitySchemes:
-    Authorizer:
+    ApiKeyAuth:
       type: apiKey
       name: Authorization
       in: header

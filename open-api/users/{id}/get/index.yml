@@ -36,4 +36,4 @@ responses:
         schema:
           $ref: ../../../shared-schemas/responses/422-no-such-user.yml
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

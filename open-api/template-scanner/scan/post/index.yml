@@ -55,4 +55,4 @@ responses:
         schema:
           $ref: ./responses/500-could-not-process-template.yml
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

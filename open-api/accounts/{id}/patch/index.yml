@@ -30,4 +30,4 @@ responses:
         schema:
           $ref: ../../../shared-schemas/responses/401.yml
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

@@ -7,6 +7,8 @@ servers:
     description: eu-west-1
   - url: https://us-west-2-api.cloudconformity.com/v1
     description: us-west-2
+  - url: https://ap-southeast-2-api.cloudconformity.com/v1
+    description: ap-southeast-2
 tags:
   - name: Accounts
     description:

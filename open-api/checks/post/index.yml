@@ -58,4 +58,4 @@ responses:
 tags:
   - Checks
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

@@ -77,10 +77,10 @@ responses:
               type: string
               default: Unauthorized.
   403:
-    description: Unauthorized. The requester user does not have enough privilege.
+    description: Unauthorized. The requesting user does not have enough privilege.
     content:
       application/json:
         schema:
           $ref: ../../shared-schemas/responses/403.yml
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

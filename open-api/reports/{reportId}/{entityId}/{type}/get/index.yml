@@ -37,10 +37,10 @@ responses:
               type: string
               description: Redirection url to download report
   401:
-    description: Unauthorized. The requester user does not have enough privilege.
+    description: Unauthorized. The requesting user does not have enough privilege.
     content:
       application/json:
         schema:
           $ref: ../../../../../shared-schemas/responses/401.yml
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

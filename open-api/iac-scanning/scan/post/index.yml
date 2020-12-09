@@ -29,4 +29,4 @@ responses:
     description: 404 response
     content: {}
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

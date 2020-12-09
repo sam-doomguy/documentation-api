@@ -43,4 +43,4 @@ responses:
   500:
     $ref: ../../500.yml
 security:
-  - Authorizer: []
+  - ApiKeyAuth: []

@@ -1,5 +1,5 @@
 summary: Get all users
-description: Gets all of the users of the requester user's organisation.
+description: Gets all of the users of the requesting user's organisation.
   Only ADMINs can perform get all users within the same organisation.
 tags:
   - Users
@@ -11,7 +11,7 @@ responses:
         schema:
           $ref: ./responses/200.yml
   401:
-    description: Unauthorized. The requester user does not have enough privilege.
+    description: Unauthorized. The requesting user does not have enough privilege.
     content:
       application/json:
         schema:

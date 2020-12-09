@@ -56,7 +56,7 @@ responses:
                     type: string
                     example: filter[since] is not a valid positive integer
   401:
-    description: Unauthorized. The requester user does not have enough privilege.
+    description: Unauthorized. The requesting user does not have enough privilege.
     content:
       application/json:
         schema:

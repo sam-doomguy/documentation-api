@@ -20,7 +20,7 @@ responses:
             data:
               $ref: ../../shared-schemas/types/report-config.yml
   401:
-    description: Unauthorized. The requester user does not have enough privilege.
+    description: Unauthorized. The requesting user does not have enough privilege.
     content:
       application/json:
         schema:

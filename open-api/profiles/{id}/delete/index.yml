@@ -17,7 +17,7 @@ responses:
         schema:
           $ref: ./responses/200.yml
   403:
-    description: Forbidden. The requester user does not have enough privilege.
+    description: Forbidden. The requesting user does not have enough privilege.
     content:
       application/json:
         schema:

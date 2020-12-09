@@ -37,7 +37,7 @@ responses:
               type: string
               description: Redirection url to download report
   401:
-    description: Unauthorized. The requester user does not have enough privilege.
+    description: Unauthorized. The requesting user does not have enough privilege.
     content:
       application/json:
         schema:

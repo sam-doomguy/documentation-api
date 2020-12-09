@@ -1,5 +1,6 @@
 summary: Get account details
-description: This endpoint allows you to get the details of the specified account.
+description:
+  $ref: ./description.md
 tags:
   - Accounts
 parameters:

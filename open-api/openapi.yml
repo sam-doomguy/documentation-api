@@ -50,6 +50,9 @@ paths:
       $ref: ./accounts/get/index.yml
     post:
       $ref: ./accounts/post/index.yml
+  /accounts/azure:
+    post:
+      $ref: ./accounts/azure/post/index.yml
   /accounts/{id}:
     get:
       $ref: ./accounts/{id}/get/index.yml

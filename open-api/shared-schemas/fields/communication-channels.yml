@@ -7,4 +7,5 @@ enum:
   - pager-duty
   - sns
   - ms-teams
+  - webhooks
 example: email

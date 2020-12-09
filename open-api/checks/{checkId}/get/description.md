@@ -41,7 +41,7 @@ Example Response:
             "ignored": null,
             "rule-title": "Password Policy Present",
             "resolution-page-url": "https://www.cloudconformity.com/conformity-rules/IAM/unused-iam-group.html#",
-            "uuid": "arn:aws:iam::1234567890:group/groups-test"
+            "providerResourceId": "arn:aws:iam::1234567890:group/groups-test"
         },
         "relationships": {
             "rule": {

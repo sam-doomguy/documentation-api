@@ -1,4 +1,4 @@
-summary: Create an AWS account
+summary: Create an Azure Subscription
 description:
   $ref: ./description.md
 tags:
@@ -15,18 +15,18 @@ responses:
     content:
       application/json:
         schema:
-          $ref: ../../shared-schemas/responses/200-single-account.yml
+          $ref: "./responses/200.yml"
   401:
     description: Unauthorized. The requester user does not have enough privilege.
     content:
       application/json:
         schema:
-          $ref: ../../shared-schemas/responses/401.yml
+          $ref: ../../../shared-schemas/responses/401.yml
   422:
     description: Unprocessed Entity. Validation error.
     content:
       application/json:
         schema:
-          $ref: ../../shared-schemas/responses/422-unprocessed-entity.yml
+          $ref: ../../../shared-schemas/responses/422-unprocessed-entity.yml
 security:
   - Authorizer: []

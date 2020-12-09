@@ -8,6 +8,31 @@ This feature is used in conjunction with the `GET` request to the same endpoint 
 1. Obtain rule settings from the desired account. [Get rule settings](#tag/Accounts/paths/~1accounts~1{id}~1settings~1rules/get)
 1. Paste rule settings as is into the body of the PATCH request following the format below.
 
+**Note:** If the account contains rule settings that are marked as deprecated and have not been disabled, the following meta warning will be included in the response:
+
+```json
+{
+  "meta": {
+    "deprecation": {
+      "warning": {
+        "message": "1 manually configured rule in this account is deprecated. Refer to our Help Pages for instructions.",
+        "link": "https://www.cloudconformity.com/help/rules.html",
+        "rules": [
+          {
+            "riskLevel": "LOW",
+            "id": "RuleID-001",
+            "extraSettings": null,
+            "provider": "aws",
+            "enabled": true,
+            "exceptions": { "resources": null, "tags": null }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
 #### Errors:
 
 Some errors thrown from rule settings validation may need further clarification. Below is a list.

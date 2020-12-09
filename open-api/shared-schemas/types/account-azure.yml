@@ -1,0 +1,54 @@
+type: object
+properties:
+  name:
+    type: string
+    example: MySubscription
+    description: The Name of the account.
+  environment:
+    type: string
+    description: The Name of the environment.
+    example: Prod
+  status:
+    type: string
+    description: Status of the account.
+    enum:
+      - ACTIVE
+      - TRIALLING
+  security-package:
+    type: boolean
+    description: true when the security package is active for the account.
+    example: true
+  created-date:
+    type: integer
+    description: A date-time in Unix Epoch timestamp format (in milliseconds) which is the account
+      creation date.
+    example: 1505595441887
+  bot-status:
+    type: string
+    enum:
+      - PENDING
+      - RUNNING
+    description: Status of the Conformity Bot for the account.
+    example: RUNNING
+  cloud-type:
+    type: string
+    enum:
+      - aws
+      - azure
+    description: Name of the cloud provider.
+    example: azure
+  managed-group-id:
+    type: string
+    description: ID of the managed group.
+    example: ROo8Q7xyJ
+  cloud-data:
+    type: object
+    description: Contains information specific to the Azure cloud account
+    properties:
+      azure:
+        type: object
+        properties:
+          subscriptionId:
+            type: string
+            description: Azure subscription ID.
+            example: YOUR_AZURE_SUBSCRIPTION_ID
